@@ -9,16 +9,35 @@ echo "🎮 GPU: RTX 5060 Ti (GPU 1)"
 echo "🌐 Web UI: http://localhost:8189"
 echo "=================================================="
 
-cd /home/yuji/Code/Umeiart/ComfyUI_GPU1
+# Ensure working directory exists
+WORKDIR="/home/yuji/Code/Umeiart/ComfyUI_GPU1"
+if [ ! -d "$WORKDIR" ]; then
+    echo "❌ Workdir not found: $WORKDIR"
+    exit 1
+fi
+cd "$WORKDIR"
 
 # Set CUDA device to GPU 1
 export CUDA_VISIBLE_DEVICES=1
 
-# Activate virtual environment
-source venv/bin/activate
+# Resolve python interpreter (prefer shared venv)
+PYTHON=""
+if [ -x "/home/yuji/Code/Umeiart/ComfyUI/venv/bin/python" ]; then
+    PYTHON="/home/yuji/Code/Umeiart/ComfyUI/venv/bin/python"
+elif [ -x "$WORKDIR/venv/bin/python" ]; then
+    PYTHON="$WORKDIR/venv/bin/python"
+elif command -v python3 >/dev/null 2>&1; then
+    PYTHON="python3"
+elif command -v python >/dev/null 2>&1; then
+    PYTHON="python"
+else
+    echo "❌ No Python interpreter found. Please install python3 or set up venv."
+    exit 1
+fi
 
 # Start ComfyUI with GPU 1 in background
-python main.py --listen 0.0.0.0 --port 8189 --cuda-device 1 &
+echo "🐍 Using Python: $PYTHON"
+"$PYTHON" main.py --listen 0.0.0.0 --port 8189 --cuda-device 1 &
 
 # Wait a moment for ComfyUI to start
 sleep 5

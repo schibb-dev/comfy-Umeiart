@@ -9,3 +9,14 @@ Scripts layout
 - scripts/ephemeral/: ad-hoc helpers and one-offs
   - ...
 - scripts/ephemeral/legacy/: deprecated or superseded variants kept for reference
+
+Shared venv
+-----------
+
+- The launchers prefer the shared venv at `ComfyUI/venv`.
+- Interpreter resolution order:
+  1. `ComfyUI/venv/bin/python`
+  2. `ComfyUI_GPU{0,1}/venv/bin/python`
+  3. `python3`
+  4. `python`
+- You do not need to `source` the venv; scripts invoke the interpreter directly.
