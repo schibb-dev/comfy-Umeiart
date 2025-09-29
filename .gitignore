@@ -14,3 +14,4 @@ venv/
 ComfyUI/venv/
 ComfyUI_GPU0/venv/
 ComfyUI_GPU1/venv/
+.hf_token
