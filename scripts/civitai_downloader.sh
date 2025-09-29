@@ -256,30 +256,26 @@ except:
                 target_dir="$COMFYUI_DIR/workflows"
             fi
             
-            # Download files
+            # Download files (with resume/verify)
             echo "$download_urls" | while read -r url; do
                 if [[ -n "$url" ]]; then
                     local filename=$(basename "$url")
                     local target_file="$target_dir/$filename"
                     
+                    # Use shared download helper with resume
+                    local SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+                    # shellcheck source=lib_download.sh
+                    source "$SCRIPT_DIR/lib_download.sh"
+
                     echo "📥 Downloading: $filename"
-                    if curl -L -s -H "Authorization: Bearer $CIVITAI_API_TOKEN" \
-                        -o "$target_file" "$url" 2>/dev/null; then
-                        
-                        if [[ -f "$target_file" ]] && [[ $(wc -c < "$target_file") -gt 100 ]]; then
-                            echo "✅ Downloaded: $filename"
-                            
-                            # Special handling for workflows
-                            if [[ "$asset_type" == "workflow" ]] && [[ "$filename" == *.json ]]; then
-                                if python3 -m json.tool "$target_file" > /dev/null 2>&1; then
-                                    echo "✅ Valid workflow JSON"
-                                else
-                                    echo "⚠️  Invalid JSON workflow"
-                                fi
+                    if download_with_resume "$url" "$target_file" "" "" -- -H "Authorization: Bearer $CIVITAI_API_TOKEN"; then
+                        # Special handling for workflows
+                        if [[ "$asset_type" == "workflow" ]] && [[ "$filename" == *.json ]]; then
+                            if python3 -m json.tool "$target_file" > /dev/null 2>&1; then
+                                echo "✅ Valid workflow JSON"
+                            else
+                                echo "⚠️  Invalid JSON workflow"
                             fi
-                        else
-                            echo "❌ Download failed: $filename"
-                            rm -f "$target_file"
                         fi
                     else
                         echo "❌ Failed to download: $filename"

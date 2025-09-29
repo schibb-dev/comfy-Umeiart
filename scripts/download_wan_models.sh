@@ -6,6 +6,7 @@ set -euo pipefail
 # - Creates ComfyUI model dirs
 # - Downloads referenced models from reliable sources
 # - Verifies file sizes to catch placeholder/error pages
+# - Resumes downloads and verifies size/checksum when available
 
 ROOT_DIR="/home/yuji/Code/Umeiart/ComfyUI/models"
 VAE_DIR="$ROOT_DIR/vae"
@@ -15,6 +16,11 @@ DIFFUSION_DIR="$ROOT_DIR/diffusion_models"
 
 mkdir -p "$VAE_DIR" "$CLIP_VISION_DIR" "$TEXT_ENCODERS_DIR" "$DIFFUSION_DIR"
 
+# Reusable download helpers
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=lib_download.sh
+source "$SCRIPT_DIR/lib_download.sh"
+
 # Load token
 if [[ -z "${HF_TOKEN:-}" ]]; then
   if [[ -f "/home/yuji/Code/Umeiart/.hf_token" ]]; then
@@ -22,9 +28,9 @@ if [[ -z "${HF_TOKEN:-}" ]]; then
   fi
 fi
 
-auth_flag=()
+auth_headers=( )
 if [[ -n "${HF_TOKEN:-}" ]]; then
-  auth_flag=( -H "Authorization: Bearer $HF_TOKEN" )
+  auth_headers=( -- -H "Authorization: Bearer $HF_TOKEN" )
 fi
 
 # Sources (update as needed). Prefer city96 mirrors where applicable.
@@ -80,16 +86,16 @@ fi
 UNET_URL="${UNET_URL:-$UNET_CANDIDATE}"
 
 echo "Downloading VAE ..."
-curl -fSL "${auth_flag[@]}" -o "$VAE_DIR/wan_2.1_vae.safetensors" "$VAE_URL"
+download_with_resume "$VAE_URL" "$VAE_DIR/wan_2.1_vae.safetensors" "" "" ${auth_headers[@]}
 
 echo "Downloading CLIP-VISION ..."
-curl -fSL "${auth_flag[@]}" -o "$CLIP_VISION_DIR/clip_vision_h.safetensors" "$CLIP_VISION_URL"
+download_with_resume "$CLIP_VISION_URL" "$CLIP_VISION_DIR/clip_vision_h.safetensors" "" "" ${auth_headers[@]}
 
 echo "Downloading UMT5 encoder ..."
-curl -fSL "${auth_flag[@]}" -o "$TEXT_ENCODERS_DIR/umt5_xxl_fp8_e4m3fn_scaled.safetensors" "$UMT5_URL"
+download_with_resume "$UMT5_URL" "$TEXT_ENCODERS_DIR/umt5_xxl_fp8_e4m3fn_scaled.safetensors" "" "" ${auth_headers[@]}
 
 echo "Downloading WAN GGUF UNet ..."
-curl -fSL "${auth_flag[@]}" -o "$DIFFUSION_DIR/$(basename "$UNET_URL")" "$UNET_URL"
+download_with_resume "$UNET_URL" "$DIFFUSION_DIR/$(basename "$UNET_URL")" "" "" ${auth_headers[@]}
 
 echo "\nVerifying downloads (sizes):"
 ls -lh "$VAE_DIR/wan_2.1_vae.safetensors" \
