@@ -1,0 +1,566 @@
+2025-09-28 15:21:06 - INFO - Testing logging setup...
+2025-09-28 15:21:06 - DEBUG - This is a debug message
+2025-09-28 15:21:06 - WARNING - This is a warning message
+2025-09-28 15:21:06 - ERROR - This is an error message
+2025-09-28 15:21:37 - INFO - ============================================================
+2025-09-28 15:21:37 - INFO - WAN 2.1 Model Downloader Started
+2025-09-28 15:21:37 - INFO - ============================================================
+2025-09-28 15:21:37 - INFO - Setting up model directories...
+2025-09-28 15:21:37 - INFO - Starting authentication process...
+2025-09-28 15:21:38 - INFO - Authentication successful
+2025-09-28 15:21:38 - INFO - Starting model downloads...
+2025-09-28 15:21:38 - INFO - Total models to download: 11
+2025-09-28 15:21:38 - INFO - Progress: 1/11 - diffusion_pytorch_model.safetensors.index.json
+2025-09-28 15:21:38 - INFO - Starting download: diffusion_pytorch_model.safetensors.index.json
+2025-09-28 15:21:38 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:21:38 - DEBUG - Filename: diffusion_pytorch_model.safetensors.index.json
+2025-09-28 15:21:38 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 15:21:38 - INFO - File already exists: diffusion_pytorch_model.safetensors.index.json (116,451 bytes)
+2025-09-28 15:21:38 - INFO - Progress: 2/11 - diffusion_pytorch_model-00001-of-00007.safetensors
+2025-09-28 15:21:38 - INFO - Starting download: diffusion_pytorch_model-00001-of-00007.safetensors
+2025-09-28 15:21:38 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:21:38 - DEBUG - Filename: diffusion_pytorch_model-00001-of-00007.safetensors
+2025-09-28 15:21:38 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 15:21:38 - INFO - File already exists: diffusion_pytorch_model-00001-of-00007.safetensors (9,847,223,624 bytes)
+2025-09-28 15:21:38 - INFO - Progress: 3/11 - diffusion_pytorch_model-00002-of-00007.safetensors
+2025-09-28 15:21:38 - INFO - Starting download: diffusion_pytorch_model-00002-of-00007.safetensors
+2025-09-28 15:21:38 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:21:38 - DEBUG - Filename: diffusion_pytorch_model-00002-of-00007.safetensors
+2025-09-28 15:21:38 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 15:21:38 - INFO - File already exists: diffusion_pytorch_model-00002-of-00007.safetensors (9,797,021,016 bytes)
+2025-09-28 15:21:38 - INFO - Progress: 4/11 - diffusion_pytorch_model-00003-of-00007.safetensors
+2025-09-28 15:21:38 - INFO - Starting download: diffusion_pytorch_model-00003-of-00007.safetensors
+2025-09-28 15:21:38 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:21:38 - DEBUG - Filename: diffusion_pytorch_model-00003-of-00007.safetensors
+2025-09-28 15:21:38 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 15:21:38 - INFO - File already exists: diffusion_pytorch_model-00003-of-00007.safetensors (9,797,041,744 bytes)
+2025-09-28 15:21:38 - INFO - Progress: 5/11 - diffusion_pytorch_model-00004-of-00007.safetensors
+2025-09-28 15:21:38 - INFO - Starting download: diffusion_pytorch_model-00004-of-00007.safetensors
+2025-09-28 15:21:38 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:21:38 - DEBUG - Filename: diffusion_pytorch_model-00004-of-00007.safetensors
+2025-09-28 15:21:38 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 15:21:38 - INFO - File already exists: diffusion_pytorch_model-00004-of-00007.safetensors (9,692,142,864 bytes)
+2025-09-28 15:21:38 - INFO - Progress: 6/11 - diffusion_pytorch_model-00005-of-00007.safetensors
+2025-09-28 15:21:38 - INFO - Starting download: diffusion_pytorch_model-00005-of-00007.safetensors
+2025-09-28 15:21:38 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:21:38 - DEBUG - Filename: diffusion_pytorch_model-00005-of-00007.safetensors
+2025-09-28 15:21:38 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 15:21:38 - INFO - File already exists: diffusion_pytorch_model-00005-of-00007.safetensors (9,692,142,864 bytes)
+2025-09-28 15:21:38 - INFO - Progress: 7/11 - diffusion_pytorch_model-00006-of-00007.safetensors
+2025-09-28 15:21:38 - INFO - Starting download: diffusion_pytorch_model-00006-of-00007.safetensors
+2025-09-28 15:21:38 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:21:38 - DEBUG - Filename: diffusion_pytorch_model-00006-of-00007.safetensors
+2025-09-28 15:21:38 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 15:22:44 - INFO - Successfully downloaded: diffusion_pytorch_model-00006-of-00007.safetensors
+2025-09-28 15:22:44 - INFO - File size: 9243.15 MB
+2025-09-28 15:22:44 - INFO - Download time: 66.71 seconds
+2025-09-28 15:22:44 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models/diffusion_pytorch_model-00006-of-00007.safetensors
+2025-09-28 15:22:44 - INFO - Progress: 8/11 - diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 15:22:44 - INFO - Starting download: diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 15:22:44 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:22:44 - DEBUG - Filename: diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 15:22:44 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 15:23:20 - INFO - Testing enhanced logging with progress bars...
+2025-09-28 15:23:22 - INFO - ============================================================
+2025-09-28 15:23:22 - INFO - WAN 2.1 Model Downloader Started
+2025-09-28 15:23:22 - INFO - ============================================================
+2025-09-28 15:23:22 - INFO - Download timeout: 300 seconds
+2025-09-28 15:23:22 - INFO - Cache directory: /home/yuji/Code/Umeiart/ComfyUI/.cache/huggingface
+2025-09-28 15:23:22 - INFO - Setting up model directories...
+2025-09-28 15:23:22 - INFO - Starting authentication process...
+2025-09-28 15:23:22 - INFO - Authentication successful
+2025-09-28 15:23:22 - INFO - Starting model downloads...
+2025-09-28 15:23:22 - INFO - Total models to download: 11
+2025-09-28 15:23:22 - INFO - Progress: 1/11 - diffusion_pytorch_model.safetensors.index.json
+2025-09-28 15:23:22 - INFO - Starting download: diffusion_pytorch_model.safetensors.index.json
+2025-09-28 15:23:22 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:23:22 - DEBUG - Filename: diffusion_pytorch_model.safetensors.index.json
+2025-09-28 15:23:22 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 15:23:22 - INFO - File already exists: diffusion_pytorch_model.safetensors.index.json (116,451 bytes)
+2025-09-28 15:23:22 - INFO - Progress: 2/11 - diffusion_pytorch_model-00001-of-00007.safetensors
+2025-09-28 15:23:22 - INFO - Starting download: diffusion_pytorch_model-00001-of-00007.safetensors
+2025-09-28 15:23:22 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:23:22 - DEBUG - Filename: diffusion_pytorch_model-00001-of-00007.safetensors
+2025-09-28 15:23:22 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 15:23:22 - INFO - File already exists: diffusion_pytorch_model-00001-of-00007.safetensors (9,847,223,624 bytes)
+2025-09-28 15:23:22 - INFO - Progress: 3/11 - diffusion_pytorch_model-00002-of-00007.safetensors
+2025-09-28 15:23:22 - INFO - Starting download: diffusion_pytorch_model-00002-of-00007.safetensors
+2025-09-28 15:23:22 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:23:22 - DEBUG - Filename: diffusion_pytorch_model-00002-of-00007.safetensors
+2025-09-28 15:23:22 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 15:23:22 - INFO - File already exists: diffusion_pytorch_model-00002-of-00007.safetensors (9,797,021,016 bytes)
+2025-09-28 15:23:22 - INFO - Progress: 4/11 - diffusion_pytorch_model-00003-of-00007.safetensors
+2025-09-28 15:23:22 - INFO - Starting download: diffusion_pytorch_model-00003-of-00007.safetensors
+2025-09-28 15:23:22 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:23:22 - DEBUG - Filename: diffusion_pytorch_model-00003-of-00007.safetensors
+2025-09-28 15:23:22 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 15:23:22 - INFO - File already exists: diffusion_pytorch_model-00003-of-00007.safetensors (9,797,041,744 bytes)
+2025-09-28 15:23:22 - INFO - Progress: 5/11 - diffusion_pytorch_model-00004-of-00007.safetensors
+2025-09-28 15:23:22 - INFO - Starting download: diffusion_pytorch_model-00004-of-00007.safetensors
+2025-09-28 15:23:22 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:23:22 - DEBUG - Filename: diffusion_pytorch_model-00004-of-00007.safetensors
+2025-09-28 15:23:22 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 15:23:22 - INFO - File already exists: diffusion_pytorch_model-00004-of-00007.safetensors (9,692,142,864 bytes)
+2025-09-28 15:23:22 - INFO - Progress: 6/11 - diffusion_pytorch_model-00005-of-00007.safetensors
+2025-09-28 15:23:22 - INFO - Starting download: diffusion_pytorch_model-00005-of-00007.safetensors
+2025-09-28 15:23:22 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:23:22 - DEBUG - Filename: diffusion_pytorch_model-00005-of-00007.safetensors
+2025-09-28 15:23:22 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 15:23:22 - INFO - File already exists: diffusion_pytorch_model-00005-of-00007.safetensors (9,692,142,864 bytes)
+2025-09-28 15:23:22 - INFO - Progress: 7/11 - diffusion_pytorch_model-00006-of-00007.safetensors
+2025-09-28 15:23:22 - INFO - Starting download: diffusion_pytorch_model-00006-of-00007.safetensors
+2025-09-28 15:23:22 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:23:22 - DEBUG - Filename: diffusion_pytorch_model-00006-of-00007.safetensors
+2025-09-28 15:23:22 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 15:23:22 - INFO - File already exists: diffusion_pytorch_model-00006-of-00007.safetensors (9,692,142,864 bytes)
+2025-09-28 15:23:22 - INFO - Progress: 8/11 - diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 15:23:22 - INFO - Starting download: diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 15:23:22 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:23:22 - DEBUG - Filename: diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 15:23:22 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 15:26:42 - INFO - Successfully downloaded: diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 15:26:42 - INFO - File size: 6734.78 MB
+2025-09-28 15:26:42 - INFO - Download time: 237.73 seconds
+2025-09-28 15:26:42 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models/diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 15:26:42 - INFO - Progress: 9/11 - models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 15:26:42 - INFO - Starting download: models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 15:26:42 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:26:42 - DEBUG - Filename: models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 15:26:42 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip
+2025-09-28 15:30:14 - INFO - Successfully downloaded: diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 15:30:14 - INFO - File size: 6734.78 MB
+2025-09-28 15:30:14 - INFO - Download time: 412.20 seconds
+2025-09-28 15:30:14 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models/diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 15:30:14 - INFO - Progress: 9/11 - models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 15:30:14 - INFO - Starting download: models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 15:30:14 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:30:14 - DEBUG - Filename: models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 15:30:14 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip
+2025-09-28 15:33:56 - INFO - Successfully downloaded: models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 15:33:56 - INFO - File size: 10835.57 MB
+2025-09-28 15:33:56 - INFO - Download time: 433.84 seconds
+2025-09-28 15:33:56 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip/models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 15:33:56 - INFO - Progress: 10/11 - models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 15:33:56 - INFO - Starting download: models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 15:33:56 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:33:56 - DEBUG - Filename: models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 15:33:56 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision
+2025-09-28 15:33:56 - INFO - Successfully downloaded: models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 15:33:56 - INFO - File size: 10835.57 MB
+2025-09-28 15:33:56 - INFO - Download time: 221.49 seconds
+2025-09-28 15:33:56 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip/models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 15:33:56 - INFO - Progress: 10/11 - models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 15:33:56 - INFO - Starting download: models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 15:33:56 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:33:56 - DEBUG - Filename: models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 15:33:56 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision
+2025-09-28 15:36:38 - INFO - Successfully downloaded: models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 15:36:38 - INFO - File size: 4551.28 MB
+2025-09-28 15:36:38 - INFO - Download time: 161.84 seconds
+2025-09-28 15:36:38 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision/models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 15:36:38 - INFO - Progress: 11/11 - Wan2.1_VAE.pth
+2025-09-28 15:36:38 - INFO - Starting download: Wan2.1_VAE.pth
+2025-09-28 15:36:38 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:36:38 - DEBUG - Filename: Wan2.1_VAE.pth
+2025-09-28 15:36:38 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/vae
+2025-09-28 15:37:34 - INFO - Successfully downloaded: models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 15:37:34 - INFO - File size: 4551.28 MB
+2025-09-28 15:37:34 - INFO - Download time: 218.08 seconds
+2025-09-28 15:37:34 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision/models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 15:37:34 - INFO - Progress: 11/11 - Wan2.1_VAE.pth
+2025-09-28 15:37:34 - INFO - Starting download: Wan2.1_VAE.pth
+2025-09-28 15:37:34 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 15:37:34 - DEBUG - Filename: Wan2.1_VAE.pth
+2025-09-28 15:37:34 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/vae
+2025-09-28 15:37:36 - INFO - Successfully downloaded: Wan2.1_VAE.pth
+2025-09-28 15:37:36 - INFO - File size: 484.09 MB
+2025-09-28 15:37:36 - INFO - Download time: 57.81 seconds
+2025-09-28 15:37:36 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/vae/Wan2.1_VAE.pth
+2025-09-28 15:37:36 - INFO - ========================================
+2025-09-28 15:37:36 - INFO - DOWNLOAD SUMMARY
+2025-09-28 15:37:36 - INFO - ========================================
+2025-09-28 15:37:36 - INFO - Successfully downloaded: 11/11 models
+2025-09-28 15:37:36 - INFO - Total time: 853.90 seconds
+2025-09-28 15:37:36 - INFO - 🎉 All WAN 2.1 models downloaded successfully!
+2025-09-28 15:37:36 - INFO - Next steps:
+2025-09-28 15:37:36 - INFO - 1. Restart ComfyUI
+2025-09-28 15:37:36 - INFO - 2. Load the WAN_2.1_IMG_to_VIDEO.json workflow
+2025-09-28 15:37:36 - INFO - 3. Start creating videos!
+2025-09-28 15:37:36 - INFO - ============================================================
+2025-09-28 15:37:36 - INFO - WAN 2.1 Model Downloader Finished
+2025-09-28 15:37:36 - INFO - ============================================================
+2025-09-28 15:37:36 - INFO - Successfully downloaded: Wan2.1_VAE.pth
+2025-09-28 15:37:36 - INFO - File size: 484.09 MB
+2025-09-28 15:37:36 - INFO - Download time: 1.73 seconds
+2025-09-28 15:37:36 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/vae/Wan2.1_VAE.pth
+2025-09-28 15:37:36 - INFO - ========================================
+2025-09-28 15:37:36 - INFO - DOWNLOAD SUMMARY
+2025-09-28 15:37:36 - INFO - ========================================
+2025-09-28 15:37:36 - INFO - Successfully downloaded: 11/11 models
+2025-09-28 15:37:36 - INFO - Total time: 958.77 seconds
+2025-09-28 15:37:36 - INFO - 🎉 All WAN 2.1 models downloaded successfully!
+2025-09-28 15:37:36 - INFO - Next steps:
+2025-09-28 15:37:36 - INFO - 1. Restart ComfyUI
+2025-09-28 15:37:36 - INFO - 2. Load the WAN_2.1_IMG_to_VIDEO.json workflow
+2025-09-28 15:37:36 - INFO - 3. Start creating videos!
+2025-09-28 15:37:36 - INFO - ============================================================
+2025-09-28 15:37:36 - INFO - WAN 2.1 Model Downloader Finished
+2025-09-28 15:37:36 - INFO - ============================================================
+2025-09-28 16:09:49 - INFO - ============================================================
+2025-09-28 16:09:49 - INFO - WAN 2.1 Model Downloader Started
+2025-09-28 16:09:49 - INFO - ============================================================
+2025-09-28 16:09:49 - INFO - Download timeout: 300 seconds
+2025-09-28 16:09:49 - INFO - Cache directory: /home/yuji/Code/Umeiart/ComfyUI/.cache/huggingface
+2025-09-28 16:09:49 - INFO - Setting up model directories...
+2025-09-28 16:09:49 - INFO - Starting authentication process...
+2025-09-28 16:09:50 - INFO - Authentication successful
+2025-09-28 16:09:50 - INFO - Starting model downloads...
+2025-09-28 16:09:50 - INFO - Total models to download: 19
+2025-09-28 16:09:50 - INFO - Progress: 1/19 - diffusion_pytorch_model.safetensors.index.json
+2025-09-28 16:09:50 - INFO - Starting download: diffusion_pytorch_model.safetensors.index.json
+2025-09-28 16:09:50 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:50 - DEBUG - Filename: diffusion_pytorch_model.safetensors.index.json
+2025-09-28 16:09:50 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 16:09:50 - INFO - File already exists: diffusion_pytorch_model.safetensors.index.json (116,451 bytes)
+2025-09-28 16:09:50 - INFO - Progress: 2/19 - diffusion_pytorch_model-00001-of-00007.safetensors
+2025-09-28 16:09:50 - INFO - Starting download: diffusion_pytorch_model-00001-of-00007.safetensors
+2025-09-28 16:09:50 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:50 - DEBUG - Filename: diffusion_pytorch_model-00001-of-00007.safetensors
+2025-09-28 16:09:50 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 16:09:50 - INFO - File already exists: diffusion_pytorch_model-00001-of-00007.safetensors (9,847,223,624 bytes)
+2025-09-28 16:09:50 - INFO - Progress: 3/19 - diffusion_pytorch_model-00002-of-00007.safetensors
+2025-09-28 16:09:50 - INFO - Starting download: diffusion_pytorch_model-00002-of-00007.safetensors
+2025-09-28 16:09:50 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:50 - DEBUG - Filename: diffusion_pytorch_model-00002-of-00007.safetensors
+2025-09-28 16:09:50 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 16:09:50 - INFO - File already exists: diffusion_pytorch_model-00002-of-00007.safetensors (9,797,021,016 bytes)
+2025-09-28 16:09:50 - INFO - Progress: 4/19 - diffusion_pytorch_model-00003-of-00007.safetensors
+2025-09-28 16:09:50 - INFO - Starting download: diffusion_pytorch_model-00003-of-00007.safetensors
+2025-09-28 16:09:50 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:50 - DEBUG - Filename: diffusion_pytorch_model-00003-of-00007.safetensors
+2025-09-28 16:09:50 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 16:09:50 - INFO - File already exists: diffusion_pytorch_model-00003-of-00007.safetensors (9,797,041,744 bytes)
+2025-09-28 16:09:50 - INFO - Progress: 5/19 - diffusion_pytorch_model-00004-of-00007.safetensors
+2025-09-28 16:09:50 - INFO - Starting download: diffusion_pytorch_model-00004-of-00007.safetensors
+2025-09-28 16:09:50 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:50 - DEBUG - Filename: diffusion_pytorch_model-00004-of-00007.safetensors
+2025-09-28 16:09:50 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 16:09:50 - INFO - File already exists: diffusion_pytorch_model-00004-of-00007.safetensors (9,692,142,864 bytes)
+2025-09-28 16:09:50 - INFO - Progress: 6/19 - diffusion_pytorch_model-00005-of-00007.safetensors
+2025-09-28 16:09:50 - INFO - Starting download: diffusion_pytorch_model-00005-of-00007.safetensors
+2025-09-28 16:09:50 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:50 - DEBUG - Filename: diffusion_pytorch_model-00005-of-00007.safetensors
+2025-09-28 16:09:50 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 16:09:50 - INFO - File already exists: diffusion_pytorch_model-00005-of-00007.safetensors (9,692,142,864 bytes)
+2025-09-28 16:09:50 - INFO - Progress: 7/19 - diffusion_pytorch_model-00006-of-00007.safetensors
+2025-09-28 16:09:50 - INFO - Starting download: diffusion_pytorch_model-00006-of-00007.safetensors
+2025-09-28 16:09:50 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:50 - DEBUG - Filename: diffusion_pytorch_model-00006-of-00007.safetensors
+2025-09-28 16:09:50 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 16:09:50 - INFO - File already exists: diffusion_pytorch_model-00006-of-00007.safetensors (9,692,142,864 bytes)
+2025-09-28 16:09:50 - INFO - Progress: 8/19 - diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 16:09:50 - INFO - Starting download: diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 16:09:50 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:50 - DEBUG - Filename: diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 16:09:50 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 16:09:50 - INFO - File already exists: diffusion_pytorch_model-00007-of-00007.safetensors (7,061,933,536 bytes)
+2025-09-28 16:09:50 - INFO - Progress: 9/19 - models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 16:09:50 - INFO - Starting download: models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 16:09:50 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:50 - DEBUG - Filename: models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 16:09:50 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip
+2025-09-28 16:09:50 - INFO - File already exists: models_t5_umt5-xxl-enc-bf16.pth (11,361,920,418 bytes)
+2025-09-28 16:09:50 - INFO - Progress: 10/19 - models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 16:09:50 - INFO - Starting download: models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 16:09:50 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:50 - DEBUG - Filename: models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 16:09:50 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision
+2025-09-28 16:09:50 - INFO - File already exists: models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth (4,772,359,047 bytes)
+2025-09-28 16:09:50 - INFO - Progress: 11/19 - google/umt5-xxl/special_tokens_map.json
+2025-09-28 16:09:50 - INFO - Starting download: google/umt5-xxl/special_tokens_map.json
+2025-09-28 16:09:50 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:50 - DEBUG - Filename: google/umt5-xxl/special_tokens_map.json
+2025-09-28 16:09:50 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip
+2025-09-28 16:09:50 - INFO - Successfully downloaded: google/umt5-xxl/special_tokens_map.json
+2025-09-28 16:09:50 - INFO - File size: 0.01 MB
+2025-09-28 16:09:50 - INFO - Download time: 0.19 seconds
+2025-09-28 16:09:50 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip/google/umt5-xxl/special_tokens_map.json
+2025-09-28 16:09:50 - INFO - Progress: 12/19 - google/umt5-xxl/spiece.model
+2025-09-28 16:09:50 - INFO - Starting download: google/umt5-xxl/spiece.model
+2025-09-28 16:09:50 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:50 - DEBUG - Filename: google/umt5-xxl/spiece.model
+2025-09-28 16:09:50 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip
+2025-09-28 16:09:51 - INFO - Successfully downloaded: google/umt5-xxl/spiece.model
+2025-09-28 16:09:51 - INFO - File size: 4.34 MB
+2025-09-28 16:09:51 - INFO - Download time: 1.01 seconds
+2025-09-28 16:09:51 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip/google/umt5-xxl/spiece.model
+2025-09-28 16:09:51 - INFO - Progress: 13/19 - google/umt5-xxl/tokenizer.json
+2025-09-28 16:09:51 - INFO - Starting download: google/umt5-xxl/tokenizer.json
+2025-09-28 16:09:51 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:51 - DEBUG - Filename: google/umt5-xxl/tokenizer.json
+2025-09-28 16:09:51 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip
+2025-09-28 16:09:51 - INFO - Successfully downloaded: google/umt5-xxl/tokenizer.json
+2025-09-28 16:09:51 - INFO - File size: 16.06 MB
+2025-09-28 16:09:51 - INFO - Download time: 0.53 seconds
+2025-09-28 16:09:51 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip/google/umt5-xxl/tokenizer.json
+2025-09-28 16:09:51 - INFO - Progress: 14/19 - google/umt5-xxl/tokenizer_config.json
+2025-09-28 16:09:51 - INFO - Starting download: google/umt5-xxl/tokenizer_config.json
+2025-09-28 16:09:51 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:51 - DEBUG - Filename: google/umt5-xxl/tokenizer_config.json
+2025-09-28 16:09:51 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip
+2025-09-28 16:09:52 - INFO - Successfully downloaded: google/umt5-xxl/tokenizer_config.json
+2025-09-28 16:09:52 - INFO - File size: 0.06 MB
+2025-09-28 16:09:52 - INFO - Download time: 0.19 seconds
+2025-09-28 16:09:52 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip/google/umt5-xxl/tokenizer_config.json
+2025-09-28 16:09:52 - INFO - Progress: 15/19 - xlm-roberta-large/sentencepiece.bpe.model
+2025-09-28 16:09:52 - INFO - Starting download: xlm-roberta-large/sentencepiece.bpe.model
+2025-09-28 16:09:52 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:52 - DEBUG - Filename: xlm-roberta-large/sentencepiece.bpe.model
+2025-09-28 16:09:52 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision
+2025-09-28 16:09:52 - INFO - Successfully downloaded: xlm-roberta-large/sentencepiece.bpe.model
+2025-09-28 16:09:52 - INFO - File size: 4.83 MB
+2025-09-28 16:09:52 - INFO - Download time: 0.62 seconds
+2025-09-28 16:09:52 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision/xlm-roberta-large/sentencepiece.bpe.model
+2025-09-28 16:09:52 - INFO - Progress: 16/19 - xlm-roberta-large/special_tokens_map.json
+2025-09-28 16:09:52 - INFO - Starting download: xlm-roberta-large/special_tokens_map.json
+2025-09-28 16:09:52 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:52 - DEBUG - Filename: xlm-roberta-large/special_tokens_map.json
+2025-09-28 16:09:52 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision
+2025-09-28 16:09:52 - INFO - Successfully downloaded: xlm-roberta-large/special_tokens_map.json
+2025-09-28 16:09:52 - INFO - File size: 0.00 MB
+2025-09-28 16:09:52 - INFO - Download time: 0.21 seconds
+2025-09-28 16:09:52 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision/xlm-roberta-large/special_tokens_map.json
+2025-09-28 16:09:52 - INFO - Progress: 17/19 - xlm-roberta-large/tokenizer.json
+2025-09-28 16:09:52 - INFO - Starting download: xlm-roberta-large/tokenizer.json
+2025-09-28 16:09:52 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:52 - DEBUG - Filename: xlm-roberta-large/tokenizer.json
+2025-09-28 16:09:52 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision
+2025-09-28 16:09:53 - INFO - Successfully downloaded: xlm-roberta-large/tokenizer.json
+2025-09-28 16:09:53 - INFO - File size: 16.29 MB
+2025-09-28 16:09:53 - INFO - Download time: 0.64 seconds
+2025-09-28 16:09:53 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision/xlm-roberta-large/tokenizer.json
+2025-09-28 16:09:53 - INFO - Progress: 18/19 - xlm-roberta-large/tokenizer_config.json
+2025-09-28 16:09:53 - INFO - Starting download: xlm-roberta-large/tokenizer_config.json
+2025-09-28 16:09:53 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:53 - DEBUG - Filename: xlm-roberta-large/tokenizer_config.json
+2025-09-28 16:09:53 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision
+2025-09-28 16:09:53 - INFO - Successfully downloaded: xlm-roberta-large/tokenizer_config.json
+2025-09-28 16:09:53 - INFO - File size: 0.00 MB
+2025-09-28 16:09:53 - INFO - Download time: 0.18 seconds
+2025-09-28 16:09:53 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision/xlm-roberta-large/tokenizer_config.json
+2025-09-28 16:09:53 - INFO - Progress: 19/19 - config.json
+2025-09-28 16:09:53 - INFO - Starting download: config.json
+2025-09-28 16:09:53 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 16:09:53 - DEBUG - Filename: config.json
+2025-09-28 16:09:53 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 16:09:53 - INFO - Successfully downloaded: config.json
+2025-09-28 16:09:53 - INFO - File size: 0.00 MB
+2025-09-28 16:09:53 - INFO - Download time: 0.18 seconds
+2025-09-28 16:09:53 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models/config.json
+2025-09-28 16:09:53 - INFO - ========================================
+2025-09-28 16:09:53 - INFO - DOWNLOAD SUMMARY
+2025-09-28 16:09:53 - INFO - ========================================
+2025-09-28 16:09:53 - INFO - Successfully downloaded: 19/19 models
+2025-09-28 16:09:53 - INFO - Total time: 3.97 seconds
+2025-09-28 16:09:53 - INFO - 🎉 All WAN 2.1 models downloaded successfully!
+2025-09-28 16:09:53 - INFO - Next steps:
+2025-09-28 16:09:53 - INFO - 1. Restart ComfyUI
+2025-09-28 16:09:53 - INFO - 2. Load the WAN_2.1_IMG_to_VIDEO.json workflow
+2025-09-28 16:09:53 - INFO - 3. Start creating videos!
+2025-09-28 16:09:53 - INFO - ============================================================
+2025-09-28 16:09:53 - INFO - WAN 2.1 Model Downloader Finished
+2025-09-28 16:09:53 - INFO - ============================================================
+2025-09-28 20:57:09 - INFO - ============================================================
+2025-09-28 20:57:09 - INFO - WAN 2.1 Model Downloader Started
+2025-09-28 20:57:09 - INFO - ============================================================
+2025-09-28 20:57:09 - INFO - Download timeout: 300 seconds
+2025-09-28 20:57:09 - INFO - Cache directory: /home/yuji/Code/Umeiart/ComfyUI/.cache/huggingface
+2025-09-28 20:57:09 - INFO - Setting up model directories...
+2025-09-28 20:57:09 - INFO - Starting authentication process...
+2025-09-28 20:57:10 - INFO - Authentication successful
+2025-09-28 20:57:10 - INFO - Starting model downloads...
+2025-09-28 20:57:10 - INFO - Total models to download: 19
+2025-09-28 20:57:10 - INFO - Progress: 1/19 - diffusion_pytorch_model.safetensors.index.json
+2025-09-28 20:57:10 - INFO - Starting download: diffusion_pytorch_model.safetensors.index.json
+2025-09-28 20:57:10 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 20:57:10 - DEBUG - Filename: diffusion_pytorch_model.safetensors.index.json
+2025-09-28 20:57:10 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 20:57:10 - INFO - Successfully downloaded: diffusion_pytorch_model.safetensors.index.json
+2025-09-28 20:57:10 - INFO - File size: 0.11 MB
+2025-09-28 20:57:10 - INFO - Download time: 0.18 seconds
+2025-09-28 20:57:10 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models/diffusion_pytorch_model.safetensors.index.json
+2025-09-28 20:57:10 - INFO - Progress: 2/19 - diffusion_pytorch_model-00001-of-00007.safetensors
+2025-09-28 20:57:10 - INFO - Starting download: diffusion_pytorch_model-00001-of-00007.safetensors
+2025-09-28 20:57:10 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 20:57:10 - DEBUG - Filename: diffusion_pytorch_model-00001-of-00007.safetensors
+2025-09-28 20:57:10 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 21:02:31 - INFO - Successfully downloaded: diffusion_pytorch_model-00001-of-00007.safetensors
+2025-09-28 21:02:31 - INFO - File size: 9391.04 MB
+2025-09-28 21:02:31 - INFO - Download time: 320.78 seconds
+2025-09-28 21:02:31 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models/diffusion_pytorch_model-00001-of-00007.safetensors
+2025-09-28 21:02:31 - INFO - Progress: 3/19 - diffusion_pytorch_model-00002-of-00007.safetensors
+2025-09-28 21:02:31 - INFO - Starting download: diffusion_pytorch_model-00002-of-00007.safetensors
+2025-09-28 21:02:31 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:02:31 - DEBUG - Filename: diffusion_pytorch_model-00002-of-00007.safetensors
+2025-09-28 21:02:31 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 21:07:25 - INFO - Successfully downloaded: diffusion_pytorch_model-00002-of-00007.safetensors
+2025-09-28 21:07:25 - INFO - File size: 9343.17 MB
+2025-09-28 21:07:25 - INFO - Download time: 294.18 seconds
+2025-09-28 21:07:25 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models/diffusion_pytorch_model-00002-of-00007.safetensors
+2025-09-28 21:07:25 - INFO - Progress: 4/19 - diffusion_pytorch_model-00003-of-00007.safetensors
+2025-09-28 21:07:25 - INFO - Starting download: diffusion_pytorch_model-00003-of-00007.safetensors
+2025-09-28 21:07:25 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:07:25 - DEBUG - Filename: diffusion_pytorch_model-00003-of-00007.safetensors
+2025-09-28 21:07:25 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 21:12:11 - INFO - Successfully downloaded: diffusion_pytorch_model-00003-of-00007.safetensors
+2025-09-28 21:12:11 - INFO - File size: 9343.19 MB
+2025-09-28 21:12:11 - INFO - Download time: 286.15 seconds
+2025-09-28 21:12:11 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models/diffusion_pytorch_model-00003-of-00007.safetensors
+2025-09-28 21:12:11 - INFO - Progress: 5/19 - diffusion_pytorch_model-00004-of-00007.safetensors
+2025-09-28 21:12:11 - INFO - Starting download: diffusion_pytorch_model-00004-of-00007.safetensors
+2025-09-28 21:12:11 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:12:11 - DEBUG - Filename: diffusion_pytorch_model-00004-of-00007.safetensors
+2025-09-28 21:12:11 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 21:16:32 - INFO - Successfully downloaded: diffusion_pytorch_model-00004-of-00007.safetensors
+2025-09-28 21:16:32 - INFO - File size: 9243.15 MB
+2025-09-28 21:16:32 - INFO - Download time: 260.84 seconds
+2025-09-28 21:16:32 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models/diffusion_pytorch_model-00004-of-00007.safetensors
+2025-09-28 21:16:32 - INFO - Progress: 6/19 - diffusion_pytorch_model-00005-of-00007.safetensors
+2025-09-28 21:16:32 - INFO - Starting download: diffusion_pytorch_model-00005-of-00007.safetensors
+2025-09-28 21:16:32 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:16:32 - DEBUG - Filename: diffusion_pytorch_model-00005-of-00007.safetensors
+2025-09-28 21:16:32 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 21:21:58 - INFO - Successfully downloaded: diffusion_pytorch_model-00005-of-00007.safetensors
+2025-09-28 21:21:58 - INFO - File size: 9243.15 MB
+2025-09-28 21:21:58 - INFO - Download time: 325.78 seconds
+2025-09-28 21:21:58 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models/diffusion_pytorch_model-00005-of-00007.safetensors
+2025-09-28 21:21:58 - INFO - Progress: 7/19 - diffusion_pytorch_model-00006-of-00007.safetensors
+2025-09-28 21:21:58 - INFO - Starting download: diffusion_pytorch_model-00006-of-00007.safetensors
+2025-09-28 21:21:58 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:21:58 - DEBUG - Filename: diffusion_pytorch_model-00006-of-00007.safetensors
+2025-09-28 21:21:58 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 21:26:54 - INFO - Successfully downloaded: diffusion_pytorch_model-00006-of-00007.safetensors
+2025-09-28 21:26:54 - INFO - File size: 9243.15 MB
+2025-09-28 21:26:54 - INFO - Download time: 296.95 seconds
+2025-09-28 21:26:54 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models/diffusion_pytorch_model-00006-of-00007.safetensors
+2025-09-28 21:26:54 - INFO - Progress: 8/19 - diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 21:26:54 - INFO - Starting download: diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 21:26:54 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:26:54 - DEBUG - Filename: diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 21:26:54 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 21:30:27 - INFO - Successfully downloaded: diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 21:30:27 - INFO - File size: 6734.78 MB
+2025-09-28 21:30:27 - INFO - Download time: 212.25 seconds
+2025-09-28 21:30:27 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models/diffusion_pytorch_model-00007-of-00007.safetensors
+2025-09-28 21:30:27 - INFO - Progress: 9/19 - models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 21:30:27 - INFO - Starting download: models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 21:30:27 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:30:27 - DEBUG - Filename: models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 21:30:27 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip
+2025-09-28 21:35:41 - INFO - Successfully downloaded: models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 21:35:41 - INFO - File size: 10835.57 MB
+2025-09-28 21:35:41 - INFO - Download time: 314.63 seconds
+2025-09-28 21:35:41 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip/models_t5_umt5-xxl-enc-bf16.pth
+2025-09-28 21:35:41 - INFO - Progress: 10/19 - models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 21:35:41 - INFO - Starting download: models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 21:35:41 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:35:41 - DEBUG - Filename: models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 21:35:41 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision
+2025-09-28 21:38:07 - INFO - Successfully downloaded: models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 21:38:07 - INFO - File size: 4551.28 MB
+2025-09-28 21:38:07 - INFO - Download time: 145.60 seconds
+2025-09-28 21:38:07 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision/models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth
+2025-09-28 21:38:07 - INFO - Progress: 11/19 - google/umt5-xxl/special_tokens_map.json
+2025-09-28 21:38:07 - INFO - Starting download: google/umt5-xxl/special_tokens_map.json
+2025-09-28 21:38:07 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:38:07 - DEBUG - Filename: google/umt5-xxl/special_tokens_map.json
+2025-09-28 21:38:07 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip
+2025-09-28 21:38:07 - INFO - Successfully downloaded: google/umt5-xxl/special_tokens_map.json
+2025-09-28 21:38:07 - INFO - File size: 0.01 MB
+2025-09-28 21:38:07 - INFO - Download time: 0.21 seconds
+2025-09-28 21:38:07 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip/google/umt5-xxl/special_tokens_map.json
+2025-09-28 21:38:07 - INFO - Progress: 12/19 - google/umt5-xxl/spiece.model
+2025-09-28 21:38:07 - INFO - Starting download: google/umt5-xxl/spiece.model
+2025-09-28 21:38:07 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:38:07 - DEBUG - Filename: google/umt5-xxl/spiece.model
+2025-09-28 21:38:07 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip
+2025-09-28 21:38:09 - INFO - Successfully downloaded: google/umt5-xxl/spiece.model
+2025-09-28 21:38:09 - INFO - File size: 4.34 MB
+2025-09-28 21:38:09 - INFO - Download time: 1.81 seconds
+2025-09-28 21:38:09 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip/google/umt5-xxl/spiece.model
+2025-09-28 21:38:09 - INFO - Progress: 13/19 - google/umt5-xxl/tokenizer.json
+2025-09-28 21:38:09 - INFO - Starting download: google/umt5-xxl/tokenizer.json
+2025-09-28 21:38:09 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:38:09 - DEBUG - Filename: google/umt5-xxl/tokenizer.json
+2025-09-28 21:38:09 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip
+2025-09-28 21:38:10 - INFO - Successfully downloaded: google/umt5-xxl/tokenizer.json
+2025-09-28 21:38:10 - INFO - File size: 16.06 MB
+2025-09-28 21:38:10 - INFO - Download time: 1.27 seconds
+2025-09-28 21:38:10 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip/google/umt5-xxl/tokenizer.json
+2025-09-28 21:38:10 - INFO - Progress: 14/19 - google/umt5-xxl/tokenizer_config.json
+2025-09-28 21:38:10 - INFO - Starting download: google/umt5-xxl/tokenizer_config.json
+2025-09-28 21:38:10 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:38:10 - DEBUG - Filename: google/umt5-xxl/tokenizer_config.json
+2025-09-28 21:38:10 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip
+2025-09-28 21:38:10 - INFO - Successfully downloaded: google/umt5-xxl/tokenizer_config.json
+2025-09-28 21:38:10 - INFO - File size: 0.06 MB
+2025-09-28 21:38:10 - INFO - Download time: 0.16 seconds
+2025-09-28 21:38:10 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip/google/umt5-xxl/tokenizer_config.json
+2025-09-28 21:38:10 - INFO - Progress: 15/19 - xlm-roberta-large/sentencepiece.bpe.model
+2025-09-28 21:38:10 - INFO - Starting download: xlm-roberta-large/sentencepiece.bpe.model
+2025-09-28 21:38:10 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:38:10 - DEBUG - Filename: xlm-roberta-large/sentencepiece.bpe.model
+2025-09-28 21:38:10 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision
+2025-09-28 21:38:11 - INFO - Successfully downloaded: xlm-roberta-large/sentencepiece.bpe.model
+2025-09-28 21:38:11 - INFO - File size: 4.83 MB
+2025-09-28 21:38:11 - INFO - Download time: 0.92 seconds
+2025-09-28 21:38:11 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision/xlm-roberta-large/sentencepiece.bpe.model
+2025-09-28 21:38:11 - INFO - Progress: 16/19 - xlm-roberta-large/special_tokens_map.json
+2025-09-28 21:38:11 - INFO - Starting download: xlm-roberta-large/special_tokens_map.json
+2025-09-28 21:38:11 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:38:11 - DEBUG - Filename: xlm-roberta-large/special_tokens_map.json
+2025-09-28 21:38:11 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision
+2025-09-28 21:38:12 - INFO - Successfully downloaded: xlm-roberta-large/special_tokens_map.json
+2025-09-28 21:38:12 - INFO - File size: 0.00 MB
+2025-09-28 21:38:12 - INFO - Download time: 0.15 seconds
+2025-09-28 21:38:12 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision/xlm-roberta-large/special_tokens_map.json
+2025-09-28 21:38:12 - INFO - Progress: 17/19 - xlm-roberta-large/tokenizer.json
+2025-09-28 21:38:12 - INFO - Starting download: xlm-roberta-large/tokenizer.json
+2025-09-28 21:38:12 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:38:12 - DEBUG - Filename: xlm-roberta-large/tokenizer.json
+2025-09-28 21:38:12 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision
+2025-09-28 21:38:12 - INFO - Successfully downloaded: xlm-roberta-large/tokenizer.json
+2025-09-28 21:38:12 - INFO - File size: 16.29 MB
+2025-09-28 21:38:12 - INFO - Download time: 0.85 seconds
+2025-09-28 21:38:12 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision/xlm-roberta-large/tokenizer.json
+2025-09-28 21:38:12 - INFO - Progress: 18/19 - xlm-roberta-large/tokenizer_config.json
+2025-09-28 21:38:12 - INFO - Starting download: xlm-roberta-large/tokenizer_config.json
+2025-09-28 21:38:12 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:38:12 - DEBUG - Filename: xlm-roberta-large/tokenizer_config.json
+2025-09-28 21:38:12 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision
+2025-09-28 21:38:13 - INFO - Successfully downloaded: xlm-roberta-large/tokenizer_config.json
+2025-09-28 21:38:13 - INFO - File size: 0.00 MB
+2025-09-28 21:38:13 - INFO - Download time: 0.14 seconds
+2025-09-28 21:38:13 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision/xlm-roberta-large/tokenizer_config.json
+2025-09-28 21:38:13 - INFO - Progress: 19/19 - config.json
+2025-09-28 21:38:13 - INFO - Starting download: config.json
+2025-09-28 21:38:13 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 21:38:13 - DEBUG - Filename: config.json
+2025-09-28 21:38:13 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 21:38:13 - INFO - Successfully downloaded: config.json
+2025-09-28 21:38:13 - INFO - File size: 0.00 MB
+2025-09-28 21:38:13 - INFO - Download time: 0.13 seconds
+2025-09-28 21:38:13 - DEBUG - Full path: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models/config.json
+2025-09-28 21:38:13 - INFO - ========================================
+2025-09-28 21:38:13 - INFO - DOWNLOAD SUMMARY
+2025-09-28 21:38:13 - INFO - ========================================
+2025-09-28 21:38:13 - INFO - Successfully downloaded: 19/19 models
+2025-09-28 21:38:13 - INFO - Total time: 2463.36 seconds
+2025-09-28 21:38:13 - INFO - 🎉 All WAN 2.1 models downloaded successfully!
+2025-09-28 21:38:13 - INFO - Next steps:
+2025-09-28 21:38:13 - INFO - 1. Restart ComfyUI
+2025-09-28 21:38:13 - INFO - 2. Load the WAN_2.1_IMG_to_VIDEO.json workflow
+2025-09-28 21:38:13 - INFO - 3. Start creating videos!
+2025-09-28 21:38:13 - INFO - ============================================================
+2025-09-28 21:38:13 - INFO - WAN 2.1 Model Downloader Finished
+2025-09-28 21:38:13 - INFO - ============================================================

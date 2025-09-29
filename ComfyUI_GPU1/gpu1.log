@@ -1,0 +1,200 @@
+[ComfyUI-Manager] Neither python -m pip nor uv are available. Cannot proceed with package operations.
+Failed to execute startup-script: /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/ComfyUI-Manager/prestartup_script.py / Neither pip nor uv are available for package management
+
+Prestartup times for custom nodes:
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/rgthree-comfy
+   0.3 seconds (PRESTARTUP FAILED): /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/ComfyUI-Manager
+
+Checkpoint files will always be loaded safely.
+/home/yuji/Code/Umeiart/venv/lib/python3.12/site-packages/torch/cuda/__init__.py:235: UserWarning: 
+NVIDIA GeForce RTX 5060 Ti with CUDA capability sm_120 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_50 sm_60 sm_70 sm_75 sm_80 sm_86 sm_90.
+If you want to use the NVIDIA GeForce RTX 5060 Ti GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  warnings.warn(
+Total VRAM 15859 MB, total RAM 256520 MB
+pytorch version: 2.5.1+cu121
+WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.8.0+cu128 with CUDA 1208 (you have 2.5.1+cu121)
+    Python  3.9.23 (you have 3.12.3)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 NVIDIA GeForce RTX 5060 Ti : cudaMallocAsync
+Torch version too old to set sdpa backend priority.
+Using pytorch attention
+Python version: 3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]
+ComfyUI version: 0.3.60
+ComfyUI frontend version: 1.28.3
+[Prompt Server] web root: /home/yuji/Code/Umeiart/venv/lib/python3.12/site-packages/comfyui_frontend_package/static
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Traceback (most recent call last):
+  File "/home/yuji/Code/Umeiart/ComfyUI_GPU1/nodes.py", line 2133, in load_custom_node
+    module_spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/ComfyUI-Manager/__init__.py", line 12, in <module>
+    import manager_server  # noqa: F401
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/ComfyUI-Manager/glob/manager_server.py", line 17, in <module>
+    import manager_core as core
+  File "/home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/ComfyUI-Manager/glob/manager_core.py", line 26, in <module>
+    import toml
+ModuleNotFoundError: No module named 'toml'
+
+Cannot import /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/ComfyUI-Manager module for custom nodes: No module named 'toml'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+ComfyUI-GGUF: Partial torch compile only, consider updating pytorch
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+Unable to parse pyproject.toml due to lack dependency pydantic-settings, please run 'pip install -r requirements.txt': No module named 'pydantic_settings'
+
+Import times for custom nodes:
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/ComfyUI-wanBlockswap
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/websocket_image_save.py
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/mx_nodes
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/ComfyUI-Lora-Manager
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/easy_nodes
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/ComfyUI-Florence2
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/ComfyUI-Custom-Scripts
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/ComfyUI-Frame-Interpolation
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/rgthree-comfy
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/ComfyUI-VideoHelperSuite
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/ComfyUI-GGUF
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/ComfyUI-KJNodes
+   0.0 seconds (IMPORT FAILED): /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/ComfyUI-Manager
+   1.7 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU1/custom_nodes/WAS Node Suite
+
+Context impl SQLiteImpl.
+Will assume non-transactional DDL.
+No target revision found.
+Starting server
+
+To see the GUI go to: http://0.0.0.0:8189
+got prompt
+Failed to validate prompt for output 184:
+* (prompt):
+  - Exception when validating node: tuple index out of range
+* SaveImage 184:
+  - Exception when validating node: tuple index out of range
+Output will be ignored
+Failed to validate prompt for output 80:
+* ColorMatch 381:
+  - Exception when validating inner node: tuple index out of range
+Output will be ignored
+Prompt executed in 0.30 seconds
+got prompt
+Failed to validate prompt for output 184:
+* (prompt):
+  - Exception when validating node: tuple index out of range
+* SaveImage 184:
+  - Exception when validating node: tuple index out of range
+Output will be ignored
+Failed to validate prompt for output 80:
+* ColorMatch 381:
+  - Exception when validating inner node: tuple index out of range
+Output will be ignored
+Prompt executed in 0.05 seconds

@@ -1,0 +1,16 @@
+# ComfyUI artifacts
+ComfyUI/models/
+ComfyUI/output/
+ComfyUI/input/
+ComfyUI/temp/
+**/__pycache__/
+*.pyc
+*.pyo
+*.swp
+.DS_Store
+Thumbs.db
+venv/
+*.log
+ComfyUI/venv/
+ComfyUI_GPU0/venv/
+ComfyUI_GPU1/venv/

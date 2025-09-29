@@ -1,0 +1,603 @@
+
+Prestartup times for custom nodes:
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI/custom_nodes/rgthree-comfy
+
+Checkpoint files will always be loaded safely.
+Total VRAM 15851 MB, total RAM 256520 MB
+pytorch version: 2.8.0+cu128
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 NVIDIA GeForce RTX 5060 Ti : cudaMallocAsync
+Using sage attention
+Python version: 3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]
+ComfyUI version: 0.3.60
+ComfyUI frontend version: 1.26.13
+[Prompt Server] web root: /home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/comfyui_frontend_package/static
+[VideoHelperSuite] - [0;33mWARNING[0m - Failed to import imageio_ffmpeg
+[VideoHelperSuite] - [0;31mERROR[0m - No valid ffmpeg found.
+Traceback (most recent call last):
+  File "/home/yuji/Code/Umeiart/ComfyUI/nodes.py", line 2133, in load_custom_node
+    module_spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/yuji/Code/Umeiart/ComfyUI/custom_nodes/WAS Node Suite/__init__.py", line 1, in <module>
+    from .WAS_Node_Suite import NODE_CLASS_MAPPINGS
+  File "/home/yuji/Code/Umeiart/ComfyUI/custom_nodes/WAS Node Suite/WAS_Node_Suite.py", line 37, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+Cannot import /home/yuji/Code/Umeiart/ComfyUI/custom_nodes/WAS Node Suite module for custom nodes: No module named 'numba'
+
+Import times for custom nodes:
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI/custom_nodes/websocket_image_save.py
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI/custom_nodes/ComfyUI-Custom-Scripts
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI/custom_nodes/ComfyUI-Frame-Interpolation
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI/custom_nodes/ComfyUI-VideoHelperSuite
+   0.0 seconds (IMPORT FAILED): /home/yuji/Code/Umeiart/ComfyUI/custom_nodes/WAS Node Suite
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI/custom_nodes/rgthree-comfy
+   0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI/custom_nodes/ComfyUI-KJNodes
+
+Context impl SQLiteImpl.
+Will assume non-transactional DDL.
+No target revision found.
+Starting server
+
+To see the GUI go to: http://127.0.0.1:8188
+[ERROR] An error occurred while retrieving information for the 'GGUFLoaderKJ' node.
+Traceback (most recent call last):
+  File "/home/yuji/Code/Umeiart/ComfyUI/server.py", line 633, in get_object_info
+    out[x] = node_info(x)
+             ^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/server.py", line 595, in node_info
+    return obj_class.GET_NODE_INFO_V1()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy_api/latest/_io.py", line 1315, in GET_NODE_INFO_V1
+    schema = cls.GET_SCHEMA()
+             ^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy_api/latest/_io.py", line 1440, in GET_SCHEMA
+    schema = cls.FINALIZE_SCHEMA()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy_api/latest/_io.py", line 1431, in FINALIZE_SCHEMA
+    schema = cls.define_schema()
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/custom_nodes/ComfyUI-KJNodes/nodes/model_optimization_nodes.py", line 1933, in define_schema
+    io.Combo.Input("model_name", options=[x for x in folder_paths.get_filename_list("unet_gguf")]),
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/folder_paths.py", line 355, in get_filename_list
+    out = get_filename_list_(folder_name)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/folder_paths.py", line 316, in get_filename_list_
+    folders = folder_names_and_paths[folder_name]
+              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'unet_gguf'
+
+got prompt
+Failed to validate prompt for output 8:
+* CheckpointLoaderSimple 4:
+  - Value not in list: ckpt_name: 'wan2.1_i2v_720p_14B_fp8_e4m3fn.safetensors' not in ['flux1-dev-fp8.safetensors']
+* KSampler 5:
+  - Return type mismatch between linked nodes: latent_image, received_type(IMAGE) mismatch input_type(LATENT)
+  - Value not in list: sampler_name: 'normal' not in (list of length 42)
+  - Failed to convert an input value to a FLOAT value: cfg, euler, could not convert string to float: 'euler'
+  - Value not in list: scheduler: '1' not in ['simple', 'sgm_uniform', 'karras', 'exponential', 'ddim_uniform', 'beta', 'normal', 'linear_quadratic', 'kl_optimal']
+Output will be ignored
+invalid prompt: {'type': 'prompt_outputs_failed_validation', 'message': 'Prompt outputs failed validation', 'details': '', 'extra_info': {}}
+got prompt
+model weight dtype torch.float8_e4m3fn, manual cast: torch.bfloat16
+model_type FLUX
+Using pytorch attention in VAE
+Using pytorch attention in VAE
+VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+Requested to load FluxClipModel_
+loaded partially 3298.7375 3298.6455078125 0
+0 models unloaded.
+loaded partially 3298.6455079078673 3298.6455078125 0
+Requested to load Flux
+loaded partially 2916.0669198913574 2912.1016235351562 0
+
+[92m[rgthree-comfy] Loaded 48 exciting nodes. 🎉[0m
+
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:04<01:16,  4.01s/it] 10%|█         | 2/20 [00:07<01:10,  3.90s/it] 15%|█▌        | 3/20 [00:11<01:05,  3.88s/it] 20%|██        | 4/20 [00:15<01:01,  3.85s/it] 25%|██▌       | 5/20 [00:19<00:57,  3.84s/it] 30%|███       | 6/20 [00:23<00:53,  3.83s/it] 35%|███▌      | 7/20 [00:26<00:49,  3.84s/it] 40%|████      | 8/20 [00:30<00:46,  3.83s/it] 45%|████▌     | 9/20 [00:34<00:42,  3.83s/it] 50%|█████     | 10/20 [00:38<00:38,  3.81s/it] 55%|█████▌    | 11/20 [00:42<00:34,  3.82s/it] 60%|██████    | 12/20 [00:46<00:30,  3.82s/it] 65%|██████▌   | 13/20 [00:49<00:26,  3.82s/it] 70%|███████   | 14/20 [00:53<00:22,  3.82s/it] 75%|███████▌  | 15/20 [00:57<00:19,  3.81s/it] 80%|████████  | 16/20 [01:01<00:15,  3.88s/it] 85%|████████▌ | 17/20 [01:05<00:11,  3.97s/it] 90%|█████████ | 18/20 [01:10<00:08,  4.08s/it] 95%|█████████▌| 19/20 [01:14<00:04,  4.16s/it]100%|██████████| 20/20 [01:18<00:00,  4.21s/it]100%|██████████| 20/20 [01:18<00:00,  3.94s/it]
+Requested to load AutoencodingEngine
+0 models unloaded.
+loaded partially 128.0 127.999755859375 0
+Prompt executed in 92.62 seconds
+got prompt
+Requested to load FluxClipModel_
+loaded partially 3160.9875 3160.50732421875 0
+Requested to load Flux
+loaded partially 2970.5044198913574 2966.1192016601562 0
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:05<01:52,  5.93s/it] 10%|█         | 2/20 [00:09<01:24,  4.69s/it] 15%|█▌        | 3/20 [00:13<01:12,  4.29s/it] 20%|██        | 4/20 [00:17<01:05,  4.12s/it] 25%|██▌       | 5/20 [00:21<01:02,  4.19s/it] 30%|███       | 6/20 [00:26<00:59,  4.26s/it] 35%|███▌      | 7/20 [00:29<00:53,  4.10s/it] 40%|████      | 8/20 [00:33<00:47,  3.98s/it] 45%|████▌     | 9/20 [00:37<00:43,  3.91s/it] 50%|█████     | 10/20 [00:41<00:38,  3.86s/it] 55%|█████▌    | 11/20 [00:44<00:34,  3.82s/it] 60%|██████    | 12/20 [00:48<00:30,  3.79s/it] 65%|██████▌   | 13/20 [00:52<00:26,  3.79s/it] 70%|███████   | 14/20 [00:56<00:22,  3.77s/it] 75%|███████▌  | 15/20 [00:59<00:19,  3.81s/it] 80%|████████  | 16/20 [01:04<00:15,  3.88s/it] 85%|████████▌ | 17/20 [01:08<00:11,  3.92s/it] 90%|█████████ | 18/20 [01:12<00:07,  3.97s/it] 95%|█████████▌| 19/20 [01:16<00:03,  3.99s/it]100%|██████████| 20/20 [01:20<00:00,  4.01s/it]100%|██████████| 20/20 [01:20<00:00,  4.01s/it]
+Requested to load AutoencodingEngine
+0 models unloaded.
+loaded partially 128.0 127.999755859375 0
+Prompt executed in 92.50 seconds
+got prompt
+Requested to load FluxClipModel_
+loaded partially 3166.55 3166.1396484375 0
+Requested to load Flux
+0 models unloaded.
+loaded partially 128.0 127.94342041015625 0
+  0%|          | 0/20 [00:00<?, ?it/s]  0%|          | 0/20 [00:00<?, ?it/s]
+!!! Exception during processing !!! Allocation on device 
+Traceback (most recent call last):
+  File "/home/yuji/Code/Umeiart/ComfyUI/execution.py", line 496, in execute
+    output_data, output_ui, has_subgraph, has_pending_tasks = await get_output_data(prompt_id, unique_id, obj, input_data_all, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, hidden_inputs=hidden_inputs)
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/execution.py", line 315, in get_output_data
+    return_values = await _async_map_node_over_list(prompt_id, unique_id, obj, input_data_all, obj.FUNCTION, allow_interrupt=True, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, hidden_inputs=hidden_inputs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/execution.py", line 289, in _async_map_node_over_list
+    await process_inputs(input_dict, i)
+  File "/home/yuji/Code/Umeiart/ComfyUI/execution.py", line 277, in process_inputs
+    result = f(**inputs)
+             ^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/nodes.py", line 1525, in sample
+    return common_ksampler(model, seed, steps, cfg, sampler_name, scheduler, positive, negative, latent_image, denoise=denoise)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/nodes.py", line 1492, in common_ksampler
+    samples = comfy.sample.sample(model, noise, steps, cfg, sampler_name, scheduler, positive, negative, latent_image,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/sample.py", line 45, in sample
+    samples = sampler.sample(noise, positive, negative, cfg=cfg, latent_image=latent_image, start_step=start_step, last_step=last_step, force_full_denoise=force_full_denoise, denoise_mask=noise_mask, sigmas=sigmas, callback=callback, disable_pbar=disable_pbar, seed=seed)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 1161, in sample
+    return sample(self.model, noise, positive, negative, cfg, self.device, sampler, sigmas, self.model_options, latent_image=latent_image, denoise_mask=denoise_mask, callback=callback, disable_pbar=disable_pbar, seed=seed)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 1051, in sample
+    return cfg_guider.sample(noise, latent_image, sampler, sigmas, denoise_mask, callback, disable_pbar, seed)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 1036, in sample
+    output = executor.execute(noise, latent_image, sampler, sigmas, denoise_mask, callback, disable_pbar, seed)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 1004, in outer_sample
+    output = self.inner_sample(noise, latent_image, device, sampler, sigmas, denoise_mask, callback, disable_pbar, seed)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 987, in inner_sample
+    samples = executor.execute(self, sigmas, extra_args, callback, noise, latent_image, denoise_mask, disable_pbar)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 759, in sample
+    samples = self.sampler_function(model_k, noise, sigmas, extra_args=extra_args, callback=k_callback, disable=disable_pbar, **self.extra_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/k_diffusion/sampling.py", line 199, in sample_euler
+    denoised = model(x, sigma_hat * s_in, **extra_args)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 408, in __call__
+    out = self.inner_model(x, sigma, model_options=model_options, seed=seed)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 960, in __call__
+    return self.outer_predict_noise(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 967, in outer_predict_noise
+    ).execute(x, timestep, model_options, seed)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 970, in predict_noise
+    return sampling_function(self.inner_model, x, timestep, self.conds.get("negative", None), self.conds.get("positive", None), self.cfg, model_options=model_options, seed=seed)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 388, in sampling_function
+    out = calc_cond_batch(model, conds, x, timestep, model_options)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 206, in calc_cond_batch
+    return _calc_cond_batch_outer(model, conds, x_in, timestep, model_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 214, in _calc_cond_batch_outer
+    return executor.execute(model, conds, x_in, timestep, model_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 333, in _calc_cond_batch
+    output = model.apply_model(input_x, timestep_, **c).chunk(batch_chunks)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/model_base.py", line 160, in apply_model
+    return comfy.patcher_extension.WrapperExecutor.new_class_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/model_base.py", line 199, in _apply_model
+    model_output = self.diffusion_model(xc, t, context=context, control=control, transformer_options=transformer_options, **extra_conds).float()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/ldm/flux/model.py", line 232, in forward
+    return comfy.patcher_extension.WrapperExecutor.new_class_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/ldm/flux/model.py", line 278, in _forward
+    out = self.forward_orig(img, img_ids, context, txt_ids, timestep, y, guidance, control, transformer_options, attn_mask=kwargs.get("attention_mask", None))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/ldm/flux/model.py", line 161, in forward_orig
+    img, txt = block(img=img,
+               ^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/ldm/flux/layers.py", line 199, in forward
+    img = img + apply_mod(self.img_mlp(apply_mod(self.img_norm2(img), (1 + img_mod2.scale), img_mod2.shift, modulation_dims_img)), img_mod2.gate, None, modulation_dims_img)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 244, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 738, in forward
+    return F.gelu(input, approximate=self.approximate)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: Allocation on device 
+
+Got an OOM, unloading all loaded models.
+Prompt executed in 6.62 seconds
+got prompt
+Requested to load Flux
+loaded partially 2536.2819198913576 2533.9785766601562 0
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:06<01:58,  6.26s/it] 10%|█         | 2/20 [00:11<01:38,  5.49s/it] 15%|█▌        | 3/20 [00:15<01:27,  5.15s/it] 20%|██        | 4/20 [00:20<01:20,  5.02s/it] 25%|██▌       | 5/20 [00:25<01:15,  5.06s/it] 30%|███       | 6/20 [00:30<01:10,  5.06s/it] 35%|███▌      | 7/20 [00:35<01:04,  4.97s/it] 40%|████      | 8/20 [00:40<00:58,  4.90s/it] 45%|████▌     | 9/20 [00:45<00:53,  4.87s/it] 50%|█████     | 10/20 [00:50<00:48,  4.85s/it] 55%|█████▌    | 11/20 [00:54<00:43,  4.83s/it] 60%|██████    | 12/20 [00:59<00:38,  4.86s/it] 65%|██████▌   | 13/20 [01:04<00:34,  4.94s/it] 70%|███████   | 14/20 [01:10<00:29,  5.00s/it] 75%|███████▌  | 15/20 [01:15<00:25,  5.04s/it] 80%|████████  | 16/20 [01:20<00:20,  5.09s/it] 85%|████████▌ | 17/20 [01:25<00:15,  5.13s/it] 90%|█████████ | 18/20 [01:30<00:10,  5.13s/it] 95%|█████████▌| 19/20 [01:36<00:05,  5.17s/it]100%|██████████| 20/20 [01:41<00:00,  5.13s/it]100%|██████████| 20/20 [01:41<00:00,  5.05s/it]
+Requested to load AutoencodingEngine
+loaded completely 217.396484375 159.87335777282715 True
+Prompt executed in 103.23 seconds
+got prompt
+Requested to load FluxClipModel_
+got prompt
+loaded partially 3128.675 3128.50732421875 0
+Requested to load Flux
+loaded partially 2543.3444198913576 2542.9815063476562 0
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:05<01:38,  5.21s/it] 10%|█         | 2/20 [00:10<01:33,  5.18s/it] 15%|█▌        | 3/20 [00:15<01:26,  5.08s/it] 20%|██        | 4/20 [00:20<01:19,  4.96s/it] 25%|██▌       | 5/20 [00:24<01:13,  4.90s/it] 30%|███       | 6/20 [00:29<01:08,  4.91s/it] 35%|███▌      | 7/20 [00:34<01:04,  4.95s/it] 40%|████      | 8/20 [00:40<01:00,  5.02s/it] 45%|████▌     | 9/20 [00:45<00:55,  5.06s/it] 50%|█████     | 10/20 [00:50<00:51,  5.11s/it] 55%|█████▌    | 11/20 [00:55<00:46,  5.12s/it] 60%|██████    | 12/20 [01:00<00:41,  5.13s/it] 65%|██████▌   | 13/20 [01:05<00:35,  5.02s/it] 70%|███████   | 14/20 [01:10<00:29,  4.95s/it] 75%|███████▌  | 15/20 [01:15<00:24,  4.91s/it] 80%|████████  | 16/20 [01:19<00:19,  4.88s/it] 85%|████████▌ | 17/20 [01:24<00:14,  4.93s/it] 90%|█████████ | 18/20 [01:29<00:09,  4.97s/it] 95%|█████████▌| 19/20 [01:35<00:05,  5.06s/it]100%|██████████| 20/20 [01:40<00:00,  5.13s/it]100%|██████████| 20/20 [01:40<00:00,  5.03s/it]
+Requested to load AutoencodingEngine
+loaded completely 184.35546875 159.87335777282715 True
+Prompt executed in 110.88 seconds
+loaded partially 2523.9069198913576 2523.8447265625 0
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:05<01:42,  5.40s/it]got prompt
+got prompt
+ 10%|█         | 2/20 [00:10<01:36,  5.35s/it] 15%|█▌        | 3/20 [00:16<01:31,  5.36s/it] 20%|██        | 4/20 [00:21<01:24,  5.27s/it] 25%|██▌       | 5/20 [00:26<01:16,  5.13s/it] 30%|███       | 6/20 [00:30<01:10,  5.04s/it] 35%|███▌      | 7/20 [00:36<01:05,  5.05s/it] 40%|████      | 8/20 [00:41<01:01,  5.11s/it] 45%|████▌     | 9/20 [00:46<00:56,  5.12s/it] 50%|█████     | 10/20 [00:51<00:51,  5.15s/it] 55%|█████▌    | 11/20 [00:56<00:46,  5.16s/it] 60%|██████    | 12/20 [01:01<00:41,  5.15s/it] 65%|██████▌   | 13/20 [01:07<00:36,  5.16s/it] 70%|███████   | 14/20 [01:12<00:30,  5.14s/it] 75%|███████▌  | 15/20 [01:17<00:25,  5.11s/it] 80%|████████  | 16/20 [01:22<00:20,  5.08s/it] 85%|████████▌ | 17/20 [01:27<00:15,  5.12s/it] 90%|█████████ | 18/20 [01:32<00:10,  5.14s/it] 95%|█████████▌| 19/20 [01:37<00:05,  5.18s/it]100%|██████████| 20/20 [01:43<00:00,  5.16s/it]100%|██████████| 20/20 [01:43<00:00,  5.15s/it]
+Requested to load AutoencodingEngine
+loaded partially 156.8349609375 156.83447265625 0
+Prompt executed in 104.49 seconds
+Requested to load FluxClipModel_
+loaded partially 3248.6125 3248.392578125 0
+Requested to load Flux
+loaded partially 2603.3444198913576 2603.3443603515625 0
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:05<01:53,  5.96s/it] 10%|█         | 2/20 [00:10<01:35,  5.30s/it] 15%|█▌        | 3/20 [00:15<01:26,  5.07s/it] 20%|██        | 4/20 [00:20<01:19,  4.95s/it] 25%|██▌       | 5/20 [00:25<01:13,  4.91s/it] 30%|███       | 6/20 [00:30<01:10,  5.04s/it]got prompt
+got prompt
+ 35%|███▌      | 7/20 [00:35<01:05,  5.06s/it] 40%|████      | 8/20 [00:40<00:59,  4.97s/it] 45%|████▌     | 9/20 [00:45<00:53,  4.90s/it] 50%|█████     | 10/20 [00:49<00:48,  4.86s/it] 55%|█████▌    | 11/20 [00:54<00:43,  4.82s/it] 60%|██████    | 12/20 [00:59<00:39,  4.90s/it] 65%|██████▌   | 13/20 [01:04<00:34,  4.97s/it] 70%|███████   | 14/20 [01:09<00:30,  5.02s/it] 75%|███████▌  | 15/20 [01:15<00:25,  5.06s/it] 80%|████████  | 16/20 [01:20<00:20,  5.08s/it] 85%|████████▌ | 17/20 [01:25<00:15,  5.13s/it] 90%|█████████ | 18/20 [01:30<00:10,  5.14s/it] 95%|█████████▌| 19/20 [01:35<00:05,  5.14s/it]100%|██████████| 20/20 [01:40<00:00,  5.10s/it]100%|██████████| 20/20 [01:40<00:00,  5.04s/it]
+Requested to load AutoencodingEngine
+loaded completely 241.60546875 159.87335777282715 True
+Prompt executed in 111.20 seconds
+got prompt
+got prompt
+loaded partially 2606.8444198913576 2605.9902954101562 0
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:04<01:34,  4.95s/it] 10%|█         | 2/20 [00:09<01:27,  4.87s/it] 15%|█▌        | 3/20 [00:14<01:23,  4.92s/it] 20%|██        | 4/20 [00:19<01:19,  4.98s/it] 25%|██▌       | 5/20 [00:24<01:15,  5.02s/it] 30%|███       | 6/20 [00:29<01:10,  5.04s/it] 35%|███▌      | 7/20 [00:35<01:05,  5.07s/it] 40%|████      | 8/20 [00:40<01:00,  5.01s/it]got prompt
+got prompt
+ 45%|████▌     | 9/20 [00:44<00:54,  5.00s/it] 50%|█████     | 10/20 [00:50<00:50,  5.02s/it] 55%|█████▌    | 11/20 [00:55<00:45,  5.09s/it] 60%|██████    | 12/20 [01:00<00:40,  5.10s/it] 65%|██████▌   | 13/20 [01:05<00:36,  5.15s/it] 70%|███████   | 14/20 [01:10<00:31,  5.18s/it] 75%|███████▌  | 15/20 [01:16<00:25,  5.19s/it] 80%|████████  | 16/20 [01:21<00:21,  5.26s/it] 85%|████████▌ | 17/20 [01:26<00:15,  5.24s/it] 90%|█████████ | 18/20 [01:31<00:10,  5.11s/it] 95%|█████████▌| 19/20 [01:36<00:05,  5.03s/it]100%|██████████| 20/20 [01:41<00:00,  4.97s/it]100%|██████████| 20/20 [01:41<00:00,  5.06s/it]
+Requested to load AutoencodingEngine
+loaded completely 190.0224609375 159.87335777282715 True
+Prompt executed in 102.86 seconds
+Requested to load FluxClipModel_
+loaded partially 3282.7375 3282.6455078125 0
+Requested to load Flux
+loaded partially 2577.6569198913576 2577.4873657226562 0
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:05<01:43,  5.47s/it] 10%|█         | 2/20 [00:10<01:37,  5.39s/it] 15%|█▌        | 3/20 [00:15<01:29,  5.28s/it] 20%|██        | 4/20 [00:20<01:22,  5.17s/it] 25%|██▌       | 5/20 [00:26<01:17,  5.14s/it] 30%|███       | 6/20 [00:31<01:12,  5.17s/it] 35%|███▌      | 7/20 [00:36<01:07,  5.16s/it] 40%|████      | 8/20 [00:41<01:02,  5.21s/it] 45%|████▌     | 9/20 [00:46<00:57,  5.19s/it] 50%|█████     | 10/20 [00:52<00:52,  5.21s/it] 55%|█████▌    | 11/20 [00:56<00:45,  5.09s/it]got prompt
+got prompt
+ 60%|██████    | 12/20 [01:01<00:39,  4.99s/it] 65%|██████▌   | 13/20 [01:06<00:34,  4.92s/it] 70%|███████   | 14/20 [01:11<00:29,  4.87s/it] 75%|███████▌  | 15/20 [01:15<00:24,  4.83s/it] 80%|████████  | 16/20 [01:20<00:19,  4.82s/it] 85%|████████▌ | 17/20 [01:25<00:14,  4.88s/it] 90%|█████████ | 18/20 [01:31<00:10,  5.01s/it] 95%|█████████▌| 19/20 [01:36<00:05,  5.07s/it]100%|██████████| 20/20 [01:41<00:00,  5.10s/it]100%|██████████| 20/20 [01:41<00:00,  5.07s/it]
+Requested to load AutoencodingEngine
+loaded completely 168.04296875 159.87335777282715 True
+Prompt executed in 112.04 seconds
+loaded partially 2538.3444198913576 2533.9785766601562 0
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:05<01:42,  5.37s/it] 10%|█         | 2/20 [00:10<01:35,  5.28s/it] 15%|█▌        | 3/20 [00:15<01:28,  5.23s/it] 20%|██        | 4/20 [00:20<01:23,  5.22s/it] 25%|██▌       | 5/20 [00:26<01:17,  5.17s/it] 30%|███       | 6/20 [00:30<01:10,  5.03s/it] 35%|███▌      | 7/20 [00:36<01:06,  5.08s/it] 40%|████      | 8/20 [00:41<01:01,  5.13s/it] 45%|████▌     | 9/20 [00:46<00:56,  5.17s/it] 50%|█████     | 10/20 [00:51<00:51,  5.17s/it] 55%|█████▌    | 11/20 [00:56<00:46,  5.19s/it] 60%|██████    | 12/20 [01:02<00:41,  5.18s/it] 65%|██████▌   | 13/20 [01:07<00:36,  5.21s/it] 70%|███████   | 14/20 [01:12<00:31,  5.17s/it] 75%|███████▌  | 15/20 [01:17<00:25,  5.06s/it] 80%|████████  | 16/20 [01:22<00:20,  5.01s/it]got prompt
+got prompt
+ 85%|████████▌ | 17/20 [01:27<00:14,  4.99s/it] 90%|█████████ | 18/20 [01:32<00:10,  5.03s/it] 95%|█████████▌| 19/20 [01:37<00:05,  5.07s/it]100%|██████████| 20/20 [01:42<00:00,  5.09s/it]100%|██████████| 20/20 [01:42<00:00,  5.12s/it]
+Requested to load AutoencodingEngine
+loaded partially 139.04296875 139.04248046875 0
+Prompt executed in 103.92 seconds
+Requested to load FluxClipModel_
+loaded partially 3254.925 3254.25439453125 0
+Requested to load Flux
+0 models unloaded.
+loaded partially 128.0 127.94342041015625 0
+  0%|          | 0/20 [00:00<?, ?it/s]  0%|          | 0/20 [00:06<?, ?it/s]
+!!! Exception during processing !!! Allocation on device 
+Traceback (most recent call last):
+  File "/home/yuji/Code/Umeiart/ComfyUI/execution.py", line 496, in execute
+    output_data, output_ui, has_subgraph, has_pending_tasks = await get_output_data(prompt_id, unique_id, obj, input_data_all, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, hidden_inputs=hidden_inputs)
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/execution.py", line 315, in get_output_data
+    return_values = await _async_map_node_over_list(prompt_id, unique_id, obj, input_data_all, obj.FUNCTION, allow_interrupt=True, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, hidden_inputs=hidden_inputs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/execution.py", line 289, in _async_map_node_over_list
+    await process_inputs(input_dict, i)
+  File "/home/yuji/Code/Umeiart/ComfyUI/execution.py", line 277, in process_inputs
+    result = f(**inputs)
+             ^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/nodes.py", line 1525, in sample
+    return common_ksampler(model, seed, steps, cfg, sampler_name, scheduler, positive, negative, latent_image, denoise=denoise)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/nodes.py", line 1492, in common_ksampler
+    samples = comfy.sample.sample(model, noise, steps, cfg, sampler_name, scheduler, positive, negative, latent_image,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/sample.py", line 45, in sample
+    samples = sampler.sample(noise, positive, negative, cfg=cfg, latent_image=latent_image, start_step=start_step, last_step=last_step, force_full_denoise=force_full_denoise, denoise_mask=noise_mask, sigmas=sigmas, callback=callback, disable_pbar=disable_pbar, seed=seed)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 1161, in sample
+    return sample(self.model, noise, positive, negative, cfg, self.device, sampler, sigmas, self.model_options, latent_image=latent_image, denoise_mask=denoise_mask, callback=callback, disable_pbar=disable_pbar, seed=seed)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 1051, in sample
+    return cfg_guider.sample(noise, latent_image, sampler, sigmas, denoise_mask, callback, disable_pbar, seed)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 1036, in sample
+    output = executor.execute(noise, latent_image, sampler, sigmas, denoise_mask, callback, disable_pbar, seed)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 1004, in outer_sample
+    output = self.inner_sample(noise, latent_image, device, sampler, sigmas, denoise_mask, callback, disable_pbar, seed)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 987, in inner_sample
+    samples = executor.execute(self, sigmas, extra_args, callback, noise, latent_image, denoise_mask, disable_pbar)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 759, in sample
+    samples = self.sampler_function(model_k, noise, sigmas, extra_args=extra_args, callback=k_callback, disable=disable_pbar, **self.extra_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/k_diffusion/sampling.py", line 199, in sample_euler
+    denoised = model(x, sigma_hat * s_in, **extra_args)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 408, in __call__
+    out = self.inner_model(x, sigma, model_options=model_options, seed=seed)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 960, in __call__
+    return self.outer_predict_noise(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 967, in outer_predict_noise
+    ).execute(x, timestep, model_options, seed)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 970, in predict_noise
+    return sampling_function(self.inner_model, x, timestep, self.conds.get("negative", None), self.conds.get("positive", None), self.cfg, model_options=model_options, seed=seed)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 388, in sampling_function
+    out = calc_cond_batch(model, conds, x, timestep, model_options)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 206, in calc_cond_batch
+    return _calc_cond_batch_outer(model, conds, x_in, timestep, model_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 214, in _calc_cond_batch_outer
+    return executor.execute(model, conds, x_in, timestep, model_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 333, in _calc_cond_batch
+    output = model.apply_model(input_x, timestep_, **c).chunk(batch_chunks)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/model_base.py", line 160, in apply_model
+    return comfy.patcher_extension.WrapperExecutor.new_class_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/model_base.py", line 199, in _apply_model
+    model_output = self.diffusion_model(xc, t, context=context, control=control, transformer_options=transformer_options, **extra_conds).float()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/ldm/flux/model.py", line 232, in forward
+    return comfy.patcher_extension.WrapperExecutor.new_class_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/ldm/flux/model.py", line 278, in _forward
+    out = self.forward_orig(img, img_ids, context, txt_ids, timestep, y, guidance, control, transformer_options, attn_mask=kwargs.get("attention_mask", None))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/ldm/flux/model.py", line 199, in forward_orig
+    img = block(img, vec=vec, pe=pe, attn_mask=attn_mask, transformer_options=transformer_options)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/ldm/flux/layers.py", line 257, in forward
+    output = self.linear2(torch.cat((attn, self.mlp_act(mlp)), 2))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: Allocation on device 
+
+Got an OOM, unloading all loaded models.
+Prompt executed in 14.61 seconds
+Requested to load Flux
+0 models unloaded.
+loaded partially 128.0 127.94342041015625 0
+  0%|          | 0/20 [00:00<?, ?it/s]  0%|          | 0/20 [00:05<?, ?it/s]
+!!! Exception during processing !!! Allocation on device 
+Traceback (most recent call last):
+  File "/home/yuji/Code/Umeiart/ComfyUI/execution.py", line 496, in execute
+    output_data, output_ui, has_subgraph, has_pending_tasks = await get_output_data(prompt_id, unique_id, obj, input_data_all, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, hidden_inputs=hidden_inputs)
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/execution.py", line 315, in get_output_data
+    return_values = await _async_map_node_over_list(prompt_id, unique_id, obj, input_data_all, obj.FUNCTION, allow_interrupt=True, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, hidden_inputs=hidden_inputs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/execution.py", line 289, in _async_map_node_over_list
+    await process_inputs(input_dict, i)
+  File "/home/yuji/Code/Umeiart/ComfyUI/execution.py", line 277, in process_inputs
+    result = f(**inputs)
+             ^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/nodes.py", line 1525, in sample
+    return common_ksampler(model, seed, steps, cfg, sampler_name, scheduler, positive, negative, latent_image, denoise=denoise)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/nodes.py", line 1492, in common_ksampler
+    samples = comfy.sample.sample(model, noise, steps, cfg, sampler_name, scheduler, positive, negative, latent_image,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/sample.py", line 45, in sample
+    samples = sampler.sample(noise, positive, negative, cfg=cfg, latent_image=latent_image, start_step=start_step, last_step=last_step, force_full_denoise=force_full_denoise, denoise_mask=noise_mask, sigmas=sigmas, callback=callback, disable_pbar=disable_pbar, seed=seed)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 1161, in sample
+    return sample(self.model, noise, positive, negative, cfg, self.device, sampler, sigmas, self.model_options, latent_image=latent_image, denoise_mask=denoise_mask, callback=callback, disable_pbar=disable_pbar, seed=seed)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 1051, in sample
+    return cfg_guider.sample(noise, latent_image, sampler, sigmas, denoise_mask, callback, disable_pbar, seed)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 1036, in sample
+    output = executor.execute(noise, latent_image, sampler, sigmas, denoise_mask, callback, disable_pbar, seed)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 1004, in outer_sample
+    output = self.inner_sample(noise, latent_image, device, sampler, sigmas, denoise_mask, callback, disable_pbar, seed)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 987, in inner_sample
+    samples = executor.execute(self, sigmas, extra_args, callback, noise, latent_image, denoise_mask, disable_pbar)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 759, in sample
+    samples = self.sampler_function(model_k, noise, sigmas, extra_args=extra_args, callback=k_callback, disable=disable_pbar, **self.extra_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/k_diffusion/sampling.py", line 199, in sample_euler
+    denoised = model(x, sigma_hat * s_in, **extra_args)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 408, in __call__
+    out = self.inner_model(x, sigma, model_options=model_options, seed=seed)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 960, in __call__
+    return self.outer_predict_noise(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 967, in outer_predict_noise
+    ).execute(x, timestep, model_options, seed)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 970, in predict_noise
+    return sampling_function(self.inner_model, x, timestep, self.conds.get("negative", None), self.conds.get("positive", None), self.cfg, model_options=model_options, seed=seed)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 388, in sampling_function
+    out = calc_cond_batch(model, conds, x, timestep, model_options)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 206, in calc_cond_batch
+    return _calc_cond_batch_outer(model, conds, x_in, timestep, model_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 214, in _calc_cond_batch_outer
+    return executor.execute(model, conds, x_in, timestep, model_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/samplers.py", line 333, in _calc_cond_batch
+    output = model.apply_model(input_x, timestep_, **c).chunk(batch_chunks)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/model_base.py", line 160, in apply_model
+    return comfy.patcher_extension.WrapperExecutor.new_class_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/model_base.py", line 199, in _apply_model
+    model_output = self.diffusion_model(xc, t, context=context, control=control, transformer_options=transformer_options, **extra_conds).float()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/ldm/flux/model.py", line 232, in forward
+    return comfy.patcher_extension.WrapperExecutor.new_class_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/patcher_extension.py", line 112, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/ldm/flux/model.py", line 278, in _forward
+    out = self.forward_orig(img, img_ids, context, txt_ids, timestep, y, guidance, control, transformer_options, attn_mask=kwargs.get("attention_mask", None))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/ldm/flux/model.py", line 199, in forward_orig
+    img = block(img, vec=vec, pe=pe, attn_mask=attn_mask, transformer_options=transformer_options)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/ComfyUI/comfy/ldm/flux/layers.py", line 257, in forward
+    output = self.linear2(torch.cat((attn, self.mlp_act(mlp)), 2))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: Allocation on device 
+
+Got an OOM, unloading all loaded models.
+Prompt executed in 6.06 seconds
+Requested to load FluxClipModel_
+loaded partially 1363.9429328918457 1363.88671875 0
+Requested to load Flux
+loaded partially 681.799852783203 679.3633422851562 0
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:05<01:46,  5.59s/it] 10%|█         | 2/20 [00:11<01:39,  5.52s/it] 15%|█▌        | 3/20 [00:16<01:35,  5.60s/it] 20%|██        | 4/20 [00:22<01:30,  5.63s/it] 25%|██▌       | 5/20 [00:27<01:22,  5.50s/it]got prompt
+got prompt
+ 30%|███       | 6/20 [00:32<01:15,  5.40s/it] 35%|███▌      | 7/20 [00:38<01:09,  5.32s/it] 40%|████      | 8/20 [00:43<01:03,  5.26s/it] 45%|████▌     | 9/20 [00:48<00:57,  5.23s/it] 50%|█████     | 10/20 [00:53<00:51,  5.20s/it] 55%|█████▌    | 11/20 [00:58<00:46,  5.18s/it] 60%|██████    | 12/20 [01:03<00:41,  5.17s/it] 65%|██████▌   | 13/20 [01:08<00:36,  5.17s/it] 70%|███████   | 14/20 [01:14<00:30,  5.17s/it] 75%|███████▌  | 15/20 [01:19<00:25,  5.19s/it] 80%|████████  | 16/20 [01:24<00:21,  5.33s/it] 85%|████████▌ | 17/20 [01:30<00:16,  5.43s/it] 90%|█████████ | 18/20 [01:36<00:11,  5.52s/it] 95%|█████████▌| 19/20 [01:42<00:05,  5.57s/it]100%|██████████| 20/20 [01:47<00:00,  5.59s/it]100%|██████████| 20/20 [01:47<00:00,  5.39s/it]
+Requested to load AutoencodingEngine
+loaded completely 181.4886360168457 159.87335777282715 True
+Prompt executed in 111.90 seconds
+Requested to load FluxClipModel_
+loaded partially 3153.05 3152.392578125 0
+Requested to load Flux
+loaded partially 2455.8504198913574 2452.9522094726562 0
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:06<01:57,  6.19s/it] 10%|█         | 2/20 [00:11<01:37,  5.41s/it] 15%|█▌        | 3/20 [00:16<01:32,  5.47s/it] 20%|██        | 4/20 [00:22<01:29,  5.57s/it] 25%|██▌       | 5/20 [00:27<01:21,  5.42s/it] 30%|███       | 6/20 [00:32<01:13,  5.27s/it] 35%|███▌      | 7/20 [00:37<01:07,  5.19s/it] 40%|████      | 8/20 [00:42<01:03,  5.26s/it] 45%|████▌     | 9/20 [00:48<00:58,  5.28s/it] 50%|█████     | 10/20 [00:53<00:53,  5.33s/it] 55%|█████▌    | 11/20 [00:59<00:48,  5.40s/it] 60%|██████    | 12/20 [01:04<00:43,  5.42s/it] 65%|██████▌   | 13/20 [01:09<00:37,  5.32s/it] 70%|███████   | 14/20 [01:14<00:31,  5.24s/it] 75%|███████▌  | 15/20 [01:20<00:26,  5.29s/it] 80%|████████  | 16/20 [01:25<00:21,  5.34s/it] 85%|████████▌ | 17/20 [01:31<00:16,  5.38s/it] 90%|█████████ | 18/20 [01:36<00:10,  5.43s/it] 95%|█████████▌| 19/20 [01:42<00:05,  5.46s/it]100%|██████████| 20/20 [01:47<00:00,  5.44s/it]100%|██████████| 20/20 [01:47<00:00,  5.38s/it]
+Requested to load AutoencodingEngine
+loaded partially 134.07421875 134.0739803314209 0
+Prompt executed in 117.56 seconds
+loaded partially 2524.0379198913574 2524.03515625 0
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:05<01:36,  5.08s/it] 10%|█         | 2/20 [00:10<01:30,  5.05s/it] 15%|█▌        | 3/20 [00:15<01:28,  5.20s/it] 20%|██        | 4/20 [00:20<01:22,  5.18s/it] 25%|██▌       | 5/20 [00:25<01:16,  5.13s/it] 30%|███       | 6/20 [00:30<01:11,  5.09s/it] 35%|███▌      | 7/20 [00:35<01:05,  5.06s/it] 40%|████      | 8/20 [00:40<01:00,  5.02s/it] 45%|████▌     | 9/20 [00:45<00:55,  5.00s/it] 50%|█████     | 10/20 [00:50<00:49,  4.95s/it] 55%|█████▌    | 11/20 [00:55<00:44,  4.93s/it] 60%|██████    | 12/20 [01:00<00:39,  4.90s/it] 65%|██████▌   | 13/20 [01:04<00:34,  4.88s/it] 70%|███████   | 14/20 [01:09<00:29,  4.86s/it] 75%|███████▌  | 15/20 [01:14<00:24,  4.84s/it] 80%|████████  | 16/20 [01:19<00:19,  4.82s/it] 85%|████████▌ | 17/20 [01:24<00:14,  4.82s/it] 90%|█████████ | 18/20 [01:28<00:09,  4.82s/it] 95%|█████████▌| 19/20 [01:33<00:04,  4.81s/it]100%|██████████| 20/20 [01:38<00:00,  4.80s/it]100%|██████████| 20/20 [01:38<00:00,  4.93s/it]
+Requested to load AutoencodingEngine
+loaded partially 146.38671875 146.3864803314209 0
+Prompt executed in 100.11 seconds
+Requested to load FluxClipModel_
+loaded partially 3290.3625 3289.6337890625 0
+Requested to load Flux
+loaded partially 2617.0319198913576 2615.0049438476562 0
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:04<01:30,  4.75s/it] 10%|█         | 2/20 [00:09<01:25,  4.75s/it] 15%|█▌        | 3/20 [00:14<01:20,  4.75s/it] 20%|██        | 4/20 [00:18<01:15,  4.74s/it] 25%|██▌       | 5/20 [00:23<01:11,  4.74s/it] 30%|███       | 6/20 [00:28<01:06,  4.74s/it] 35%|███▌      | 7/20 [00:33<01:02,  4.80s/it] 40%|████      | 8/20 [00:38<00:57,  4.82s/it] 45%|████▌     | 9/20 [00:43<00:53,  4.84s/it] 50%|█████     | 10/20 [00:48<00:48,  4.86s/it] 55%|█████▌    | 11/20 [00:52<00:43,  4.87s/it] 60%|██████    | 12/20 [00:57<00:39,  4.88s/it] 65%|██████▌   | 13/20 [01:02<00:34,  4.91s/it] 70%|███████   | 14/20 [01:07<00:29,  4.90s/it] 75%|███████▌  | 15/20 [01:12<00:24,  4.89s/it] 80%|████████  | 16/20 [01:17<00:19,  4.90s/it] 85%|████████▌ | 17/20 [01:22<00:14,  4.89s/it] 90%|█████████ | 18/20 [01:27<00:09,  4.89s/it] 95%|█████████▌| 19/20 [01:32<00:04,  4.89s/it]

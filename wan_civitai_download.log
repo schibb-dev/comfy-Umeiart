@@ -1,0 +1,120 @@
+2025-09-28 18:48:56 - INFO - ============================================================
+2025-09-28 18:48:56 - INFO - WAN 2.1 Civitai Guide Model Downloader Started
+2025-09-28 18:48:56 - INFO - ============================================================
+2025-09-28 18:48:56 - INFO - Based on: https://civitai.com/articles/13389/step-by-step-guide-series-comfyui-img-to-video
+2025-09-28 18:48:56 - INFO - Setting up model directories...
+2025-09-28 18:48:56 - ERROR - Fatal error in main(): name 'logger' is not defined
+2025-09-28 18:48:56 - ERROR - Exception type: NameError
+2025-09-28 18:48:56 - DEBUG - Full traceback:
+Traceback (most recent call last):
+  File "/home/yuji/Code/Umeiart/download_wan_civitai_models.py", line 191, in main
+    setup_directories()
+  File "/home/yuji/Code/Umeiart/download_wan_civitai_models.py", line 96, in setup_directories
+    logger.debug(f"Ensured directory exists: {model_info['dest_dir']}")
+    ^^^^^^
+NameError: name 'logger' is not defined
+2025-09-28 18:48:56 - INFO - ============================================================
+2025-09-28 18:48:56 - INFO - WAN 2.1 Civitai Guide Model Downloader Finished
+2025-09-28 18:48:56 - INFO - ============================================================
+2025-09-28 18:49:00 - INFO - ============================================================
+2025-09-28 18:49:00 - INFO - WAN 2.1 Civitai Guide Model Downloader Started
+2025-09-28 18:49:00 - INFO - ============================================================
+2025-09-28 18:49:00 - INFO - Based on: https://civitai.com/articles/13389/step-by-step-guide-series-comfyui-img-to-video
+2025-09-28 18:49:00 - INFO - Setting up model directories...
+2025-09-28 18:49:00 - DEBUG - Ensured directory exists: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 18:49:00 - DEBUG - Ensured directory exists: /home/yuji/Code/Umeiart/ComfyUI/models/clip
+2025-09-28 18:49:00 - DEBUG - Ensured directory exists: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision
+2025-09-28 18:49:00 - DEBUG - Ensured directory exists: /home/yuji/Code/Umeiart/ComfyUI/models/vae
+2025-09-28 18:49:00 - INFO - Starting authentication process...
+2025-09-28 18:49:00 - ERROR - Fatal error in main(): name 'logger' is not defined
+2025-09-28 18:49:00 - ERROR - Exception type: NameError
+2025-09-28 18:49:00 - DEBUG - Full traceback:
+Traceback (most recent call last):
+  File "/home/yuji/Code/Umeiart/download_wan_civitai_models.py", line 195, in main
+    token = authenticate()
+            ^^^^^^^^^^^^^^
+  File "/home/yuji/Code/Umeiart/download_wan_civitai_models.py", line 100, in authenticate
+    logger.info("🔐 Hugging Face Authentication")
+    ^^^^^^
+NameError: name 'logger' is not defined
+2025-09-28 18:49:00 - INFO - ============================================================
+2025-09-28 18:49:00 - INFO - WAN 2.1 Civitai Guide Model Downloader Finished
+2025-09-28 18:49:00 - INFO - ============================================================
+2025-09-28 18:49:06 - INFO - ============================================================
+2025-09-28 18:49:06 - INFO - WAN 2.1 Civitai Guide Model Downloader Started
+2025-09-28 18:49:06 - INFO - ============================================================
+2025-09-28 18:49:06 - INFO - Based on: https://civitai.com/articles/13389/step-by-step-guide-series-comfyui-img-to-video
+2025-09-28 18:49:06 - INFO - Setting up model directories...
+2025-09-28 18:49:06 - DEBUG - Ensured directory exists: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 18:49:06 - DEBUG - Ensured directory exists: /home/yuji/Code/Umeiart/ComfyUI/models/clip
+2025-09-28 18:49:06 - DEBUG - Ensured directory exists: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision
+2025-09-28 18:49:06 - DEBUG - Ensured directory exists: /home/yuji/Code/Umeiart/ComfyUI/models/vae
+2025-09-28 18:49:06 - INFO - Starting authentication process...
+2025-09-28 18:49:06 - INFO - 🔐 Hugging Face Authentication
+2025-09-28 18:49:06 - INFO - 🔑 Found saved token, testing authentication...
+2025-09-28 18:49:06 - INFO - ✅ Authentication successful with saved token!
+2025-09-28 18:49:06 - INFO - Authentication successful
+2025-09-28 18:49:06 - INFO - Starting model downloads...
+2025-09-28 18:49:06 - INFO - Total models to download: 4
+2025-09-28 18:49:06 - INFO - Progress: 1/4 - wan2.1_i2v_720p_14B_fp8_e4m3fn.safetensors
+2025-09-28 18:49:06 - INFO - Starting download: wan2.1_i2v_720p_14B_fp8_e4m3fn.safetensors
+2025-09-28 18:49:06 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 18:49:06 - DEBUG - Filename: wan2.1_i2v_720p_14B_fp8_e4m3fn.safetensors
+2025-09-28 18:49:06 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/diffusion_models
+2025-09-28 18:49:06 - ERROR - Failed to download wan2.1_i2v_720p_14B_fp8_e4m3fn.safetensors: 404 Client Error. (Request ID: Root=1-68d9bb62-741526713273f8c909568ab5;a6bb193c-e049-41f7-a1b5-40ad7737a359)
+
+Entry Not Found for url: https://huggingface.co/Wan-AI/Wan2.1-I2V-14B-720P/resolve/main/wan2.1_i2v_720p_14B_fp8_e4m3fn.safetensors.
+2025-09-28 18:49:06 - ERROR - Failed after: 0.07 seconds
+2025-09-28 18:49:06 - DEBUG - Exception details: EntryNotFoundError: 404 Client Error. (Request ID: Root=1-68d9bb62-741526713273f8c909568ab5;a6bb193c-e049-41f7-a1b5-40ad7737a359)
+
+Entry Not Found for url: https://huggingface.co/Wan-AI/Wan2.1-I2V-14B-720P/resolve/main/wan2.1_i2v_720p_14B_fp8_e4m3fn.safetensors.
+2025-09-28 18:49:06 - INFO - Progress: 2/4 - umt5_xxl_fp8_e4m3fn_scaled.safetensors
+2025-09-28 18:49:06 - INFO - Starting download: umt5_xxl_fp8_e4m3fn_scaled.safetensors
+2025-09-28 18:49:06 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 18:49:06 - DEBUG - Filename: umt5_xxl_fp8_e4m3fn_scaled.safetensors
+2025-09-28 18:49:06 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip
+2025-09-28 18:49:06 - ERROR - Failed to download umt5_xxl_fp8_e4m3fn_scaled.safetensors: 404 Client Error. (Request ID: Root=1-68d9bb62-677d6f6f3df9e2316ddcbc35;4d7620ab-02aa-4037-b309-4ebcefac8b77)
+
+Entry Not Found for url: https://huggingface.co/Wan-AI/Wan2.1-I2V-14B-720P/resolve/main/umt5_xxl_fp8_e4m3fn_scaled.safetensors.
+2025-09-28 18:49:06 - ERROR - Failed after: 0.06 seconds
+2025-09-28 18:49:06 - DEBUG - Exception details: EntryNotFoundError: 404 Client Error. (Request ID: Root=1-68d9bb62-677d6f6f3df9e2316ddcbc35;4d7620ab-02aa-4037-b309-4ebcefac8b77)
+
+Entry Not Found for url: https://huggingface.co/Wan-AI/Wan2.1-I2V-14B-720P/resolve/main/umt5_xxl_fp8_e4m3fn_scaled.safetensors.
+2025-09-28 18:49:06 - INFO - Progress: 3/4 - clip_vision_h.safetensors
+2025-09-28 18:49:06 - INFO - Starting download: clip_vision_h.safetensors
+2025-09-28 18:49:06 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 18:49:06 - DEBUG - Filename: clip_vision_h.safetensors
+2025-09-28 18:49:06 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/clip_vision
+2025-09-28 18:49:06 - ERROR - Failed to download clip_vision_h.safetensors: 404 Client Error. (Request ID: Root=1-68d9bb62-3e59afdc6c9c03d77ed5d2e8;c4c0155f-4f81-4c34-9b63-ae9988f0cf71)
+
+Entry Not Found for url: https://huggingface.co/Wan-AI/Wan2.1-I2V-14B-720P/resolve/main/clip_vision_h.safetensors.
+2025-09-28 18:49:06 - ERROR - Failed after: 0.06 seconds
+2025-09-28 18:49:06 - DEBUG - Exception details: EntryNotFoundError: 404 Client Error. (Request ID: Root=1-68d9bb62-3e59afdc6c9c03d77ed5d2e8;c4c0155f-4f81-4c34-9b63-ae9988f0cf71)
+
+Entry Not Found for url: https://huggingface.co/Wan-AI/Wan2.1-I2V-14B-720P/resolve/main/clip_vision_h.safetensors.
+2025-09-28 18:49:06 - INFO - Progress: 4/4 - wan_2.1_vae.safetensors
+2025-09-28 18:49:06 - INFO - Starting download: wan_2.1_vae.safetensors
+2025-09-28 18:49:06 - DEBUG - Repository: Wan-AI/Wan2.1-I2V-14B-720P
+2025-09-28 18:49:06 - DEBUG - Filename: wan_2.1_vae.safetensors
+2025-09-28 18:49:06 - DEBUG - Destination: /home/yuji/Code/Umeiart/ComfyUI/models/vae
+2025-09-28 18:49:06 - ERROR - Failed to download wan_2.1_vae.safetensors: 404 Client Error. (Request ID: Root=1-68d9bb62-47c10d2e0d1bb7620ddd2537;af991cd7-1fc7-412b-8455-fe543dd498c9)
+
+Entry Not Found for url: https://huggingface.co/Wan-AI/Wan2.1-I2V-14B-720P/resolve/main/wan_2.1_vae.safetensors.
+2025-09-28 18:49:06 - ERROR - Failed after: 0.06 seconds
+2025-09-28 18:49:06 - DEBUG - Exception details: EntryNotFoundError: 404 Client Error. (Request ID: Root=1-68d9bb62-47c10d2e0d1bb7620ddd2537;af991cd7-1fc7-412b-8455-fe543dd498c9)
+
+Entry Not Found for url: https://huggingface.co/Wan-AI/Wan2.1-I2V-14B-720P/resolve/main/wan_2.1_vae.safetensors.
+2025-09-28 18:49:06 - INFO - ========================================
+2025-09-28 18:49:06 - INFO - DOWNLOAD SUMMARY
+2025-09-28 18:49:06 - INFO - ========================================
+2025-09-28 18:49:06 - INFO - Successfully downloaded: 0/4 models
+2025-09-28 18:49:06 - INFO - Total time: 0.55 seconds
+2025-09-28 18:49:06 - WARNING - ⚠️  4 models failed to download:
+2025-09-28 18:49:06 - WARNING -   - wan2.1_i2v_720p_14B_fp8_e4m3fn.safetensors
+2025-09-28 18:49:06 - WARNING -   - umt5_xxl_fp8_e4m3fn_scaled.safetensors
+2025-09-28 18:49:06 - WARNING -   - clip_vision_h.safetensors
+2025-09-28 18:49:06 - WARNING -   - wan_2.1_vae.safetensors
+2025-09-28 18:49:06 - WARNING - Check the error messages above and try again.
+2025-09-28 18:49:06 - INFO - ============================================================
+2025-09-28 18:49:06 - INFO - WAN 2.1 Civitai Guide Model Downloader Finished
+2025-09-28 18:49:06 - INFO - ============================================================
