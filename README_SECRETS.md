@@ -1,5 +1,12 @@
 Secrets setup
 
+## QUICKSTART
+
+```bash
+bash scripts/bootstrap_setup.sh
+```
+
+
 - Create a `.hf_token` file at the repo root with your Hugging Face token.
 
 - Create a `.civitai_token` file at the repo root with your Civitai API token.
