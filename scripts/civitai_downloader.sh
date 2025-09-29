@@ -256,29 +256,64 @@ except:
                 target_dir="$COMFYUI_DIR/workflows"
             fi
             
+            # Prepare shared download helper and paths
+            local SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+            # shellcheck source=lib_download.sh
+            source "$SCRIPT_DIR/lib_download.sh"
+
             # Download files (with resume/verify)
             echo "$download_urls" | while read -r url; do
                 if [[ -n "$url" ]]; then
                     local filename=$(basename "$url")
                     local target_file="$target_dir/$filename"
-                    
-                    # Use shared download helper with resume
-                    local SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-                    # shellcheck source=lib_download.sh
-                    source "$SCRIPT_DIR/lib_download.sh"
 
                     echo "📥 Downloading: $filename"
-                    if download_with_resume "$url" "$target_file" "" "" -- -H "Authorization: Bearer $CIVITAI_API_TOKEN"; then
-                        # Special handling for workflows
-                        if [[ "$asset_type" == "workflow" ]] && [[ "$filename" == *.json ]]; then
-                            if python3 -m json.tool "$target_file" > /dev/null 2>&1; then
-                                echo "✅ Valid workflow JSON"
-                            else
-                                echo "⚠️  Invalid JSON workflow"
-                            fi
-                        fi
-                    else
+                    if ! download_with_resume "$url" "$target_file" "" "" -- -H "Authorization: Bearer $CIVITAI_API_TOKEN"; then
                         echo "❌ Failed to download: $filename"
+                        continue
+                    fi
+
+                    # Post-processing for workflows
+                    if [[ "$asset_type" == "workflow" ]]; then
+                        case "$filename" in
+                            *.json|*.JSON)
+                                if python3 -m json.tool "$target_file" > /dev/null 2>&1; then
+                                    echo "✅ Valid workflow JSON"
+                                else
+                                    echo "⚠️  Invalid JSON workflow"
+                                fi
+                                ;;
+                            *.zip|*.ZIP)
+                                echo "📦 Extracting ZIP workflow bundle: $filename"
+                                tmpdir=$(mktemp -d)
+                                if unzip -q -o "$target_file" -d "$tmpdir"; then
+                                    # Move JSON workflows directly into workflows dir
+                                    found_json=0
+                                    while IFS= read -r -d '' jf; do
+                                        found_json=1
+                                        bn=$(basename "$jf")
+                                        if python3 -m json.tool "$jf" > /dev/null 2>&1; then
+                                            echo "✅ Workflow JSON: $bn"
+                                        else
+                                            echo "⚠️  JSON not validated: $bn"
+                                        fi
+                                        mv -f "$jf" "$target_dir/$bn"
+                                    done < <(find "$tmpdir" -type f -name "*.json" -print0)
+
+                                    # Preserve remaining files under imports/<asset_name>/
+                                    import_dir="$target_dir/imports/${asset_name// /_}"
+                                    mkdir -p "$import_dir"
+                                    rsync -a --exclude='*.json' "$tmpdir/" "$import_dir/" || true
+                                    echo "📁 Preserved bundle contents in: $import_dir"
+                                else
+                                    echo "❌ Failed to extract ZIP: $filename"
+                                fi
+                                rm -rf "$tmpdir" || true
+                                ;;
+                            *)
+                                echo "ℹ️  Saved asset: $filename"
+                                ;;
+                        esac
                     fi
                 fi
             done
