@@ -39,6 +39,25 @@ fi
 echo "🐍 Using Python: $PYTHON"
 "$PYTHON" main.py --listen 0.0.0.0 --port 8189 --cuda-device 1 &
 
+# Wait for HTTP readiness on port 8189 (up to 90s)
+PORT=8189
+TIMEOUT=90
+echo "⏳ Waiting for ComfyUI to become ready on :$PORT (timeout ${TIMEOUT}s)..."
+start_ts=$(date +%s)
+while true; do
+    if curl -fsS "http://localhost:${PORT}" >/dev/null 2>&1; then
+        echo "✅ ComfyUI is up on http://localhost:${PORT}"
+        break
+    fi
+    now_ts=$(date +%s)
+    elapsed=$(( now_ts - start_ts ))
+    if [ $elapsed -ge $TIMEOUT ]; then
+        echo "⚠️  Timed out waiting for ComfyUI on :$PORT. You can try opening the URL manually."
+        break
+    fi
+    sleep 1
+done
+
 # Wait a moment for ComfyUI to start
 sleep 5
 
