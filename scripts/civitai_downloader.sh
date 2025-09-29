@@ -289,6 +289,7 @@ except:
                                 if unzip -q -o "$target_file" -d "$tmpdir"; then
                                     # Move JSON workflows directly into workflows dir
                                     found_json=0
+                                    imported_jsons=()
                                     while IFS= read -r -d '' jf; do
                                         found_json=1
                                         bn=$(basename "$jf")
@@ -298,6 +299,7 @@ except:
                                             echo "⚠️  JSON not validated: $bn"
                                         fi
                                         mv -f "$jf" "$target_dir/$bn"
+                                        imported_jsons+=("$bn")
                                     done < <(find "$tmpdir" -type f -name "*.json" -print0)
 
                                     # Preserve remaining files under imports/<asset_name>/
@@ -305,6 +307,28 @@ except:
                                     mkdir -p "$import_dir"
                                     rsync -a --exclude='*.json' "$tmpdir/" "$import_dir/" || true
                                     echo "📁 Preserved bundle contents in: $import_dir"
+
+                                    # Write import log (text)
+                                    log_file="$import_dir/import_log.txt"
+                                    {
+                                      echo "Imported from Civitai"
+                                      echo "Asset Name: $asset_name"
+                                      echo "Asset ID: $asset_id"
+                                      echo "Source URL: $url"
+                                      echo "Timestamp: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+                                      echo "Host: $(hostname)"
+                                      echo "User: ${USER:-unknown}"
+                                      echo
+                                      echo "Imported Workflows (placed in $target_dir):"
+                                      for j in "${imported_jsons[@]:-}"; do
+                                        sz=$(stat -c %s "$target_dir/$j" 2>/dev/null || echo 0)
+                                        sh=$(sha256_file "$target_dir/$j" || true)
+                                        echo "  - $j (size=$sz sha256=${sh:-n/a})"
+                                      done
+                                      echo
+                                      echo "Preserved bundle path: $import_dir"
+                                    } > "$log_file" || true
+                                    echo "📝 Import log written: $log_file"
                                 else
                                     echo "❌ Failed to extract ZIP: $filename"
                                 fi
