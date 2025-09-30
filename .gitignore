@@ -16,3 +16,37 @@ ComfyUI_GPU0/venv/
 ComfyUI_GPU1/venv/
 .hf_token
 .civitai_token
+
+# RunPod deployment
+.dockerignore
+RUNPOD_DEPLOYMENT.md
+runpod_download_models.py
+
+# GPU-specific instances (keep only main ComfyUI)
+ComfyUI_GPU0/
+ComfyUI_GPU1/
+
+# Cache and temporary files
+**/cache/
+**/logs/
+*.prev.log
+*.prev2.log
+**/ComfyUI-Manager/cache/
+
+# SageAttention build artifacts
+SageAttention/build/
+SageAttention/dist/
+SageAttention/*.egg-info/
+
+# Scripts and utilities (keep only essential ones)
+scripts/
+_orig_zip/
+*.bat
+*.sh
+!runpod-deploy.sh
+!UmeAiRT-Install-ComfyUI.sh
+
+# Environment files
+.env
+.env.local
+.env.production
