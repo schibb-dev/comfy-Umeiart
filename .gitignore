@@ -44,6 +44,7 @@ _orig_zip/
 !runpod-deploy.sh
 !UmeAiRT-Install-ComfyUI.sh
 !download_loras_quick.sh
+!download_loras_advanced.sh
 
 # Environment files
 .env
