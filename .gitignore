@@ -45,6 +45,7 @@ _orig_zip/
 !UmeAiRT-Install-ComfyUI.sh
 !download_loras_quick.sh
 !download_loras_advanced.sh
+!download_loras_comprehensive.sh
 
 # Environment files
 .env
