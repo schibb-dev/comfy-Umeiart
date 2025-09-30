@@ -91,7 +91,7 @@ create_directories() {
 get_api_token() {
     # First, try to load token from file
     if [[ -f "$TOKEN_FILE" ]]; then
-        CIVITAI_API_TOKEN=$(cat "$TOKEN_FILE" 2>/dev/null || echo "")
+        CIVITAI_API_TOKEN=$(jq -r '.civitai_token' "$TOKEN_FILE" 2>/dev/null || cat "$TOKEN_FILE" 2>/dev/null || echo "")
         if [[ -n "$CIVITAI_API_TOKEN" ]]; then
             echo "✅ Using saved Civitai API token"
             return 0
@@ -134,7 +134,7 @@ search_assets() {
     echo "🔍 Searching for $asset_type: '$search_term'..."
     
     local search_url="$CIVITAI_API_BASE/models"
-    local search_params="?query=$(echo "$search_term" | sed 's/ /%20/g')&types=${ASSET_TYPES[$asset_type]}&sort=Most%20Downloaded"
+    local search_params="?query=$(echo "$search_term" | sed 's/ /%20/g')&types=LORA&sort=Most%20Downloaded"
     
     echo "📡 Searching Civitai API..."
     local search_result=$(curl -s -H "Authorization: Bearer $CIVITAI_API_TOKEN" \
