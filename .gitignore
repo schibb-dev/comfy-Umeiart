@@ -19,8 +19,6 @@ ComfyUI_GPU1/venv/
 
 # RunPod deployment
 .dockerignore
-RUNPOD_DEPLOYMENT.md
-runpod_download_models.py
 
 # GPU-specific instances (keep only main ComfyUI)
 ComfyUI_GPU0/
