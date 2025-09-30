@@ -49,10 +49,26 @@ Your setup includes these models:
 - LoRA models
 - Upscale models
 
-Download them using the included scripts:
+### Download WAN Models:
 ```bash
 python download_wan_models.py
 ```
+
+### Download LoRA Models:
+```bash
+# Quick method - opens Civitai search pages
+./download_loras_quick.sh
+
+# Or use the comprehensive manager
+python lora_manager.py
+```
+
+**Priority LoRAs** (enabled in FaceBlast workflow):
+- wan-thiccum-v3.safetensors
+- WAN_dr34mj0b.safetensors  
+- bounceV_01.safetensors
+
+See `LORA_DOWNLOAD_INSTRUCTIONS.md` for detailed download guide.
 
 ## Features Included
 
