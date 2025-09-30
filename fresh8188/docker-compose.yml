@@ -1,0 +1,28 @@
+services:
+  comfyui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: comfyui-fresh:latest
+    container_name: comfyui_fresh_8188
+    ports:
+      - "8188:8188"
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=0
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      - COMFYUI_PORT=8188
+      - PYTHONUNBUFFERED=1
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    volumes:
+      - ./data/user:/app/ComfyUI/user
+      - ./data/input:/app/ComfyUI/input
+      - ./data/output:/app/ComfyUI/output
+      - /home/yuji/Code/Umeiart/ComfyUI/models:/app/ComfyUI/models:rw
+      - ./data/custom_nodes:/app/ComfyUI/custom_nodes
+      - ./bootstrap:/bootstrap
+    runtime: nvidia
+    command: ["bash", "/bootstrap/entrypoint.sh"]
