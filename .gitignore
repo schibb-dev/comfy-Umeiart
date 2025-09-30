@@ -51,3 +51,6 @@ _orig_zip/
 .env
 .env.local
 .env.production
+
+ComfyUI_GPU0/models/
+ComfyUI_GPU1/models/
