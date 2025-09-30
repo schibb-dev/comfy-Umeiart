@@ -64,6 +64,11 @@ else
   echo "venv already exists: $VENV_DIR"
 fi
 
+
+step "Multi-GPU symlink setup"
+echo "Setting up symlinks for multi-GPU instances..."
+"$PROJECT_ROOT/scripts/setup_portable_symlinks.sh"
+
 step "Download core models (optional)"
 if confirm "Download WAN core models now?"; then
   "$PROJECT_ROOT/scripts/download_wan_models.sh"

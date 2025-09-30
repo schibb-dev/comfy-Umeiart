@@ -307,3 +307,6 @@ echo "  1. Restart ComfyUI"
 echo "  2. Load FaceBlast.json workflow"
 echo "  3. Check LoRAs appear in Power Lora Loader dropdown"
 echo "  4. Test with a sample image"
+
+
+

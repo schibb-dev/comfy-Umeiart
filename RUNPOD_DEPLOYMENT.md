@@ -94,3 +94,40 @@ See `LORA_DOWNLOAD_INSTRUCTIONS.md` for detailed download guide.
 - Stop instances when not in use
 - Use smaller GPUs for testing
 - Consider using RunPod's persistent storage for models
+
+## Container Architecture
+
+The RunPod deployment uses a **portable symlink architecture** that ensures all model directories are shared across any GPU instances:
+
+### ✅ **Portable Design:**
+- **Dynamic path detection** - works in any container environment
+- **Automatic symlink setup** - no hardcoded paths
+- **Multi-GPU ready** - scales to any number of GPU instances
+- **Model sharing** - single source of truth for all models
+
+### 🔗 **Symlink Structure:**
+```
+/workspace/ComfyUI/models/          # Main model directory
+├── loras/                          # Shared LoRAs
+├── checkpoints/                    # Shared checkpoints  
+├── vae/                           # Shared VAE models
+└── ...                            # All other model types
+
+/workspace/ComfyUI_GPU0/models/     # GPU0 instance
+├── loras -> ../ComfyUI/models/loras
+├── checkpoints -> ../ComfyUI/models/checkpoints
+└── ... (all symlinked)
+
+/workspace/ComfyUI_GPU1/models/     # GPU1 instance  
+├── loras -> ../ComfyUI/models/loras
+├── checkpoints -> ../ComfyUI/models/checkpoints
+└── ... (all symlinked)
+```
+
+### 🚀 **Benefits:**
+- **Single source of truth** for all models
+- **No duplication** across GPU instances
+- **Consistent model availability**
+- **Easy maintenance and updates**
+- **Works in any deployment environment**
+

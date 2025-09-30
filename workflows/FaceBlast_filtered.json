@@ -2,7 +2,7 @@
   "id": "30e46789-e0ab-43f6-a972-76b2b124550f",
   "revision": 0,
   "last_node_id": 465,
-  "last_link_id": 986,
+  "last_link_id": 976,
   "nodes": [
     {
       "id": 18,
@@ -1387,11 +1387,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            982,
-            983,
-            984,
-            985,
-            986
+            865
           ]
         }
       ],
@@ -2116,7 +2112,7 @@
           "localized_name": "images",
           "name": "images",
           "type": "IMAGE",
-          "link": 982
+          "link": 869
         },
         {
           "label": " ",
@@ -2301,7 +2297,7 @@
           "localized_name": "images",
           "name": "images",
           "type": "IMAGE",
-          "link": 983
+          "link": 865
         },
         {
           "label": " ",
@@ -2528,6 +2524,7 @@
           "name": "image",
           "type": "IMAGE",
           "links": [
+            869,
             916,
             926,
             934,
@@ -2703,44 +2700,6 @@
       "bgcolor": "#000",
       "shape": 1,
       "class_type": "ImageResizeKJv2"
-    },
-    {
-      "id": 403,
-      "type": "Fast Groups Bypasser (rgthree)",
-      "pos": [
-        566.768310546875,
-        -7.726508617401123
-      ],
-      "size": [
-        440,
-        60
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "label": " ",
-          "name": "OPT_CONNECTION",
-          "type": "*",
-          "links": null
-        }
-      ],
-      "title": "Activate automatic prompt",
-      "properties": {
-        "matchColors": "",
-        "matchTitle": "Automatic prompt",
-        "showNav": false,
-        "showAllGraphs": true,
-        "sort": "position",
-        "customSortAlphabet": "",
-        "toggleRestriction": "default"
-      },
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
-      "shape": 1,
-      "class_type": "Fast Groups Bypasser (rgthree)"
     },
     {
       "id": 404,
@@ -3250,44 +3209,6 @@
       "class_type": "easy showAnything"
     },
     {
-      "id": 415,
-      "type": "Fast Groups Bypasser (rgthree)",
-      "pos": [
-        2374.052490234375,
-        619.0387573242188
-      ],
-      "size": [
-        370,
-        202
-      ],
-      "flags": {},
-      "order": 15,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "label": " ",
-          "name": "OPT_CONNECTION",
-          "type": "*",
-          "links": null
-        }
-      ],
-      "title": "Optimisations",
-      "properties": {
-        "matchColors": "#696969",
-        "matchTitle": "",
-        "showNav": false,
-        "showAllGraphs": true,
-        "sort": "position",
-        "customSortAlphabet": "",
-        "toggleRestriction": "default"
-      },
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
-      "shape": 1,
-      "class_type": "Fast Groups Bypasser (rgthree)"
-    },
-    {
       "id": 416,
       "type": "Power Lora Loader (rgthree)",
       "pos": [
@@ -3448,7 +3369,9 @@
           "localized_name": "IMAGE",
           "name": "IMAGE",
           "type": "IMAGE",
-          "links": []
+          "links": [
+            900
+          ]
         }
       ],
       "title": "Apply ratio",
@@ -3487,7 +3410,7 @@
           "localized_name": "images",
           "name": "images",
           "type": "IMAGE",
-          "link": 984
+          "link": 900
         },
         {
           "label": " ",
@@ -3626,7 +3549,7 @@
         "format": "video/h264-mp4",
         "pix_fmt": "yuv420p",
         "crf": 19,
-        "save_metadata": true,
+        "save_metadata": false,
         "trim_to_audio": false,
         "pingpong": false,
         "save_output": true,
@@ -4001,14 +3924,6 @@
           "name": "*",
           "type": "*",
           "link": 908
-        },
-        {
-          "name": "output_type",
-          "type": "COMBO",
-          "widget": {
-            "name": "output_type"
-          },
-          "link": null
         }
       ],
       "outputs": [
@@ -4027,7 +3942,6 @@
         "ver": "5c8cdb58c798a404e50636c6f3e179b084a23fab"
       },
       "widgets_values": [
-        "int",
         "int"
       ],
       "color": "#222",
@@ -4173,7 +4087,9 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "slot_index": 0,
-          "links": []
+          "links": [
+            915
+          ]
         }
       ],
       "title": "interpolations",
@@ -4217,7 +4133,7 @@
           "localized_name": "images",
           "name": "images",
           "type": "IMAGE",
-          "link": 985
+          "link": 915
         },
         {
           "label": " ",
@@ -4435,44 +4351,6 @@
       "bgcolor": "#653",
       "shape": 1,
       "class_type": "PathchSageAttentionKJ"
-    },
-    {
-      "id": 436,
-      "type": "Fast Groups Muter (rgthree)",
-      "pos": [
-        2374.052490234375,
-        259.0384521484375
-      ],
-      "size": [
-        370,
-        140
-      ],
-      "flags": {},
-      "order": 18,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "label": " ",
-          "name": "OPT_CONNECTION",
-          "type": "*",
-          "links": null
-        }
-      ],
-      "title": "Post-production",
-      "properties": {
-        "matchColors": "#707070",
-        "matchTitle": "",
-        "showNav": false,
-        "showAllGraphs": true,
-        "sort": "position",
-        "customSortAlphabet": "",
-        "toggleRestriction": "default"
-      },
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
-      "shape": 1,
-      "class_type": "Fast Groups Muter (rgthree)"
     },
     {
       "id": 437,
@@ -4827,7 +4705,9 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "slot_index": 0,
-          "links": []
+          "links": [
+            931
+          ]
         }
       ],
       "title": "interpolations",
@@ -4871,7 +4751,7 @@
           "localized_name": "images",
           "name": "images",
           "type": "IMAGE",
-          "link": 986
+          "link": 931
         },
         {
           "label": " ",
@@ -5376,14 +5256,6 @@
           "name": "*",
           "type": "*",
           "link": 971
-        },
-        {
-          "name": "output_type",
-          "type": "COMBO",
-          "widget": {
-            "name": "output_type"
-          },
-          "link": null
         }
       ],
       "outputs": [
@@ -5402,7 +5274,6 @@
         "ver": "5c8cdb58c798a404e50636c6f3e179b084a23fab"
       },
       "widgets_values": [
-        "int",
         "int"
       ],
       "color": "#222",
@@ -5430,14 +5301,6 @@
           "name": "*",
           "type": "*",
           "link": 972
-        },
-        {
-          "name": "output_type",
-          "type": "COMBO",
-          "widget": {
-            "name": "output_type"
-          },
-          "link": null
         }
       ],
       "outputs": [
@@ -5456,7 +5319,6 @@
         "ver": "5c8cdb58c798a404e50636c6f3e179b084a23fab"
       },
       "widgets_values": [
-        "int",
         "int"
       ],
       "color": "#222",
@@ -5484,14 +5346,6 @@
           "name": "*",
           "type": "*",
           "link": 973
-        },
-        {
-          "name": "output_type",
-          "type": "COMBO",
-          "widget": {
-            "name": "output_type"
-          },
-          "link": null
         }
       ],
       "outputs": [
@@ -5510,7 +5364,6 @@
         "ver": "5c8cdb58c798a404e50636c6f3e179b084a23fab"
       },
       "widgets_values": [
-        "int",
         "int"
       ],
       "color": "#222",
@@ -5538,14 +5391,6 @@
           "name": "*",
           "type": "*",
           "link": 974
-        },
-        {
-          "name": "output_type",
-          "type": "COMBO",
-          "widget": {
-            "name": "output_type"
-          },
-          "link": null
         }
       ],
       "outputs": [
@@ -5564,7 +5409,6 @@
         "ver": "5c8cdb58c798a404e50636c6f3e179b084a23fab"
       },
       "widgets_values": [
-        "int",
         "int"
       ],
       "color": "#222",
@@ -5592,14 +5436,6 @@
           "name": "*",
           "type": "*",
           "link": 975
-        },
-        {
-          "name": "output_type",
-          "type": "COMBO",
-          "widget": {
-            "name": "output_type"
-          },
-          "link": null
         }
       ],
       "outputs": [
@@ -5618,7 +5454,6 @@
         "ver": "5c8cdb58c798a404e50636c6f3e179b084a23fab"
       },
       "widgets_values": [
-        "int",
         "int"
       ],
       "color": "#222",
@@ -5646,14 +5481,6 @@
           "name": "*",
           "type": "*",
           "link": 976
-        },
-        {
-          "name": "output_type",
-          "type": "COMBO",
-          "widget": {
-            "name": "output_type"
-          },
-          "link": null
         }
       ],
       "outputs": [
@@ -5672,7 +5499,6 @@
         "ver": "5c8cdb58c798a404e50636c6f3e179b084a23fab"
       },
       "widgets_values": [
-        "int",
         "int"
       ],
       "color": "#222",
@@ -6009,6 +5835,14 @@
       "MODEL"
     ],
     [
+      865,
+      245,
+      0,
+      399,
+      0,
+      "IMAGE"
+    ],
+    [
       866,
       126,
       0,
@@ -6030,6 +5864,14 @@
       0,
       400,
       1,
+      "IMAGE"
+    ],
+    [
+      869,
+      400,
+      0,
+      398,
+      0,
       "IMAGE"
     ],
     [
@@ -6161,6 +6003,14 @@
       "IMAGE"
     ],
     [
+      900,
+      418,
+      0,
+      419,
+      0,
+      "IMAGE"
+    ],
+    [
       901,
       421,
       0,
@@ -6229,6 +6079,14 @@
       430,
       0,
       431,
+      0,
+      "IMAGE"
+    ],
+    [
+      915,
+      431,
+      0,
+      433,
       0,
       "IMAGE"
     ],
@@ -6309,6 +6167,14 @@
       441,
       0,
       442,
+      0,
+      "IMAGE"
+    ],
+    [
+      931,
+      442,
+      0,
+      443,
       0,
       "IMAGE"
     ],
@@ -6503,46 +6369,6 @@
       465,
       0,
       "FLOAT"
-    ],
-    [
-      982,
-      245,
-      0,
-      398,
-      0,
-      "IMAGE"
-    ],
-    [
-      983,
-      245,
-      0,
-      399,
-      0,
-      "IMAGE"
-    ],
-    [
-      984,
-      245,
-      0,
-      419,
-      0,
-      "IMAGE"
-    ],
-    [
-      985,
-      245,
-      0,
-      433,
-      0,
-      "IMAGE"
-    ],
-    [
-      986,
-      245,
-      0,
-      443,
-      0,
-      "IMAGE"
     ]
   ],
   "groups": [

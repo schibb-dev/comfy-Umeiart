@@ -195,3 +195,6 @@ fi
 echo
 echo "💡 Tip: Priority LoRAs (enabled in workflow) are most important"
 echo "   Focus on downloading those first for immediate results!"
+
+
+
