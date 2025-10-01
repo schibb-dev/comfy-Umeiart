@@ -9,64 +9,143 @@ import sys
 import json
 import requests
 import subprocess
+import argparse
 from pathlib import Path
 from tqdm import tqdm
 
+def load_defaults():
+    """Load default configuration from ~/.civitai_lora_defaults.json"""
+    config_file = Path.home() / ".civitai_lora_defaults.json"
+    
+    # Default configuration
+    defaults = {
+        'wan_version': '2.1',
+        'modality': 'i2v', 
+        'resolution': '480',
+        'noise_level': 'any'
+    }
+    
+    if config_file.exists():
+        try:
+            with open(config_file, 'r') as f:
+                user_defaults = json.load(f)
+                defaults.update(user_defaults)
+                print(f"📋 Loaded custom defaults from {config_file}")
+        except Exception as e:
+            print(f"⚠️  Error loading config file {config_file}: {e}")
+            print("📋 Using built-in defaults")
+    else:
+        print("📋 Using built-in defaults")
+    
+    return defaults
+
+def save_defaults(defaults):
+    """Save default configuration to ~/.civitai_lora_defaults.json"""
+    config_file = Path.home() / ".civitai_lora_defaults.json"
+    
+    try:
+        with open(config_file, 'w') as f:
+            json.dump(defaults, f, indent=2)
+        print(f"💾 Saved defaults to {config_file}")
+        return True
+    except Exception as e:
+        print(f"❌ Error saving config file {config_file}: {e}")
+        return False
+
+def show_current_defaults():
+    """Display current default configuration"""
+    defaults = load_defaults()
+    print("\n📋 Current Default Configuration:")
+    print(f"  WAN Version: {defaults['wan_version']}")
+    print(f"  Modality: {defaults['modality']}")
+    print(f"  Resolution: {defaults['resolution']}")
+    print(f"  Noise Level: {defaults['noise_level']}")
+    print(f"  Config file: {Path.home() / '.civitai_lora_defaults.json'}")
+
 class CivitaiLoRADownloader:
-    def __init__(self, base_dir="/home/yuji/Code/Umeiart"):
-        self.base_dir = Path(base_dir)
+    def __init__(self, comfyui_dir=None, base_dir=None, wan_version='2.1', modality='i2v', resolution='480', noise_level='any'):
+        """
+        Initialize the Civitai LoRA Downloader
+        
+        Args:
+            comfyui_dir: Path to ComfyUI root directory (e.g., "/path/to/ComfyUI")
+            base_dir: Base directory for token file (defaults to ComfyUI parent directory)
+            wan_version: Preferred WAN version ('2.1', '2.2', or 'any')
+            modality: Preferred modality ('i2v', 't2v', or 'any')
+            resolution: Preferred resolution ('480', '720', or 'any')
+            noise_level: Preferred noise level ('low', 'high', or 'any')
+        """
+        if comfyui_dir:
+            self.comfyui_dir = Path(comfyui_dir)
+            self.base_dir = self.comfyui_dir.parent if base_dir is None else Path(base_dir)
+        else:
+            # Fallback to default for backward compatibility
+            self.base_dir = Path(base_dir) if base_dir else Path("/home/yuji/Code/Umeiart")
+            self.comfyui_dir = self.base_dir / "ComfyUI"
+        
         self.token_file = self.base_dir / ".civitai_token"
-        self.lora_dir = self.base_dir / "ComfyUI" / "models" / "loras"
+        self.lora_dir = self.comfyui_dir / "models" / "loras"
+        self.index_file = self.lora_dir / "loras_index.json"
         self.lora_dir.mkdir(parents=True, exist_ok=True)
         
         # Civitai API configuration
         self.api_base = "https://civitai.com/api/v1"
         self.token = None
         
+        # Filtering preferences
+        self.wan_version = wan_version
+        self.modality = modality
+        self.resolution = resolution
+        self.noise_level = noise_level
+        
         # LoRA definitions with Civitai search terms
         self.loras = {
             'wan-nsfw-e14-fixed.safetensors': {
                 'description': 'WAN NSFW Enhancement LoRA',
                 'strength': 1.0,
-                'enabled': False,
+                'enabled': True,
                 'search_terms': ['wan nsfw e14', 'wan enhancement', 'wan nsfw'],
+                # Primary Civitai model ID (WAN 25 Realistic). Likely matches HIGH/LOW files:
+                #   - version_id: 2265257, file_id: 2157376, name: W25_Realistic_HIGH.safetensors (~1.14 GB)
+                #   - version_id: 2265286, file_id: 2157414, name: W25_Realistic_LOW.safetensors (~1.14 GB)
+                'civitai_id': '2001317',
                 'priority': 3
             },
             'wan_cumshot_i2v.safetensors': {
-                'description': 'WAN Cumshot Image-to-Video LoRA',
+                'description': 'Wan Cumshot (2.2 / 2.1)',
                 'strength': 0.95,
-                'enabled': False,
-                'search_terms': ['wan cumshot i2v', 'wan cumshot', 'wan i2v'],
-                'priority': 3
-            },
-            'facials60.safetensors': {
-                'description': 'Facial Enhancement LoRA',
-                'strength': 0.95,
-                'enabled': False,
-                'search_terms': ['facials60', 'facial enhancement', 'facials'],
-                'priority': 3
-            },
-            'Handjob-wan-e38.safetensors': {
-                'description': 'Handjob WAN LoRA',
-                'strength': 1.0,
-                'enabled': False,
-                'search_terms': ['handjob wan e38', 'wan handjob', 'handjob'],
-                'priority': 3
+                'enabled': True,
+                'search_terms': ['wan cumshot (2.2 / 2.1)', 'wan cumshot'],
+                'civitai_id': '1350447',
+                'version_id': 1602715,
+                'file_id': 1502760,
+                'priority': 1
             },
             'wan-thiccum-v3.safetensors': {
-                'description': 'WAN Thiccum v3 LoRA',
+                'description': 'WAN Thiccum v3 LoRA (WAN 2.1 I2V)',
                 'strength': 0.95,
                 'enabled': True,
                 'search_terms': ['wan thiccum v3', 'wan thiccum', 'thiccum v3'],
                 'civitai_id': '1643871',
+                'version_id': 1860691,
+                'file_id': 1760392,
                 'priority': 1
             },
             'WAN_dr34mj0b.safetensors': {
-                'description': 'WAN Dr34mj0b LoRA',
+                'description': 'WAN Dr34mj0b LoRA (WAN 2.1 I2V)',
                 'strength': 1.0,
                 'enabled': True,
                 'search_terms': ['wan dr34mj0b', 'dr34mj0b', 'wan dr34'],
                 'civitai_id': '1395313',
+                # Pin to the WAN 2.1 I2V 480p variant
+                'version_id': 1639409,
+                'file_id': 1539760,
+                # Alternatives for version/file IDs under this model:
+                #   - version_id: 1639409, file_id: 1539760, name: wan_dr34mj0b_t2v.safetensors (~146 MB) ← WAN 2.1 I2V 480p
+                #   - version_id: 1610465, file_id: 1510563, name: WAN_dr34mj0b.safetensors (~171 MB) ← WAN 2.1 I2V 720p
+                #   - version_id: 2235299, file_id: 2128196, name: DR34MJOB_I2V_14b_HighNoise.safetensors (~293 MB) ← WAN 2.2 I2V
+                #   - version_id: 2235288, file_id: 2128187, name: DR34MJOB_I2V_14b_LowNoise.safetensors (~293 MB) ← WAN 2.2 I2V
+                #   - version_id: 1672099, file_id: 1573106, name: wan_dr34mj0b_t2v_HD.safetensors (~146 MB) ← WAN 2.1 T2V
                 'priority': 1
             },
             'bounceV_01.safetensors': {
@@ -75,7 +154,30 @@ class CivitaiLoRADownloader:
                 'enabled': True,
                 'search_terms': ['bounceV 01', 'bounceV', 'bounce'],
                 'civitai_id': '1343431',
+                # Pin to the I2V 720p variant (matches ~293MB file size)
+                'version_id': '1517164',
+                'file_id': '1417396',
+                # Alternatives for version/file IDs under this model (same filename across versions):
+                #   - version_id: 1517164, file_id: 1417396, name: bounceV_01.safetensors
+                #   - version_id: 1836694, file_id: 1736845, name: bounceV_01.safetensors
+                #   - version_id: 1836649, file_id: 1736799, name: bounceV_01.safetensors
                 'priority': 1
+            },
+            # Added per request: Facial Cumshot - Hun | Wan Video Lora
+            # Source: https://civitai.com/models/1598362?modelVersionId=1952633
+            'wan-cumshot-I2V-22epo-k3nk.safetensors': {
+                'description': 'Facial Cumshot - Hun | Wan Video LoRA (I2V v1.0)',
+                'strength': 1.0,
+                'enabled': True,
+                'search_terms': ['wan cumshot i2v', 'cumshot hun wan', 'wan cumshot'],
+                'civitai_id': '1598362',
+                'version_id': 1952633,
+                'file_id': 1850112,
+                # Alternatives:
+                #   - version_id: 1952633, file_id: 1850112, name: wan-cumshot-I2V-22epo-k3nk.safetensors (~343 MB) ✅ I2V
+                #   - version_id: 1999588, file_id: 1896725, name: wan-cumshot-T2V-22epo-k3nk.safetensors (~343 MB) ❌ T2V
+                #   - version_id: 1808720, file_id: 1709261, name: cumshot-v1-18epo-hunyuan-k3nk.safetensors (~308 MB)
+                'priority': 2
             }
         }
     
@@ -160,16 +262,324 @@ class CivitaiLoRADownloader:
         
         return None
     
+    def get_model_details(self, model_id):
+        """Fetch full model details from Civitai (includes versions/files)."""
+        url = f"{self.api_base}/models/{model_id}"
+        headers = {
+            'Authorization': f'Bearer {self.token}',
+            'Content-Type': 'application/json'
+        }
+        try:
+            response = requests.get(url, headers=headers, timeout=30)
+            response.raise_for_status()
+            return response.json()
+        except requests.RequestException as e:
+            print(f"⚠️  Failed to fetch model details for {model_id}: {e}")
+            return None
+
+    def _build_metadata(self, filename, model_data, version_id, file_info):
+        """Construct a compact metadata dict for sidecar and index."""
+        version_obj = None
+        if model_data:
+            for ver in model_data.get('modelVersions', []):
+                if ver.get('id') == version_id:
+                    version_obj = ver
+                    break
+        meta = {
+            'filename': filename,
+            'model_id': model_data.get('id') if model_data else None,
+            'model_name': model_data.get('name') if model_data else None,
+            'model_type': model_data.get('type') if model_data else None,
+            'version_id': version_id,
+            'version_name': (version_obj or {}).get('name'),
+            'base_model': (version_obj or {}).get('baseModel'),
+            'trained_words': (version_obj or {}).get('trainedWords'),
+            'file': {
+                'name': file_info.get('name') if isinstance(file_info, dict) else None,
+                'type': file_info.get('type') if isinstance(file_info, dict) else None,
+                'sizeKB': file_info.get('sizeKB') if isinstance(file_info, dict) else None,
+                'downloadUrl': file_info.get('downloadUrl') if isinstance(file_info, dict) else None,
+                'hashes': file_info.get('hashes') if isinstance(file_info, dict) else None,
+            }
+        }
+        return meta
+
+    def _write_sidecar(self, filename, metadata):
+        """Write a sidecar JSON next to the LoRA file."""
+        try:
+            sidecar_path = self.lora_dir / f"{filename}.json"
+            with open(sidecar_path, 'w') as f:
+                json.dump(metadata, f, indent=2)
+        except Exception as e:
+            print(f"⚠️  Failed to write sidecar for {filename}: {e}")
+
+    def _extract_wan_info(self, metadata):
+        """Extract WAN version and modality from metadata for renaming."""
+        base_model = metadata.get('base_model') or ''
+        version_name = metadata.get('version_name') or ''
+        model_name = metadata.get('model_name') or ''
+        
+        # Extract WAN version (e.g., "2.1", "2.2")
+        wan_version = None
+        if 'wan video 14b i2v' in base_model.lower():
+            wan_version = '21'  # WAN 2.1 I2V
+        elif 'wan video 2.1' in base_model.lower():
+            wan_version = '21'
+        elif 'wan video 2.2' in base_model.lower():
+            wan_version = '22'
+        elif 'wan 2.1' in base_model.lower():
+            wan_version = '21'
+        elif 'wan 2.2' in base_model.lower():
+            wan_version = '22'
+        elif 'wan 14b' in base_model.lower() and 'i2v' in base_model.lower():
+            wan_version = '21'  # WAN 2.1 I2V 14B
+        elif 'wan 14b' in base_model.lower():
+            wan_version = '22'  # WAN 2.2 T2V 14B
+        elif 'wan' in model_name.lower() and '14b' in model_name.lower():
+            wan_version = '21'  # Default 14B models to WAN 2.1
+        elif 'wan 25' in model_name.lower():
+            wan_version = '22'  # "WAN 25 Realistic" is actually WAN 2.2
+        elif 'wan' in model_name.lower():
+            # If it has "wan" in the name but no specific version, assume 21
+            wan_version = '21'
+        
+        # Extract modality (I2V/T2V)
+        modality = None
+        if 'i2v' in version_name.lower() or 'i2v' in base_model.lower():
+            modality = 'i2v'
+        elif 't2v' in version_name.lower() or 't2v' in base_model.lower():
+            modality = 't2v'
+        elif 'i2v' in model_name.lower():
+            modality = 'i2v'
+        elif 't2v' in model_name.lower():
+            modality = 't2v'
+        elif 'wan video 14b i2v' in base_model.lower():
+            modality = 'i2v'  # Explicit I2V detection
+        elif 'wan video' in base_model.lower() and 't2v' in base_model.lower():
+            modality = 't2v'  # Explicit T2V detection
+        elif 'wan' in model_name.lower():
+            # If it has "wan" in the name but no specific modality, assume i2v for 14B models
+            if '14b' in base_model.lower() or '14b' in model_name.lower():
+                modality = 'i2v'
+            else:
+                modality = 't2v'
+        
+        return wan_version, modality
+
+    def _parse_version_metadata(self, version):
+        """Parse version metadata to extract compatibility information."""
+        base_model = version.get('base_model', '').lower()
+        version_name = version.get('name', '').lower()
+        
+        # Extract WAN version
+        wan_version = None
+        if 'wan video 2.1' in base_model or 'wan 2.1' in base_model:
+            wan_version = '2.1'
+        elif 'wan video 2.2' in base_model or 'wan 2.2' in base_model:
+            wan_version = '2.2'
+        elif 'wan video 14b' in base_model:
+            # 14B models are typically WAN 2.1
+            wan_version = '2.1'
+        
+        # Extract modality
+        modality = None
+        if 'i2v' in base_model or 'i2v' in version_name:
+            modality = 'i2v'
+        elif 't2v' in base_model or 't2v' in version_name:
+            modality = 't2v'
+        
+        # Extract resolution
+        resolution = None
+        if '720' in base_model or '720' in version_name:
+            resolution = '720'
+        elif '480' in base_model or '480' in version_name:
+            resolution = '480'
+        
+        # Extract noise level
+        noise_level = None
+        if 'high' in version_name or 'highnoise' in version_name:
+            noise_level = 'high'
+        elif 'low' in version_name or 'lownoise' in version_name:
+            noise_level = 'low'
+        
+        return {
+            'wan_version': wan_version,
+            'modality': modality,
+            'resolution': resolution,
+            'noise_level': noise_level,
+            'base_model': base_model,
+            'version_name': version_name
+        }
+
+    def _score_version_compatibility(self, version_metadata):
+        """Score a version based on compatibility with preferences."""
+        score = 0
+        
+        # WAN version scoring
+        if self.wan_version == 'any':
+            score += 10  # Any version is acceptable
+        elif version_metadata['wan_version'] == self.wan_version:
+            score += 20  # Perfect match
+        elif version_metadata['wan_version'] is not None:
+            score += 5   # Different WAN version but still WAN
+        
+        # Modality scoring
+        if self.modality == 'any':
+            score += 10
+        elif version_metadata['modality'] == self.modality:
+            score += 20
+        elif version_metadata['modality'] is not None:
+            score += 5
+        
+        # Resolution scoring
+        if self.resolution == 'any':
+            score += 10
+        elif version_metadata['resolution'] == self.resolution:
+            score += 20
+        elif version_metadata['resolution'] is not None:
+            score += 5
+        
+        # Noise level scoring (only applies to WAN 2.2)
+        if version_metadata['wan_version'] == '2.2':
+            if self.noise_level == 'any':
+                score += 10
+            elif version_metadata['noise_level'] == self.noise_level:
+                score += 20
+            elif version_metadata['noise_level'] is not None:
+                score += 5
+        else:
+            # For non-WAN 2.2 models, noise level preference doesn't apply
+            score += 10
+        
+        return score
+
+    def _select_best_version(self, model_data, lora_name):
+        """Select the best version based on preferences with fallback logic."""
+        versions = model_data.get('modelVersions', [])
+        if not versions:
+            return None
+        
+        scored_versions = []
+        
+        for version in versions:
+            # Only consider versions with .safetensors files
+            safetensors_files = [f for f in version.get('files', []) if f.get('name', '').endswith('.safetensors')]
+            if not safetensors_files:
+                continue
+            
+            version_metadata = self._parse_version_metadata(version)
+            score = self._score_version_compatibility(version_metadata)
+            
+            # Use the first (usually largest) safetensors file
+            file_info = safetensors_files[0]
+            
+            scored_versions.append({
+                'version': version,
+                'file': file_info,
+                'metadata': version_metadata,
+                'score': score
+            })
+        
+        if not scored_versions:
+            return None
+        
+        # Sort by score (highest first)
+        scored_versions.sort(key=lambda x: x['score'], reverse=True)
+        
+        best = scored_versions[0]
+        
+        # Log the selection reasoning
+        metadata = best['metadata']
+        print(f"  🎯 Selected version: {best['version'].get('name', 'Unknown')}")
+        print(f"      WAN: {metadata['wan_version'] or 'Unknown'} (preferred: {self.wan_version})")
+        print(f"      Modality: {metadata['modality'] or 'Unknown'} (preferred: {self.modality})")
+        print(f"      Resolution: {metadata['resolution'] or 'Unknown'} (preferred: {self.resolution})")
+        print(f"      Noise: {metadata['noise_level'] or 'Unknown'} (preferred: {self.noise_level})")
+        print(f"      Score: {best['score']}/80")
+        
+        return best
+
+    def _generate_new_filename(self, original_name, metadata):
+        """Generate new filename with WAN version and modality prefix."""
+        wan_version, modality = self._extract_wan_info(metadata)
+        
+        if wan_version and modality:
+            # Remove .safetensors extension
+            base_name = original_name.replace('.safetensors', '')
+            # Create new name: wan-{version}-{modality}-{original}
+            new_name = f"wan-{wan_version}-{modality}-{base_name}.safetensors"
+            return new_name
+        
+        return original_name
+
+    def _rename_file(self, old_path, new_name):
+        """Rename file and update sidecar/index if needed."""
+        try:
+            new_path = self.lora_dir / new_name
+            if old_path != new_path and not new_path.exists():
+                old_path.rename(new_path)
+                print(f"  📝 Renamed: {old_path.name} → {new_name}")
+                
+                # Update sidecar JSON filename
+                old_sidecar = old_path.with_suffix('.safetensors.json')
+                new_sidecar = new_path.with_suffix('.safetensors.json')
+                if old_sidecar.exists():
+                    old_sidecar.rename(new_sidecar)
+                
+                return new_path
+        except Exception as e:
+            print(f"  ⚠️  Failed to rename {old_path.name}: {e}")
+        
+        return old_path
+
+    def _update_index(self, metadata):
+        """Merge/update an index JSON mapping filename -> metadata summary."""
+        try:
+            index = {}
+            if self.index_file.exists():
+                with open(self.index_file, 'r') as f:
+                    try:
+                        index = json.load(f) or {}
+                    except json.JSONDecodeError:
+                        index = {}
+            index[metadata['filename']] = metadata
+            self.index_file.parent.mkdir(parents=True, exist_ok=True)
+            with open(self.index_file, 'w') as f:
+                json.dump(index, f, indent=2)
+        except Exception as e:
+            print(f"⚠️  Failed to update index: {e}")
+    
+    def _file_already_exists(self, filename):
+        """Check if file already exists (including renamed versions)"""
+        # Check original filename
+        filepath = self.lora_dir / filename
+        if filepath.exists() and filepath.stat().st_size > 1024:
+            return filepath
+        
+        # Check for renamed versions (wan-XX-modality-*)
+        base_name = filename.replace('.safetensors', '')
+        for existing_file in self.lora_dir.glob(f"wan-*-{base_name}.safetensors"):
+            if existing_file.stat().st_size > 1024:
+                return existing_file
+        
+        # Check for any file that contains the base name
+        for existing_file in self.lora_dir.glob(f"*{base_name}*.safetensors"):
+            if existing_file.stat().st_size > 1024:
+                return existing_file
+        
+        return None
+    
     def download_file(self, url, filename):
         """Download a file with progress bar"""
-        filepath = self.lora_dir / filename
-        
-        # Check if file already exists and is valid
-        if filepath.exists() and filepath.stat().st_size > 1024:
-            print(f"✅ {filename} already exists ({filepath.stat().st_size:,} bytes)")
+        # Check if file already exists (including renamed versions)
+        existing_file = self._file_already_exists(filename)
+        if existing_file:
+            print(f"✅ {filename} already exists as {existing_file.name} ({existing_file.stat().st_size:,} bytes)")
             return True
         
         print(f"📥 Downloading {filename}...")
+        
+        filepath = self.lora_dir / filename
         
         headers = {
             'Authorization': f'Bearer {self.token}',
@@ -204,7 +614,91 @@ class CivitaiLoRADownloader:
     
     def download_lora(self, lora_name, lora_info):
         """Download a specific LoRA"""
-        print(f"\n🔍 Searching for {lora_name}...")
+        print(f"\n🔍 Processing {lora_name}...")
+        
+        # Check if file already exists (including renamed versions)
+        existing_file = self._file_already_exists(lora_name)
+        if existing_file:
+            print(f"✅ {lora_name} already exists as {existing_file.name}")
+            # Still update metadata if sidecar doesn't exist
+            sidecar_path = existing_file.with_suffix('.safetensors.json')
+            if not sidecar_path.exists():
+                print(f"  📝 Creating missing metadata for {existing_file.name}")
+                # We need to fetch metadata for the existing file
+                if 'civitai_id' in lora_info:
+                    model_details = self.get_model_details(lora_info['civitai_id'])
+                    if model_details and 'version_id' in lora_info and 'file_id' in lora_info:
+                        # Find the file info
+                        target_file = None
+                        for version in model_details.get('modelVersions', []):
+                            if version['id'] == lora_info['version_id']:
+                                for file in version.get('files', []):
+                                    if file['id'] == lora_info['file_id']:
+                                        target_file = file
+                                        break
+                                break
+                        
+                        if target_file:
+                            metadata = self._build_metadata(
+                                filename=existing_file.name,
+                                model_data=model_details,
+                                version_id=lora_info['version_id'],
+                                file_info=target_file
+                            )
+                            self._write_sidecar(existing_file.name, metadata)
+                            self._update_index(metadata)
+            return True
+        
+        # Check if we have pinned version/file IDs for direct download
+        if 'version_id' in lora_info and 'file_id' in lora_info:
+            print(f"  📌 Using pinned version: {lora_info['version_id']}")
+            model_details = self.get_model_details(lora_info['civitai_id'])
+            if model_details:
+                # Find the specific file in the pinned version
+                target_file = None
+                for ver in model_details.get('modelVersions', []):
+                    if str(ver.get('id')) == str(lora_info['version_id']):
+                        for f in ver.get('files', []):
+                            if str(f.get('id')) == str(lora_info['file_id']):
+                                target_file = f
+                                break
+                        break
+                
+                if target_file and target_file.get('downloadUrl'):
+                    print(f"  ✅ Found pinned file: {target_file.get('name', lora_name)}")
+                    print(f"  📋 Model ID: {lora_info['civitai_id']}")
+                    
+                    # Perform download (or skip if already present)
+                    ok = self.download_file(target_file['downloadUrl'], lora_name)
+                    # Fetch metadata and write sidecar/index even if file existed
+                    metadata = self._build_metadata(
+                        filename=lora_name,
+                        model_data=model_details,
+                        version_id=lora_info['version_id'],
+                        file_info=target_file
+                    )
+                    self._write_sidecar(lora_name, metadata)
+                    self._update_index(metadata)
+                    
+                    # Rename file with WAN version and modality prefix
+                    file_path = self.lora_dir / lora_name
+                    if file_path.exists():
+                        new_name = self._generate_new_filename(lora_name, metadata)
+                        renamed_path = self._rename_file(file_path, new_name)
+                        if renamed_path != file_path:
+                            # Update metadata filename and re-save
+                            metadata['filename'] = new_name
+                            self._write_sidecar(new_name, metadata)
+                            self._update_index(metadata)
+                    
+                    return ok
+                else:
+                    print(f"  ❌ Pinned file not found in version")
+            else:
+                print(f"  ❌ Could not fetch model details")
+        
+        # Fallback to search-based approach
+        print(f"  🔍 Searching for {lora_name}...")
         
         # Try each search term
         for search_term in lora_info['search_terms']:
@@ -219,7 +713,31 @@ class CivitaiLoRADownloader:
                     print(f"  📋 Model ID: {lora_match['model_id']}")
                     
                     if lora_match['download_url']:
-                        return self.download_file(lora_match['download_url'], lora_name)
+                        # Perform download (or skip if already present)
+                        ok = self.download_file(lora_match['download_url'], lora_name)
+                        # Fetch metadata and write sidecar/index even if file existed
+                        model_details = self.get_model_details(lora_match['model_id'])
+                        metadata = self._build_metadata(
+                            filename=lora_name,
+                            model_data=model_details,
+                            version_id=lora_match['version_id'],
+                            file_info=lora_match.get('file_info') or {}
+                        )
+                        self._write_sidecar(lora_name, metadata)
+                        self._update_index(metadata)
+                        
+                        # Rename file with WAN version and modality prefix
+                        file_path = self.lora_dir / lora_name
+                        if file_path.exists():
+                            new_name = self._generate_new_filename(lora_name, metadata)
+                            renamed_path = self._rename_file(file_path, new_name)
+                            if renamed_path != file_path:
+                                # Update metadata filename and re-save
+                                metadata['filename'] = new_name
+                                self._write_sidecar(new_name, metadata)
+                                self._update_index(metadata)
+                        
+                        return ok
                     else:
                         print(f"  ❌ No download URL found")
                 else:
@@ -284,13 +802,14 @@ class CivitaiLoRADownloader:
             status = "✅ Enabled" if info['enabled'] else "❌ Disabled"
             print(f"  • {lora_name} - {info['description']} - {status}")
         
-        # Download LoRAs
+        # Download LoRAs (only enabled ones)
+        enabled_loras = [(name, info) for name, info in sorted_loras if info.get('enabled', False)]
         success_count = 0
-        total_count = len(sorted_loras)
+        total_count = len(enabled_loras)
         
         print(f"\n🚀 Starting downloads...")
         
-        for lora_name, lora_info in sorted_loras:
+        for lora_name, lora_info in enabled_loras:
             if self.download_lora(lora_name, lora_info):
                 success_count += 1
         
@@ -298,9 +817,12 @@ class CivitaiLoRADownloader:
         
         if success_count < total_count:
             print("\n🔄 Trying with existing Civitai downloader script...")
-            remaining_loras = [name for name, info in sorted_loras 
-                             if not (self.lora_dir / name).exists() or 
-                             (self.lora_dir / name).stat().st_size < 1024]
+            remaining_loras = []
+            for lora_name, lora_info in enabled_loras:
+                # Check if file exists using the same method as download_lora
+                existing_file = self._file_already_exists(lora_name)
+                if not existing_file:
+                    remaining_loras.append(lora_name)
             
             for lora_name in remaining_loras:
                 if self.use_existing_script(lora_name):
@@ -357,8 +879,336 @@ class CivitaiLoRADownloader:
         print(f"\n📊 Results: {success_count} successful downloads")
         return success_count > 0
 
+def fetch_model_info_from_url(url):
+    """
+    Helper function to fetch Civitai model metadata from URL
+    Returns a dictionary with model info for easy addition to self.loras
+    """
+    try:
+        import requests
+        from urllib.parse import urlparse, parse_qs
+        
+        # Parse URL to extract model_id and version_id
+        parsed = urlparse(url)
+        path_parts = parsed.path.strip('/').split('/')
+        
+        if 'models' not in path_parts:
+            print("❌ Invalid Civitai model URL")
+            return None
+            
+        model_id = None
+        version_id = None
+        
+        # Extract model ID from path
+        for i, part in enumerate(path_parts):
+            if part == 'models' and i + 1 < len(path_parts):
+                model_id = path_parts[i + 1]
+                break
+        
+        # Extract version ID from query params
+        query_params = parse_qs(parsed.query)
+        if 'modelVersionId' in query_params:
+            version_id = query_params['modelVersionId'][0]
+        
+        if not model_id:
+            print("❌ Could not extract model ID from URL")
+            return None
+            
+        print(f"🔍 Fetching metadata for model {model_id}...")
+        if version_id:
+            print(f"🎯 Target version: {version_id}")
+        
+        # Get model info
+        model_url = f'https://civitai.com/api/v1/models/{model_id}'
+        response = requests.get(model_url)
+        
+        if response.status_code != 200:
+            print(f"❌ Error fetching model: {response.status_code}")
+            return None
+            
+        model_data = response.json()
+        
+        # Find the specific version
+        target_version = None
+        if version_id:
+            for version in model_data.get('modelVersions', []):
+                if str(version['id']) == version_id:
+                    target_version = version
+                    break
+        
+        if target_version:
+            # Find the .safetensors file
+            safetensors_file = None
+            for file in target_version.get('files', []):
+                if file.get('name', '').endswith('.safetensors'):
+                    safetensors_file = file
+                    break
+            
+            if safetensors_file:
+                return {
+                    'filename': safetensors_file['name'],
+                    'description': model_data['name'],
+                    'strength': 1.0,
+                    'enabled': True,
+                    'search_terms': [model_data['name'].lower(), 'wan'],
+                    'civitai_id': str(model_data['id']),
+                    'version_id': target_version['id'],
+                    'file_id': safetensors_file['id'],
+                    'priority': 1,
+                    'base_model': target_version.get('baseModel', 'Unknown')
+                }
+            else:
+                print("❌ No .safetensors file found in this version")
+        else:
+            print(f"❌ Version {version_id} not found")
+            
+    except Exception as e:
+        print(f"❌ Error fetching model info: {e}")
+        return None
+
 def main():
-    downloader = CivitaiLoRADownloader()
+    parser = argparse.ArgumentParser(
+        description="Advanced Civitai LoRA Downloader for WAN 2.1 FaceBlast Workflow",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+    Examples:
+      # List all configured LoRAs (safe - no downloads)
+      python3 civitai_lora_downloader.py --list-loras
+      
+      # Preview what would be downloaded (safe - no downloads)
+      python3 civitai_lora_downloader.py --dry-run
+      
+      # Disable all LoRAs and preview (safe - no downloads)
+      python3 civitai_lora_downloader.py --disable-all --dry-run
+      
+      # Use default ComfyUI directory
+      python3 civitai_lora_downloader.py
+      
+      # Specify ComfyUI directory
+      python3 civitai_lora_downloader.py --comfyui-dir /path/to/ComfyUI
+      
+      # Specify both ComfyUI and base directory
+      python3 civitai_lora_downloader.py --comfyui-dir /path/to/ComfyUI --base-dir /path/to/base
+      
+      # Use relative path
+      python3 civitai_lora_downloader.py --comfyui-dir ./ComfyUI
+      
+      # Add a new model from Civitai URL (helper function)
+      python3 -c "from civitai_lora_downloader import fetch_model_info_from_url; print(fetch_model_info_from_url('https://civitai.com/models/123456/model-name?modelVersionId=789012'))"
+      
+      # Filter by preferences with fallback (uses config file defaults)
+      python3 civitai_lora_downloader.py
+      python3 civitai_lora_downloader.py --wan-version 2.1 --modality i2v --resolution 480
+      python3 civitai_lora_downloader.py --wan-version 2.2 --modality t2v --resolution 720 --noise-level low
+      python3 civitai_lora_downloader.py --wan-version any --modality any --resolution any
+      
+      # Configuration management
+      python3 civitai_lora_downloader.py --show-defaults
+      python3 civitai_lora_downloader.py --set-defaults wan_version=2.2 modality=t2v
+      python3 civitai_lora_downloader.py --reset-defaults
+        """
+    )
+    
+    parser.add_argument(
+        '--comfyui-dir', 
+        type=str,
+        help='Path to ComfyUI root directory (default: auto-detect or ./ComfyUI)'
+    )
+    
+    parser.add_argument(
+        '--base-dir',
+        type=str, 
+        help='Base directory for token file (default: ComfyUI parent directory)'
+    )
+    
+    parser.add_argument(
+        '--list-loras',
+        action='store_true',
+        help='List all configured LoRAs and exit'
+    )
+    
+    parser.add_argument(
+        '--dry-run',
+        action='store_true',
+        help='Show what would be downloaded without actually downloading'
+    )
+    
+    parser.add_argument(
+        '--disable-all',
+        action='store_true',
+        help='Disable all LoRAs before running (useful for testing)'
+    )
+    
+    parser.add_argument(
+        '--wan-version',
+        choices=['2.1', '2.2', 'any'],
+        default=None,
+        help='Preferred WAN version (2.1, 2.2, or any). Falls back to other versions if preferred not available.'
+    )
+    
+    parser.add_argument(
+        '--modality',
+        choices=['i2v', 't2v', 'any'],
+        default=None,
+        help='Preferred modality (i2v, t2v, or any). Falls back to other modalities if preferred not available.'
+    )
+    
+    parser.add_argument(
+        '--resolution',
+        choices=['480', '720', 'any'],
+        default=None,
+        help='Preferred resolution (480, 720, or any). Falls back to other resolutions if preferred not available.'
+    )
+    
+    parser.add_argument(
+        '--noise-level',
+        choices=['low', 'high', 'any'],
+        default=None,
+        help='Preferred noise level (low, high, or any). Only applies to WAN 2.2 models. Falls back to other noise levels if preferred not available.'
+    )
+    
+    parser.add_argument(
+        '--show-defaults',
+        action='store_true',
+        help='Show current default configuration and exit'
+    )
+    
+    parser.add_argument(
+        '--set-defaults',
+        nargs='+',
+        metavar='KEY=VALUE',
+        help='Set default configuration values (e.g., --set-defaults wan_version=2.2 modality=t2v)'
+    )
+    
+    parser.add_argument(
+        '--reset-defaults',
+        action='store_true',
+        help='Reset to built-in defaults and exit'
+    )
+    
+    # Load defaults first
+    defaults = load_defaults()
+    
+    # Update argument defaults with loaded configuration
+    parser.set_defaults(
+        wan_version=defaults['wan_version'],
+        modality=defaults['modality'],
+        resolution=defaults['resolution'],
+        noise_level=defaults['noise_level']
+    )
+    
+    args = parser.parse_args()
+    
+    # Use loaded defaults for any None values
+    if args.wan_version is None:
+        args.wan_version = defaults['wan_version']
+    if args.modality is None:
+        args.modality = defaults['modality']
+    if args.resolution is None:
+        args.resolution = defaults['resolution']
+    if args.noise_level is None:
+        args.noise_level = defaults['noise_level']
+    
+    # Handle configuration management commands
+    if args.show_defaults:
+        show_current_defaults()
+        return
+    
+    if args.reset_defaults:
+        config_file = Path.home() / ".civitai_lora_defaults.json"
+        if config_file.exists():
+            config_file.unlink()
+            print("🔄 Reset to built-in defaults")
+        else:
+            print("📋 Already using built-in defaults")
+        return
+    
+    if args.set_defaults:
+        defaults = load_defaults()
+        for setting in args.set_defaults:
+            if '=' in setting:
+                key, value = setting.split('=', 1)
+                if key in ['wan_version', 'modality', 'resolution', 'noise_level']:
+                    defaults[key] = value
+                    print(f"🔧 Set {key} = {value}")
+                else:
+                    print(f"⚠️  Unknown setting: {key}")
+            else:
+                print(f"⚠️  Invalid format: {setting} (use KEY=VALUE)")
+        
+        if save_defaults(defaults):
+            print("✅ Defaults updated successfully")
+        return
+    
+    # Auto-detect ComfyUI directory if not provided
+    if not args.comfyui_dir:
+        # Try to find ComfyUI in current directory or common locations
+        current_dir = Path.cwd()
+        possible_paths = [
+            current_dir / "ComfyUI",
+            current_dir.parent / "ComfyUI", 
+            Path("/home/yuji/Code/Umeiart/ComfyUI"),  # Default fallback
+        ]
+        
+        for path in possible_paths:
+            if path.exists() and (path / "main.py").exists():
+                args.comfyui_dir = str(path)
+                print(f"🔍 Auto-detected ComfyUI directory: {args.comfyui_dir}")
+                break
+        
+        if not args.comfyui_dir:
+            print("❌ Could not auto-detect ComfyUI directory")
+            print("💡 Please specify --comfyui-dir /path/to/ComfyUI")
+            sys.exit(1)
+    
+    # Validate ComfyUI directory
+    comfyui_path = Path(args.comfyui_dir)
+    if not comfyui_path.exists():
+        print(f"❌ ComfyUI directory does not exist: {comfyui_path}")
+        sys.exit(1)
+    
+    if not (comfyui_path / "main.py").exists():
+        print(f"❌ Invalid ComfyUI directory (main.py not found): {comfyui_path}")
+        sys.exit(1)
+    
+    print(f"📁 Using ComfyUI directory: {comfyui_path}")
+    print(f"📁 Using base directory: {Path(args.base_dir) if args.base_dir else comfyui_path.parent}")
+    
+    # Initialize downloader
+    downloader = CivitaiLoRADownloader(
+        comfyui_dir=args.comfyui_dir,
+        base_dir=args.base_dir,
+        wan_version=args.wan_version,
+        modality=args.modality,
+        resolution=args.resolution,
+        noise_level=args.noise_level
+    )
+    
+    # Handle disable-all option
+    if args.disable_all:
+        print("🔧 Disabling all LoRAs...")
+        for lora_name in downloader.loras:
+            downloader.loras[lora_name]['enabled'] = False
+    
+    if args.list_loras:
+        print("\n📋 Configured LoRAs:")
+        for lora_name, lora_info in downloader.loras.items():
+            status = "✅ Enabled" if lora_info.get('enabled', False) else "❌ Disabled"
+            print(f"  • {lora_name} - {lora_info.get('description', 'No description')} - {status}")
+        return
+    
+    if args.dry_run:
+        print("\n🔍 DRY RUN MODE - No files will be downloaded")
+        print("📋 LoRAs that would be processed:")
+        enabled_loras = [name for name, info in downloader.loras.items() if info.get('enabled', False)]
+        if enabled_loras:
+            for lora_name in enabled_loras:
+                print(f"  • {lora_name}")
+        else:
+            print("  (No LoRAs are currently enabled)")
+        return
+    
+    # Run the downloader
     success = downloader.run()
     
     if success:
