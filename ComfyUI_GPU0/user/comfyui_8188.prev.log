@@ -1,122 +1,126 @@
 ## ComfyUI-Manager: installing dependencies done.
-[2025-09-29 09:34:00.709] ** ComfyUI startup time: 2025-09-29 09:34:00.709
-[2025-09-29 09:34:00.709] ** Platform: Linux
-[2025-09-29 09:34:00.709] ** Python version: 3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]
-[2025-09-29 09:34:00.709] ** Python executable: /home/yuji/Code/Umeiart/ComfyUI/venv/bin/python
-[2025-09-29 09:34:00.709] ** ComfyUI Path: /home/yuji/Code/Umeiart/ComfyUI_GPU0
-[2025-09-29 09:34:00.709] ** ComfyUI Base Folder Path: /home/yuji/Code/Umeiart/ComfyUI_GPU0
-[2025-09-29 09:34:00.709] ** User directory: /home/yuji/Code/Umeiart/ComfyUI_GPU0/user
-[2025-09-29 09:34:00.709] ** ComfyUI-Manager config path: /home/yuji/Code/Umeiart/ComfyUI_GPU0/user/default/ComfyUI-Manager/config.ini
-[2025-09-29 09:34:00.710] ** Log path: /home/yuji/Code/Umeiart/ComfyUI_GPU0/user/comfyui.log
+[2025-09-30 11:32:03.015] ** ComfyUI startup time: 2025-09-30 11:32:03.015
+[2025-09-30 11:32:03.015] ** Platform: Linux
+[2025-09-30 11:32:03.015] ** Python version: 3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]
+[2025-09-30 11:32:03.015] ** Python executable: /home/yuji/Code/Umeiart/ComfyUI/venv/bin/python
+[2025-09-30 11:32:03.015] ** ComfyUI Path: /home/yuji/Code/Umeiart/ComfyUI_GPU0
+[2025-09-30 11:32:03.015] ** ComfyUI Base Folder Path: /home/yuji/Code/Umeiart/ComfyUI_GPU0
+[2025-09-30 11:32:03.016] ** User directory: /home/yuji/Code/Umeiart/ComfyUI_GPU0/user
+[2025-09-30 11:32:03.016] ** ComfyUI-Manager config path: /home/yuji/Code/Umeiart/ComfyUI_GPU0/user/default/ComfyUI-Manager/config.ini
+[2025-09-30 11:32:03.016] ** Log path: /home/yuji/Code/Umeiart/ComfyUI_GPU0/user/comfyui.log
 
 Prestartup times for custom nodes:
-[2025-09-29 09:34:00.837]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/rgthree-comfy
-[2025-09-29 09:34:00.837]    0.6 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-Manager
-[2025-09-29 09:34:00.837] 
-[2025-09-29 09:34:00.837] Set cuda device to: 0
-[2025-09-29 09:34:02.326] Checkpoint files will always be loaded safely.
-[2025-09-29 09:34:02.620] Total VRAM 15851 MB, total RAM 256520 MB
-[2025-09-29 09:34:02.620] pytorch version: 2.8.0+cu128
-[2025-09-29 09:34:02.621] Set vram state to: NORMAL_VRAM
-[2025-09-29 09:34:02.621] Device: cuda:0 NVIDIA GeForce RTX 5060 Ti : cudaMallocAsync
-[2025-09-29 09:34:03.777] Using pytorch attention
-[2025-09-29 09:34:05.675] Python version: 3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]
-[2025-09-29 09:34:05.675] ComfyUI version: 0.3.60
-[2025-09-29 09:34:05.679] ComfyUI frontend version: 1.26.13
-[2025-09-29 09:34:05.679] [Prompt Server] web root: /home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/comfyui_frontend_package/static
-[2025-09-29 09:34:06.489] ### Loading: ComfyUI-Manager (V3.37)
-[2025-09-29 09:34:06.490] [ComfyUI-Manager] network_mode: public
-[2025-09-29 09:34:06.490] ### ComfyUI Revision: UNKNOWN (The currently installed ComfyUI is not a Git repository)
-[2025-09-29 09:34:06.720] ComfyUI-GGUF: Allowing full torch compile
-[2025-09-29 09:34:06.740] 
-[2025-09-29 09:34:06.740] [92m[rgthree-comfy] Loaded 48 extraordinary nodes. 🎉[0m
-[2025-09-29 09:34:06.740] 
-[2025-09-29 09:34:06.843] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
-[2025-09-29 09:34:06.871] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
-[2025-09-29 09:34:06.912] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
-[2025-09-29 09:34:06.975] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
-[2025-09-29 09:34:07.011] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
-[2025-09-29 09:34:07.810] [34mWAS Node Suite: [0mOpenCV Python FFMPEG support is enabled[0m
-[2025-09-29 09:34:07.810] [34mWAS Node Suite [93mWarning: [0m`ffmpeg_bin_path` is not set in `/home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/WAS Node Suite/was_suite_config.json` config file. Will attempt to use system ffmpeg binaries if available.[0m
-[2025-09-29 09:34:08.344] [34mWAS Node Suite: [0mFinished.[0m [32mLoaded[0m [0m220[0m [32mnodes successfully.[0m
-[2025-09-29 09:34:08.344] 
-	[3m[93m"Opportunities don't happen. You create them."[0m[3m - Chris Grosser[0m
-[2025-09-29 09:34:08.344] 
-[2025-09-29 09:34:08.351] 
+[2025-09-30 11:32:03.140]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-Easy-Use
+[2025-09-30 11:32:03.141]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/rgthree-comfy
+[2025-09-30 11:32:03.141]    0.6 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-Manager
+[2025-09-30 11:32:03.141] 
+[2025-09-30 11:32:04.522] Checkpoint files will always be loaded safely.
+[2025-09-30 11:32:04.761] Total VRAM 15851 MB, total RAM 256520 MB
+[2025-09-30 11:32:04.761] pytorch version: 2.8.0+cu128
+[2025-09-30 11:32:04.762] Set vram state to: NORMAL_VRAM
+[2025-09-30 11:32:04.769] Device: cuda:0 NVIDIA GeForce RTX 5060 Ti : cudaMallocAsync
+[2025-09-30 11:32:05.873] Using pytorch attention
+[2025-09-30 11:32:07.483] Python version: 3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]
+[2025-09-30 11:32:07.483] ComfyUI version: 0.3.61
+[2025-09-30 11:32:07.488] ComfyUI frontend version: 1.26.13
+[2025-09-30 11:32:07.489] [Prompt Server] web root: /home/yuji/Code/Umeiart/ComfyUI/venv/lib/python3.12/site-packages/comfyui_frontend_package/static
+[2025-09-30 11:32:09.014] [33mModule 'diffusers' load failed. If you don't have it installed, do it:[0m
+[2025-09-30 11:32:09.015] [33mpip install diffusers[0m
+[2025-09-30 11:32:09.025] [34m[ComfyUI-Easy-Use] server: [0mv1.3.4 [92mLoaded[0m
+[2025-09-30 11:32:09.025] [34m[ComfyUI-Easy-Use] web root: [0m/home/yuji/Code/Umeiart/ComfyUI/custom_nodes/ComfyUI-Easy-Use/web_version/v2 [92mLoaded[0m
+[2025-09-30 11:32:09.029] [MultiGPU Initialization] Logger initialized with level: INFO
+[2025-09-30 11:32:09.029] [MultiGPU Core Patching] Patching mm.get_torch_device, mm.text_encoder_device, and mm.text_encoder_initial_device
+[2025-09-30 11:32:09.031] [MultiGPU_Device_Utils] Device list initialized: ['cpu', 'cuda:0', 'cuda:1']
+[2025-09-30 11:32:09.033] [MultiGPU] Initiating custom_node Registration. . .
+[2025-09-30 11:32:09.033] -----------------------------------------------
+[2025-09-30 11:32:09.033] custom_node                   Found     Nodes
+[2025-09-30 11:32:09.033] -----------------------------------------------
+[2025-09-30 11:32:09.034] ComfyUI-LTXVideo                  N         0
+[2025-09-30 11:32:09.034] ComfyUI-Florence2                 Y         2
+[2025-09-30 11:32:09.034] ComfyUI_bitsandbytes_NF4          N         0
+[2025-09-30 11:32:09.035] x-flux-comfyui                    N         0
+[2025-09-30 11:32:09.035] ComfyUI-MMAudio                   N         0
+[2025-09-30 11:32:09.035] ComfyUI-GGUF                      Y        18
+[2025-09-30 11:32:09.035] PuLID_ComfyUI                     N         0
+[2025-09-30 11:32:09.035] ComfyUI-HunyuanVideoWrapper       N         0
+[2025-09-30 11:32:09.035] ComfyUI-WanVideoWrapper           N         0
+[2025-09-30 11:32:09.036] -----------------------------------------------
+[2025-09-30 11:32:09.036] [MultiGPU] Registration complete. Final mappings: DeviceSelectorMultiGPU, HunyuanVideoEmbeddingsAdapter, CheckpointLoaderAdvancedMultiGPU, CheckpointLoaderAdvancedDisTorch2MultiGPU, UNETLoaderMultiGPU, VAELoaderMultiGPU, CLIPLoaderMultiGPU, DualCLIPLoaderMultiGPU, TripleCLIPLoaderMultiGPU, QuadrupleCLIPLoaderMultiGPU, CLIPVisionLoaderMultiGPU, CheckpointLoaderSimpleMultiGPU, ControlNetLoaderMultiGPU, DiffusersLoaderMultiGPU, DiffControlNetLoaderMultiGPU, UNETLoaderDisTorch2MultiGPU, VAELoaderDisTorch2MultiGPU, CLIPLoaderDisTorch2MultiGPU, DualCLIPLoaderDisTorch2MultiGPU, TripleCLIPLoaderDisTorch2MultiGPU, QuadrupleCLIPLoaderDisTorch2MultiGPU, CLIPVisionLoaderDisTorch2MultiGPU, CheckpointLoaderSimpleDisTorch2MultiGPU, ControlNetLoaderDisTorch2MultiGPU, DiffusersLoaderDisTorch2MultiGPU, DiffControlNetLoaderDisTorch2MultiGPU, Florence2ModelLoaderMultiGPU, DownloadAndLoadFlorence2ModelMultiGPU, UnetLoaderGGUFDisTorchMultiGPU, UnetLoaderGGUFAdvancedDisTorchMultiGPU, CLIPLoaderGGUFDisTorchMultiGPU, DualCLIPLoaderGGUFDisTorchMultiGPU, TripleCLIPLoaderGGUFDisTorchMultiGPU, QuadrupleCLIPLoaderGGUFDisTorchMultiGPU, UnetLoaderGGUFDisTorch2MultiGPU, UnetLoaderGGUFAdvancedDisTorch2MultiGPU, CLIPLoaderGGUFDisTorch2MultiGPU, DualCLIPLoaderGGUFDisTorch2MultiGPU, TripleCLIPLoaderGGUFDisTorch2MultiGPU, QuadrupleCLIPLoaderGGUFDisTorch2MultiGPU, UnetLoaderGGUFMultiGPU, UnetLoaderGGUFAdvancedMultiGPU, CLIPLoaderGGUFMultiGPU, DualCLIPLoaderGGUFMultiGPU, TripleCLIPLoaderGGUFMultiGPU, QuadrupleCLIPLoaderGGUFMultiGPU
+[2025-09-30 11:32:09.041] ### Loading: ComfyUI-Manager (V3.37)
+[2025-09-30 11:32:09.042] [ComfyUI-Manager] network_mode: public
+[2025-09-30 11:32:09.042] ### ComfyUI Revision: UNKNOWN (The currently installed ComfyUI is not a Git repository)
+[2025-09-30 11:32:09.127] ComfyUI-GGUF: Allowing full torch compile
+[2025-09-30 11:32:09.147] 
+[2025-09-30 11:32:09.147] [92m[rgthree-comfy] Loaded 48 epic nodes. 🎉[0m
+[2025-09-30 11:32:09.147] 
+[2025-09-30 11:32:09.187] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+[2025-09-30 11:32:09.320] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
+[2025-09-30 11:32:09.326] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+[2025-09-30 11:32:09.371] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+[2025-09-30 11:32:09.406] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+[2025-09-30 11:32:09.829] [34mWAS Node Suite: [0mOpenCV Python FFMPEG support is enabled[0m
+[2025-09-30 11:32:09.830] [34mWAS Node Suite [93mWarning: [0m`ffmpeg_bin_path` is not set in `/home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/WAS Node Suite/was_suite_config.json` config file. Will attempt to use system ffmpeg binaries if available.[0m
+[2025-09-30 11:32:10.188] [34mWAS Node Suite: [0mFinished.[0m [32mLoaded[0m [0m220[0m [32mnodes successfully.[0m
+[2025-09-30 11:32:10.188] 
+	[3m[93m"Challenges are what make life interesting and overcoming them is what makes life meaningful."[0m[3m - Joshua J. Marine[0m
+[2025-09-30 11:32:10.188] 
+[2025-09-30 11:32:10.195] 
 Import times for custom nodes:
-[2025-09-29 09:34:08.351]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-wanBlockswap
-[2025-09-29 09:34:08.352]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-Florence2
-[2025-09-29 09:34:08.352]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/easy_nodes
-[2025-09-29 09:34:08.352]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/mx_nodes
-[2025-09-29 09:34:08.352]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/websocket_image_save.py
-[2025-09-29 09:34:08.352]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-Lora-Manager
-[2025-09-29 09:34:08.352]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-Frame-Interpolation
-[2025-09-29 09:34:08.352]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-Manager
-[2025-09-29 09:34:08.352]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/rgthree-comfy
-[2025-09-29 09:34:08.352]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-VideoHelperSuite
-[2025-09-29 09:34:08.353]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-GGUF
-[2025-09-29 09:34:08.353]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-KJNodes
-[2025-09-29 09:34:08.353]    0.2 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-Custom-Scripts
-[2025-09-29 09:34:08.353]    1.6 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/WAS Node Suite
-[2025-09-29 09:34:08.353] 
-[2025-09-29 09:34:08.649] Context impl SQLiteImpl.
-[2025-09-29 09:34:08.649] Will assume non-transactional DDL.
-[2025-09-29 09:34:08.650] No target revision found.
-[2025-09-29 09:34:08.665] Starting server
+[2025-09-30 11:32:10.195]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-wanBlockswap
+[2025-09-30 11:32:10.196]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/websocket_image_save.py
+[2025-09-30 11:32:10.196]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/easy_nodes
+[2025-09-30 11:32:10.196]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/mx_nodes
+[2025-09-30 11:32:10.196]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-Lora-Manager
+[2025-09-30 11:32:10.196]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-Custom-Scripts-backup-1759243329
+[2025-09-30 11:32:10.196]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-Frame-Interpolation
+[2025-09-30 11:32:10.196]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-Custom-Scripts-backup-1759243226
+[2025-09-30 11:32:10.196]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/comfyui-multigpu
+[2025-09-30 11:32:10.196]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-Manager
+[2025-09-30 11:32:10.196]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/rgthree-comfy
+[2025-09-30 11:32:10.196]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-GGUF
+[2025-09-30 11:32:10.197]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-Custom-Scripts
+[2025-09-30 11:32:10.197]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-VideoHelperSuite
+[2025-09-30 11:32:10.197]    0.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-KJNodes
+[2025-09-30 11:32:10.197]    0.1 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-Easy-Use
+[2025-09-30 11:32:10.197]    0.5 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/ComfyUI-Florence2
+[2025-09-30 11:32:10.197]    1.0 seconds: /home/yuji/Code/Umeiart/ComfyUI_GPU0/custom_nodes/WAS Node Suite
+[2025-09-30 11:32:10.197] 
+[2025-09-30 11:32:10.714] Context impl SQLiteImpl.
+[2025-09-30 11:32:10.714] Will assume non-transactional DDL.
+[2025-09-30 11:32:10.715] No target revision found.
+[2025-09-30 11:32:10.731] Starting server
 
-[2025-09-29 09:34:08.665] To see the GUI go to: http://0.0.0.0:8188
-[2025-09-29 09:34:10.014] FETCH ComfyRegistry Data: 5/98
-[2025-09-29 09:34:13.518] FETCH ComfyRegistry Data: 10/98
-[2025-09-29 09:34:17.130] FETCH ComfyRegistry Data: 15/98
-[2025-09-29 09:34:20.618] FETCH ComfyRegistry Data: 20/98
-[2025-09-29 09:34:24.320] FETCH ComfyRegistry Data: 25/98
-[2025-09-29 09:34:27.815] FETCH ComfyRegistry Data: 30/98
-[2025-09-29 09:34:31.280] FETCH ComfyRegistry Data: 35/98
-[2025-09-29 09:34:35.333] FETCH ComfyRegistry Data: 40/98
-[2025-09-29 09:34:38.794] FETCH ComfyRegistry Data: 45/98
-[2025-09-29 09:34:42.246] FETCH ComfyRegistry Data: 50/98
-[2025-09-29 09:34:45.730] FETCH ComfyRegistry Data: 55/98
-[2025-09-29 09:34:50.052] FETCH ComfyRegistry Data: 60/98
-[2025-09-29 09:34:53.580] FETCH ComfyRegistry Data: 65/98
-[2025-09-29 09:34:57.082] FETCH ComfyRegistry Data: 70/98
-[2025-09-29 09:35:00.579] FETCH ComfyRegistry Data: 75/98
-[2025-09-29 09:35:04.120] FETCH ComfyRegistry Data: 80/98
-[2025-09-29 09:35:07.710] FETCH ComfyRegistry Data: 85/98
-[2025-09-29 09:35:11.231] FETCH ComfyRegistry Data: 90/98
-[2025-09-29 09:35:14.768] FETCH ComfyRegistry Data: 95/98
-[2025-09-29 09:35:17.369] FETCH ComfyRegistry Data [DONE]
-[2025-09-29 09:35:17.522] [ComfyUI-Manager] default cache updated: https://api.comfy.org/nodes
-[2025-09-29 09:35:17.537] FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json [DONE]
-[2025-09-29 09:35:17.805] [ComfyUI-Manager] All startup tasks have been completed.
-[2025-09-29 09:35:35.074] got prompt
-[2025-09-29 09:35:35.087] Failed to validate prompt for output 80:
-[2025-09-29 09:35:35.087] * RIFE VFI 184:
-[2025-09-29 09:35:35.087]   - Exception when validating inner node: tuple index out of range
-[2025-09-29 09:35:35.087] Output will be ignored
-[2025-09-29 09:35:35.150] Prompt executed in 0.05 seconds
-[2025-09-29 09:36:23.737] got prompt
-[2025-09-29 09:36:23.748] Failed to validate prompt for output 80:
-[2025-09-29 09:36:23.748] * Lora Loader (LoraManager) 384:
-[2025-09-29 09:36:23.748]   - Failed to convert an input value to a FLOAT value: strength_model, [], float() argument must be a string or a real number, not 'list'
-[2025-09-29 09:36:23.748] Output will be ignored
-[2025-09-29 09:36:23.749] Failed to validate prompt for output 184:
-[2025-09-29 09:36:23.749] * (prompt):
-[2025-09-29 09:36:23.749]   - Exception when validating node: tuple index out of range
-[2025-09-29 09:36:23.749] * SaveImage 184:
-[2025-09-29 09:36:23.749]   - Exception when validating node: tuple index out of range
-[2025-09-29 09:36:23.750] Output will be ignored
-[2025-09-29 09:36:23.827] Prompt executed in 0.07 seconds
-[2025-09-29 09:49:12.562] got prompt
-[2025-09-29 09:49:12.572] Failed to validate prompt for output 80:
-[2025-09-29 09:49:12.572] * Lora Loader (LoraManager) 384:
-[2025-09-29 09:49:12.572]   - Failed to convert an input value to a FLOAT value: strength_model, [], float() argument must be a string or a real number, not 'list'
-[2025-09-29 09:49:12.572] * Text Find and Replace 392:
-[2025-09-29 09:49:12.572]   - Exception when validating inner node: tuple index out of range
-[2025-09-29 09:49:12.572] * ImageScale 132:
-[2025-09-29 09:49:12.573]   - Return type mismatch between linked nodes: height, received_type(FLOAT) mismatch input_type(INT)
-[2025-09-29 09:49:12.573]   - Return type mismatch between linked nodes: width, received_type(FLOAT) mismatch input_type(INT)
-[2025-09-29 09:49:12.573] * WanImageToVideo 133:
-[2025-09-29 09:49:12.573]   - Return type mismatch between linked nodes: height, received_type(FLOAT) mismatch input_type(INT)
-[2025-09-29 09:49:12.573]   - Return type mismatch between linked nodes: width, received_type(FLOAT) mismatch input_type(INT)
-[2025-09-29 09:49:12.573] Output will be ignored
-[2025-09-29 09:49:12.628] Prompt executed in 0.04 seconds
+[2025-09-30 11:32:10.731] To see the GUI go to: http://127.0.0.1:8188
+[2025-09-30 11:32:12.434] FETCH ComfyRegistry Data: 5/98
+[2025-09-30 11:32:15.972] FETCH ComfyRegistry Data: 10/98
+[2025-09-30 11:32:19.454] FETCH ComfyRegistry Data: 15/98
+[2025-09-30 11:32:22.955] FETCH ComfyRegistry Data: 20/98
+[2025-09-30 11:32:26.461] FETCH ComfyRegistry Data: 25/98
+[2025-09-30 11:32:30.014] FETCH ComfyRegistry Data: 30/98
+[2025-09-30 11:32:33.486] FETCH ComfyRegistry Data: 35/98
+[2025-09-30 11:32:36.979] FETCH ComfyRegistry Data: 40/98
+[2025-09-30 11:32:40.449] FETCH ComfyRegistry Data: 45/98
+[2025-09-30 11:32:43.937] FETCH ComfyRegistry Data: 50/98
+[2025-09-30 11:32:48.048] FETCH ComfyRegistry Data: 55/98
+[2025-09-30 11:32:51.582] FETCH ComfyRegistry Data: 60/98
+[2025-09-30 11:32:55.131] FETCH ComfyRegistry Data: 65/98
+[2025-09-30 11:32:55.954] ERROR: Invalid mode is specified `--mode `
+[2025-09-30 11:32:55.954] FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json [DONE]
+[2025-09-30 11:32:56.155] FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extras.json [DONE]
+[2025-09-30 11:32:56.256] FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/node_db/new/extension-node-map.json [DONE]
+[2025-09-30 11:32:56.515] FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/node_db/new/extension-node-map.json [DONE]
+[2025-09-30 11:32:58.713] FETCH ComfyRegistry Data: 70/98
+[2025-09-30 11:33:02.246] FETCH ComfyRegistry Data: 75/98
+[2025-09-30 11:33:06.305] FETCH ComfyRegistry Data: 80/98
+[2025-09-30 11:33:09.816] FETCH ComfyRegistry Data: 85/98
+[2025-09-30 11:33:13.042] ERROR: Invalid mode is specified `--mode `
+[2025-09-30 11:33:13.042] FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json [DONE]
+[2025-09-30 11:33:13.201] FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extras.json [DONE]
+[2025-09-30 11:33:13.298] FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/node_db/new/extension-node-map.jsonFETCH ComfyRegistry Data: 90/98
+[2025-09-30 11:33:13.464]  [DONE]
+[2025-09-30 11:33:13.553] FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/node_db/new/alter-list.json [DONE]
+[2025-09-30 11:33:16.880] FETCH ComfyRegistry Data: 95/98
+[2025-09-30 11:33:19.475] FETCH ComfyRegistry Data [DONE]
+[2025-09-30 11:33:19.621] [ComfyUI-Manager] default cache updated: https://api.comfy.org/nodes
+[2025-09-30 11:33:19.633] FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/node_db/new/custom-node-list.json [DONE]
+[2025-09-30 11:33:19.774] [ComfyUI-Manager] All startup tasks have been completed.

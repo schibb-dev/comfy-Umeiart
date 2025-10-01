@@ -29,8 +29,8 @@ echo "========================================="
 echo
 echo "🎯 Priority LoRAs (ENABLED in workflow):"
 echo "  1. wan-thiccum-v3.safetensors (ID: 1643871)"
-echo "  2. WAN_dr34mj0b.safetensors (ID: TBD)"  
-echo "  3. bounceV_01.safetensors (ID: TBD)"
+echo "  2. WAN_dr34mj0b.safetensors (ID: 1395313)"  
+echo "  3. bounceV_01.safetensors (ID: 1343431)"
 echo
 echo "📋 Additional LoRAs (DISABLED in workflow):"
 echo "  4. wan-nsfw-e14-fixed.safetensors (ID: TBD)"
@@ -116,9 +116,24 @@ if ! check_lora "wan-thiccum-v3.safetensors"; then
     echo
 fi
 
-# For now, we only have the ID for wan-thiccum-v3
+# Priority 2: WAN_dr34mj0b
+if ! check_lora "WAN_dr34mj0b.safetensors"; then
+    download_lora "1395313" "WAN_dr34mj0b.safetensors"
+    echo
+fi
+
+# Priority 3: bounceV_01
+if ! check_lora "bounceV_01.safetensors"; then
+    download_lora "1343431" "bounceV_01.safetensors"
+    echo
+fi
+
+# For now, we have IDs for the priority LoRAs
 # The other LoRAs need to be found manually or through search
-echo "⚠️  Note: Only wan-thiccum-v3.safetensors has a known Civitai ID"
+echo "⚠️  Note: We have Civitai IDs for priority LoRAs:"
+echo "   • wan-thiccum-v3 (1643871)"
+echo "   • WAN_dr34mj0b (1395313)" 
+echo "   • bounceV_01 (1343431)"
 echo "   Other LoRAs need to be found manually or through search"
 echo
 
@@ -179,8 +194,8 @@ else
     echo
     echo "🔗 Civitai search links:"
     echo "  • wan-thiccum-v3: ✅ Downloaded (ID: 1643871)"
-    echo "  • WAN_dr34mj0b: https://civitai.com/search?q=wan%20dr34mj0b"
-    echo "  • bounceV_01: https://civitai.com/search?q=bounceV%2001"
+    echo "  • WAN_dr34mj0b: ✅ Downloaded (ID: 1395313)"
+    echo "  • bounceV_01: ✅ Downloaded (ID: 1343431)"
     echo "  • wan-nsfw-e14: https://civitai.com/search?q=wan%20nsfw%20e14"
     echo "  • wan_cumshot_i2v: https://civitai.com/search?q=wan%20cumshot%20i2v"
     echo "  • facials60: https://civitai.com/search?q=facials60"
@@ -195,6 +210,9 @@ fi
 echo
 echo "💡 Tip: Priority LoRAs (enabled in workflow) are most important"
 echo "   Focus on downloading those first for immediate results!"
+
+
+
 
 
 

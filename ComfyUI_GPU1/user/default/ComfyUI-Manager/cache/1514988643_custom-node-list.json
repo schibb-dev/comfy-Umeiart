@@ -33898,6 +33898,17 @@
             "install_type": "unzip",
             "reference": "https://civitai.com/models/143293/image2halftone-node-for-comfyui",
             "title": "Image2Halftone Node for ComfyUI"
+        },
+        {
+            "author": "inoland",
+            "description": "A collection of custom nodes for ComfyUI.",
+            "files": [
+                "https://github.com/nobandegani/comfyui_ino_nodes"
+            ],
+            "id": "comfyui_ino_nodes",
+            "install_type": "git-clone",
+            "reference": "https://github.com/nobandegani/comfyui_ino_nodes",
+            "title": "ComfyUI Ino Nodes"
         }
     ]
 }

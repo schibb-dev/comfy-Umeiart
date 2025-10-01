@@ -19,3 +19,6 @@ CMD ["python", "/workspace/ComfyUI/main.py", "--listen", "0.0.0.0", "--port", "8
 
 
 
+
+
+

@@ -58,6 +58,7 @@ class CivitaiLoRADownloader:
                 'strength': 0.95,
                 'enabled': True,
                 'search_terms': ['wan thiccum v3', 'wan thiccum', 'thiccum v3'],
+                'civitai_id': '1643871',
                 'priority': 1
             },
             'WAN_dr34mj0b.safetensors': {
@@ -65,6 +66,7 @@ class CivitaiLoRADownloader:
                 'strength': 1.0,
                 'enabled': True,
                 'search_terms': ['wan dr34mj0b', 'dr34mj0b', 'wan dr34'],
+                'civitai_id': '1395313',
                 'priority': 1
             },
             'bounceV_01.safetensors': {
@@ -72,6 +74,7 @@ class CivitaiLoRADownloader:
                 'strength': 1.0,
                 'enabled': True,
                 'search_terms': ['bounceV 01', 'bounceV', 'bounce'],
+                'civitai_id': '1343431',
                 'priority': 1
             }
         }
@@ -367,6 +370,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
 
 
 

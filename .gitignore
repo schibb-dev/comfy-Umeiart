@@ -39,8 +39,6 @@ SageAttention/*.egg-info/
 # Scripts and utilities (keep only essential ones)
 scripts/
 _orig_zip/
-*.bat
-*.sh
 !runpod-deploy.sh
 !UmeAiRT-Install-ComfyUI.sh
 !download_loras_quick.sh
@@ -54,3 +52,43 @@ _orig_zip/
 
 ComfyUI_GPU0/models/
 ComfyUI_GPU1/models/
+
+# Fresh8188 containerized setup
+fresh8188/data/models/
+fresh8188/data/output/
+fresh8188/data/input/
+fresh8188/data/temp/
+fresh8188/data/user/default/logs/
+fresh8188/data/user/default/cache/
+
+# Fresh8188 containerized setup - ignore data directories but allow scripts
+fresh8188/data/models/
+fresh8188/data/output/
+fresh8188/data/input/
+fresh8188/data/temp/
+fresh8188/data/user/default/logs/
+fresh8188/data/user/default/cache/
+
+# Allow specific fresh8188 scripts
+!fresh8188/setup_fresh8188.sh
+!fresh8188/bootstrap/download_models.sh
+!fresh8188/bootstrap/entrypoint.sh
+!fresh8188/bootstrap/workflow_analyzer.py
+
+# Ignore most shell scripts but allow specific ones
+*.sh
+!runpod-deploy.sh
+!UmeAiRT-Install-ComfyUI.sh
+!download_loras_quick.sh
+!download_loras_advanced.sh
+!download_loras_comprehensive.sh
+!fresh8188/setup_fresh8188.sh
+!fresh8188/bootstrap/download_models.sh
+!fresh8188/bootstrap/entrypoint.sh
+
+# Ignore batch files but allow specific ones
+*.bat
+!UmeAiRT-Download_models.bat
+!UmeAiRT-Install-ComfyUI.bat
+!UmeAiRT-Start-ComfyUI.bat
+!UmeAiRT-Update-ComfyUI.bat

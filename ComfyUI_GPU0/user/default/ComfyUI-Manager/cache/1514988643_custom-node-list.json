@@ -8613,6 +8613,16 @@
             "title": "ComfyUI Droopy Noodles"
         },
         {
+            "author": "guill",
+            "description": "ComfyUI custom node pack for embedding workflow data in image pixels using steganography",
+            "files": [
+                "https://github.com/guill/comfyui-stegaflow"
+            ],
+            "install_type": "git-clone",
+            "reference": "https://github.com/guill/comfyui-stegaflow",
+            "title": "Stegaflow"
+        },
+        {
             "author": "cerspense",
             "description": "Nodes:Image Dir Iterator, Modelscopet2v, Modelscopev2v, Vid Dir Iterator, Image Dir Iterator, Text File Line Iterator, Remap Range, Split Image Channels, Resize By Image, Increment Every N.",
             "files": [
@@ -15764,14 +15774,13 @@
         },
         {
             "author": "IuvenisSapiens",
-            "description": "This is an implementation of [MiniCPM-V-4](https://github.com/OpenBMB/MiniCPM-V) by [ComfyUI](https://github.com/comfyanonymous/ComfyUI), including support for text-based queries, video queries, single-image queries, and multi-image queries to generate captions or responses.",
+            "description": "This is an implementation of [MiniCPM-V-4_5](https://github.com/OpenBMB/MiniCPM-V) by [ComfyUI](https://github.com/comfyanonymous/ComfyUI), including support for text-based queries, video queries, single-image queries, and multi-image queries to generate captions or responses.",
             "files": [
-                "https://github.com/IuvenisSapiens/ComfyUI_MiniCPM-V-4"
+                "https://github.com/IuvenisSapiens/ComfyUI_MiniCPM-V-4_5"
             ],
-            "id": "ComfyUI_MiniCPM-V-4",
             "install_type": "git-clone",
-            "reference": "https://github.com/IuvenisSapiens/ComfyUI_MiniCPM-V-4",
-            "title": "ComfyUI_MiniCPM-V-4"
+            "reference": "https://github.com/IuvenisSapiens/ComfyUI_MiniCPM-V-4_5",
+            "title": "ComfyUI_MiniCPM-V-4_5"
         },
         {
             "author": "IuvenisSapiens",
@@ -16001,6 +16010,7 @@
             "id": "ComfyUI-Animation_Nodes_and_Workflows",
             "install_type": "git-clone",
             "reference": "https://github.com/Isi-dev/ComfyUI-Animation_Nodes_and_Workflows",
+            "reference2": "https://github.com/Isi-dev/ComfyUI_Animation_Nodes_and_Workflows",
             "title": "ComfyUI-Animation_Nodes_and_Workflows"
         },
         {
@@ -17151,11 +17161,11 @@
             "author": "GrenKain",
             "description": "This repository provides custom nodes for ComfyUI that enable pixel art style image processing, including downscaling, upscaling, color quantization, and resolution adjustments.",
             "files": [
-                "https://github.com/GrenKain/PixelArt-Processing-Nodes-for-ComfyUI"
+                "https://github.com/GENKAIx/PixelArt-Processing-Nodes-for-ComfyUI"
             ],
             "id": "gk_pixelart",
             "install_type": "git-clone",
-            "reference": "https://github.com/GrenKain/PixelArt-Processing-Nodes-for-ComfyUI",
+            "reference": "https://github.com/GENKAIx/PixelArt-Processing-Nodes-for-ComfyUI",
             "title": "PixelArt Processing Nodes"
         },
         {
@@ -19521,6 +19531,7 @@
             "id": "ComfyUI_DeployCash",
             "install_type": "git-clone",
             "reference": "https://github.com/jacklukai/ComfyUI_DeployCash",
+            "reference2": "https://github.com/DeployAI365/ComfyUI_DeployCash",
             "title": "ComfyUI_DeployCash"
         },
         {
@@ -29114,6 +29125,16 @@
             "title": "anime_character_selector"
         },
         {
+            "author": "azazeal04",
+            "description": "Custom samplers and schedulers for ComfyUI",
+            "files": [
+                "https://github.com/azazeal04/ComfyUI-HybridSamplers"
+            ],
+            "install_type": "git-clone",
+            "reference": "https://github.com/azazeal04/ComfyUI-HybridSamplers",
+            "title": "HybridSamplers for ComfyUI"
+        },
+        {
             "author": "flamacore",
             "description": "A ComfyUI node for uploading generated content to YouTube. [a/Buy me a coffee](https://buymeacoffee.com/chao.k)",
             "files": [
@@ -32680,6 +32701,16 @@
             "title": "ComfyUI Prompt Companion"
         },
         {
+            "author": "jfcantu",
+            "description": "Automatically display context-aware notes based on workflow state, selected nodes, and node attributes in ComfyUI.",
+            "files": [
+                "https://github.com/jfcantu/ComfyUI-AutoNotes"
+            ],
+            "install_type": "git-clone",
+            "reference": "https://github.com/jfcantu/ComfyUI-AutoNotes",
+            "title": "ComfyUI AutoNotes"
+        },
+        {
             "author": "duldduld",
             "description": "ComfyUI custom nodes to covert string/image/file to md5 hash",
             "files": [
@@ -33500,6 +33531,77 @@
             "install_type": "git-clone",
             "reference": "https://github.com/J-ChenX/ComfyUI-NIX",
             "title": "NIX ComfyUI Plugin"
+        },
+        {
+            "author": "hanL34",
+            "description": "A custom node designed for ComfyUI that can load multiple artist names simultaneously and intelligently combine them into the prompt, with support for independent weight control and real-time preview.",
+            "files": [
+                "https://github.com/hanL34/ComfyUI-Power-Artist-Loader"
+            ],
+            "install_type": "git-clone",
+            "reference": "https://github.com/hanL34/ComfyUI-Power-Artist-Loader",
+            "title": "ComfyUI-Power-Artist-Loader"
+        },
+        {
+            "author": "gpdev-Pilcothink",
+            "description": "Custom ComfyUI nodes to run SLM Vision models (DeepSeek-vl 1.3b chat, Qwen2.5-vl 3b, Gemma-3-4b-it) with optional RAG support.",
+            "files": [
+                "https://github.com/gpdev-Pilcothink/comfyui_pilcothink_VisionSLM"
+            ],
+            "install_type": "git-clone",
+            "reference": "https://github.com/gpdev-Pilcothink/comfyui_pilcothink_VisionSLM",
+            "title": "comfyui_pilcothink_VisionSLM"
+        },
+        {
+            "author": "Duanyll",
+            "description": "Easy functional programming and flow control within ComfyUI",
+            "files": [
+                "https://github.com/Duanyll/comfyui_functional"
+            ],
+            "install_type": "git-clone",
+            "reference": "https://github.com/Duanyll/comfyui_functional",
+            "title": "ComfyUI Functional"
+        },
+        {
+            "author": "OpenAssetIO",
+            "description": "ComfyUI custom nodes adding asset resolution and publishing via OpenAssetIO",
+            "files": [
+                "https://github.com/OpenAssetIO/OpenAssetIO-ComfyUI"
+            ],
+            "install_type": "git-clone",
+            "reference": "https://github.com/OpenAssetIO/OpenAssetIO-ComfyUI",
+            "title": "OpenAssetIO"
+        },
+        {
+            "author": "jamesk9526",
+            "description": "A powerful collection of custom nodes for ComfyUI that enhance prompt handling, manipulation, and analysis for better AI image generation results.",
+            "files": [
+                "https://github.com/jamesk9526/NoxPrompter-ComfyUI-CustomNode"
+            ],
+            "install_type": "git-clone",
+            "reference": "https://github.com/jamesk9526/NoxPrompter-ComfyUI-CustomNode",
+            "title": "ComfyUI Nox Prompter"
+        },
+        {
+            "author": "inoland",
+            "description": "A collection of custom nodes for ComfyUI.",
+            "files": [
+                "https://github.com/nobandegani/comfyui_ino_nodes"
+            ],
+            "id": "comfyui_ino_nodes",
+            "install_type": "git-clone",
+            "reference": "https://github.com/nobandegani/comfyui_ino_nodes",
+            "title": "ComfyUI Ino Nodes"
+        },
+        {
+            "author": "A043-studios",
+            "description": "ComfyUI custom nodes for Hunyuan3D - Complete 3D generation suite",
+            "files": [
+                "https://github.com/A043-studios/ComfyUI_HunyuanWorldnode"
+            ],
+            "install_type": "git-clone",
+            "reference": "https://github.com/A043-studios/ComfyUI_HunyuanWorldnode",
+            "title": "ComfyUI HunyuanWorld - Complete 3D Generation Suite"
         },
         {
             "author": "Ser-Hilary",
