@@ -92,3 +92,6 @@ fresh8188/data/user/default/cache/
 !UmeAiRT-Install-ComfyUI.bat
 !UmeAiRT-Start-ComfyUI.bat
 !UmeAiRT-Update-ComfyUI.bat
+
+# Ignore nested .git directories
+**/.git/

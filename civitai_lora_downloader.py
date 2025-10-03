@@ -30,12 +30,12 @@ def load_defaults():
             with open(config_file, 'r') as f:
                 user_defaults = json.load(f)
                 defaults.update(user_defaults)
-                print(f"📋 Loaded custom defaults from {config_file}")
+                print(f"Using Loaded custom defaults from {config_file}")
         except Exception as e:
-            print(f"⚠️  Error loading config file {config_file}: {e}")
-            print("📋 Using built-in defaults")
+            print(f"Warning  Error loading config file {config_file}: {e}")
+            print("Using built-in defaults")
     else:
-        print("📋 Using built-in defaults")
+        print("Using built-in defaults")
     
     return defaults
 
@@ -49,13 +49,13 @@ def save_defaults(defaults):
         print(f"💾 Saved defaults to {config_file}")
         return True
     except Exception as e:
-        print(f"❌ Error saving config file {config_file}: {e}")
+        print(f"Error Error saving config file {config_file}: {e}")
         return False
 
 def show_current_defaults():
     """Display current default configuration"""
     defaults = load_defaults()
-    print("\n📋 Current Default Configuration:")
+    print("\nUsing Current Default Configuration:")
     print(f"  WAN Version: {defaults['wan_version']}")
     print(f"  Modality: {defaults['modality']}")
     print(f"  Resolution: {defaults['resolution']}")
@@ -174,8 +174,8 @@ class CivitaiLoRADownloader:
                 'version_id': 1952633,
                 'file_id': 1850112,
                 # Alternatives:
-                #   - version_id: 1952633, file_id: 1850112, name: wan-cumshot-I2V-22epo-k3nk.safetensors (~343 MB) ✅ I2V
-                #   - version_id: 1999588, file_id: 1896725, name: wan-cumshot-T2V-22epo-k3nk.safetensors (~343 MB) ❌ T2V
+                #   - version_id: 1952633, file_id: 1850112, name: wan-cumshot-I2V-22epo-k3nk.safetensors (~343 MB) Success I2V
+                #   - version_id: 1999588, file_id: 1896725, name: wan-cumshot-T2V-22epo-k3nk.safetensors (~343 MB) Error T2V
                 #   - version_id: 1808720, file_id: 1709261, name: cumshot-v1-18epo-hunyuan-k3nk.safetensors (~308 MB)
                 'priority': 2
             }
@@ -189,12 +189,12 @@ class CivitaiLoRADownloader:
                     token_data = json.load(f)
                 self.token = token_data.get("civitai_token")
                 if self.token:
-                    print("✅ Loaded Civitai API token")
+                    print("Success Loaded Civitai API token")
                     return True
             except (json.JSONDecodeError, KeyError):
                 pass
         
-        print("❌ No valid Civitai API token found")
+        print("Error No valid Civitai API token found")
         print("Please run: ./scripts/civitai_downloader.sh lora 'wan'")
         print("This will prompt you to enter your API token")
         return False
@@ -219,7 +219,7 @@ class CivitaiLoRADownloader:
             response.raise_for_status()
             return response.json()
         except requests.RequestException as e:
-            print(f"❌ Search failed for '{search_term}': {e}")
+            print(f"Error Search failed for '{search_term}': {e}")
             return None
     
     def find_lora_by_name(self, lora_name, search_results):
@@ -274,7 +274,7 @@ class CivitaiLoRADownloader:
             response.raise_for_status()
             return response.json()
         except requests.RequestException as e:
-            print(f"⚠️  Failed to fetch model details for {model_id}: {e}")
+            print(f"Warning  Failed to fetch model details for {model_id}: {e}")
             return None
 
     def _build_metadata(self, filename, model_data, version_id, file_info):
@@ -311,7 +311,7 @@ class CivitaiLoRADownloader:
             with open(sidecar_path, 'w') as f:
                 json.dump(metadata, f, indent=2)
         except Exception as e:
-            print(f"⚠️  Failed to write sidecar for {filename}: {e}")
+            print(f"Warning  Failed to write sidecar for {filename}: {e}")
 
     def _extract_wan_info(self, metadata):
         """Extract WAN version and modality from metadata for renaming."""
@@ -490,7 +490,7 @@ class CivitaiLoRADownloader:
         
         # Log the selection reasoning
         metadata = best['metadata']
-        print(f"  🎯 Selected version: {best['version'].get('name', 'Unknown')}")
+        print(f"  Trigger Selected version: {best['version'].get('name', 'Unknown')}")
         print(f"      WAN: {metadata['wan_version'] or 'Unknown'} (preferred: {self.wan_version})")
         print(f"      Modality: {metadata['modality'] or 'Unknown'} (preferred: {self.modality})")
         print(f"      Resolution: {metadata['resolution'] or 'Unknown'} (preferred: {self.resolution})")
@@ -500,17 +500,69 @@ class CivitaiLoRADownloader:
         return best
 
     def _generate_new_filename(self, original_name, metadata):
-        """Generate new filename with WAN version and modality prefix."""
+        """Generate new filename with WAN version and modality prefix, using smart naming."""
         wan_version, modality = self._extract_wan_info(metadata)
         
         if wan_version and modality:
-            # Remove .safetensors extension
-            base_name = original_name.replace('.safetensors', '')
-            # Create new name: wan-{version}-{modality}-{original}
-            new_name = f"wan-{wan_version}-{modality}-{base_name}.safetensors"
+            # Extract descriptive name from metadata
+            descriptive_name = self._extract_descriptive_name(metadata, original_name)
+            
+            # Get model and version IDs
+            model_id = metadata.get('model_id', 'unknown')
+            version_id = metadata.get('version_id', 'unknown')
+            
+            # Create new name: wan-{version}-{modality}-{descriptive}-{model_id}-{version_id}
+            new_name = f"wan-{wan_version}-{modality}-{descriptive_name}-{model_id}-{version_id}.safetensors"
             return new_name
         
         return original_name
+    
+    def _extract_descriptive_name(self, metadata, original_name):
+        """Extract a descriptive name from metadata, falling back to original name."""
+        model_name = (metadata.get('model_name', '') or '').lower()
+        version_name = (metadata.get('version_name', '') or '').lower()
+        
+        # Try to extract meaningful names from model_name
+        descriptive_parts = []
+        
+        # Common patterns to extract meaningful parts
+        if 'thiccum' in model_name:
+            descriptive_parts.append('thiccum')
+        elif 'cumshot' in model_name:
+            if 'facial' in model_name:
+                descriptive_parts.append('facial-cumshot')
+            else:
+                descriptive_parts.append('cumshot')
+        elif 'bouncing' in model_name and 'boobs' in model_name:
+            descriptive_parts.append('bouncing-boobs')
+        elif 'dr34mj0b' in model_name or 'dreamjob' in model_name:
+            descriptive_parts.append('dreamjob')
+        elif 'nsfw' in model_name:
+            descriptive_parts.append('nsfw')
+        elif 'bounce' in model_name:
+            descriptive_parts.append('bounce')
+        
+        # If we found descriptive parts, use them
+        if descriptive_parts:
+            return '-'.join(descriptive_parts)
+        
+        # Fallback: clean up the original filename
+        base_name = original_name.replace('.safetensors', '')
+        
+        # Remove common prefixes/suffixes that aren't descriptive
+        base_name = base_name.replace('wan-', '').replace('WAN_', '').replace('_', '-')
+        
+        # Remove version numbers and training metadata
+        import re
+        base_name = re.sub(r'-v\d+$', '', base_name)  # Remove -v1, -v2, etc.
+        base_name = re.sub(r'-\d+epo-\w+$', '', base_name)  # Remove -22epo-k3nk
+        base_name = re.sub(r'-I2V-\d+epo-\w+$', '', base_name)  # Remove -I2V-22epo-k3nk
+        
+        # Clean up multiple dashes
+        base_name = re.sub(r'-+', '-', base_name)
+        base_name = base_name.strip('-')
+        
+        return base_name if base_name else 'unknown'
 
     def _rename_file(self, old_path, new_name):
         """Rename file and update sidecar/index if needed."""
@@ -528,7 +580,7 @@ class CivitaiLoRADownloader:
                 
                 return new_path
         except Exception as e:
-            print(f"  ⚠️  Failed to rename {old_path.name}: {e}")
+            print(f"  Warning  Failed to rename {old_path.name}: {e}")
         
         return old_path
 
@@ -547,7 +599,7 @@ class CivitaiLoRADownloader:
             with open(self.index_file, 'w') as f:
                 json.dump(index, f, indent=2)
         except Exception as e:
-            print(f"⚠️  Failed to update index: {e}")
+            print(f"Warning  Failed to update index: {e}")
     
     def _file_already_exists(self, filename):
         """Check if file already exists (including renamed versions)"""
@@ -556,13 +608,44 @@ class CivitaiLoRADownloader:
         if filepath.exists() and filepath.stat().st_size > 1024:
             return filepath
         
-        # Check for renamed versions (wan-XX-modality-*)
+        # Check for renamed versions by looking at metadata and model names
         base_name = filename.replace('.safetensors', '')
-        for existing_file in self.lora_dir.glob(f"wan-*-{base_name}.safetensors"):
-            if existing_file.stat().st_size > 1024:
-                return existing_file
         
-        # Check for any file that contains the base name
+        # First, try to match by model name patterns
+        for existing_file in self.lora_dir.glob("wan-*-*.safetensors"):
+            json_file = existing_file.with_suffix('.safetensors.json')
+            if json_file.exists():
+                try:
+                    with open(json_file, 'r') as f:
+                        metadata = json.load(f)
+                    
+                    # Check if this file corresponds to the original by model name
+                    model_name = (metadata.get('model_name', '') or '').lower()
+                    
+                    # Pattern matching for common cases
+                    if filename == 'wan-thiccum-v3.safetensors' and 'thiccum' in model_name:
+                        if existing_file.stat().st_size > 1024:
+                            return existing_file
+                    elif filename == 'bounceV_01.safetensors' and 'bouncing' in model_name and 'boobs' in model_name:
+                        if existing_file.stat().st_size > 1024:
+                            return existing_file
+                    elif filename == 'WAN_dr34mj0b.safetensors' and ('dr34mjob' in model_name or 'dr34mj0b' in model_name or 'dreamjob' in model_name):
+                        if existing_file.stat().st_size > 1024:
+                            return existing_file
+                    elif filename == 'wan-cumshot-I2V-22epo-k3nk.safetensors' and 'cumshot' in model_name and 'facial' in model_name:
+                        if existing_file.stat().st_size > 1024:
+                            return existing_file
+                    elif filename == 'wan_cumshot_i2v.safetensors' and 'cumshot' in model_name:
+                        if existing_file.stat().st_size > 1024:
+                            return existing_file
+                    elif filename == 'wan-nsfw-e14-fixed.safetensors' and ('nsfw' in model_name or 'realistic' in model_name):
+                        if existing_file.stat().st_size > 1024:
+                            return existing_file
+                            
+                except:
+                    pass
+        
+        # Fallback: check for any file that contains the base name
         for existing_file in self.lora_dir.glob(f"*{base_name}*.safetensors"):
             if existing_file.stat().st_size > 1024:
                 return existing_file
@@ -574,7 +657,7 @@ class CivitaiLoRADownloader:
         # Check if file already exists (including renamed versions)
         existing_file = self._file_already_exists(filename)
         if existing_file:
-            print(f"✅ {filename} already exists as {existing_file.name} ({existing_file.stat().st_size:,} bytes)")
+            print(f"Success {filename} already exists as {existing_file.name} ({existing_file.stat().st_size:,} bytes)")
             return True
         
         print(f"📥 Downloading {filename}...")
@@ -603,23 +686,23 @@ class CivitaiLoRADownloader:
                     size = f.write(chunk)
                     pbar.update(size)
             
-            print(f"✅ Downloaded {filename} ({filepath.stat().st_size:,} bytes)")
+            print(f"Success Downloaded {filename} ({filepath.stat().st_size:,} bytes)")
             return True
             
         except Exception as e:
-            print(f"❌ Failed to download {filename}: {e}")
+            print(f"Error Failed to download {filename}: {e}")
             if filepath.exists():
                 filepath.unlink()  # Remove partial file
             return False
     
     def download_lora(self, lora_name, lora_info):
         """Download a specific LoRA"""
-        print(f"\n🔍 Processing {lora_name}...")
+        print(f"\nAuto-detected Processing {lora_name}...")
         
         # Check if file already exists (including renamed versions)
         existing_file = self._file_already_exists(lora_name)
         if existing_file:
-            print(f"✅ {lora_name} already exists as {existing_file.name}")
+            print(f"Success {lora_name} already exists as {existing_file.name}")
             # Still update metadata if sidecar doesn't exist
             sidecar_path = existing_file.with_suffix('.safetensors.json')
             if not sidecar_path.exists():
@@ -665,8 +748,8 @@ class CivitaiLoRADownloader:
                         break
                 
                 if target_file and target_file.get('downloadUrl'):
-                    print(f"  ✅ Found pinned file: {target_file.get('name', lora_name)}")
-                    print(f"  📋 Model ID: {lora_info['civitai_id']}")
+                    print(f"  Success Found pinned file: {target_file.get('name', lora_name)}")
+                    print(f"  Using Model ID: {lora_info['civitai_id']}")
                     
                     # Perform download (or skip if already present)
                     ok = self.download_file(target_file['downloadUrl'], lora_name)
@@ -693,12 +776,12 @@ class CivitaiLoRADownloader:
                     
                     return ok
                 else:
-                    print(f"  ❌ Pinned file not found in version")
+                    print(f"  Error Pinned file not found in version")
             else:
-                print(f"  ❌ Could not fetch model details")
+                print(f"  Error Could not fetch model details")
         
         # Fallback to search-based approach
-        print(f"  🔍 Searching for {lora_name}...")
+        print(f"  Auto-detected Searching for {lora_name}...")
         
         # Try each search term
         for search_term in lora_info['search_terms']:
@@ -709,8 +792,8 @@ class CivitaiLoRADownloader:
                 lora_match = self.find_lora_by_name(lora_name, search_results)
                 
                 if lora_match:
-                    print(f"  ✅ Found: {lora_match['model_name']}")
-                    print(f"  📋 Model ID: {lora_match['model_id']}")
+                    print(f"  Success Found: {lora_match['model_name']}")
+                    print(f"  Using Model ID: {lora_match['model_id']}")
                     
                     if lora_match['download_url']:
                         # Perform download (or skip if already present)
@@ -739,13 +822,13 @@ class CivitaiLoRADownloader:
                         
                         return ok
                     else:
-                        print(f"  ❌ No download URL found")
+                        print(f"  Error No download URL found")
                 else:
-                    print(f"  ⚠️  No exact match found")
+                    print(f"  Warning  No exact match found")
             else:
-                print(f"  ❌ Search failed")
+                print(f"  Error Search failed")
         
-        print(f"  ❌ Could not find {lora_name}")
+        print(f"  Error Could not find {lora_name}")
         return False
     
     def use_existing_script(self, lora_name):
@@ -753,7 +836,7 @@ class CivitaiLoRADownloader:
         script_path = self.base_dir / "scripts" / "civitai_downloader.sh"
         
         if not script_path.exists():
-            print(f"❌ Civitai downloader script not found: {script_path}")
+            print(f"Error Civitai downloader script not found: {script_path}")
             return False
         
         print(f"🚀 Using existing Civitai downloader for {lora_name}")
@@ -769,15 +852,15 @@ class CivitaiLoRADownloader:
                 ], capture_output=True, text=True, timeout=300)
                 
                 if result.returncode == 0:
-                    print(f"  ✅ Download successful with search: '{search_term}'")
+                    print(f"  Success Download successful with search: '{search_term}'")
                     return True
                 else:
-                    print(f"  ⚠️  Search '{search_term}' failed: {result.stderr}")
+                    print(f"  Warning  Search '{search_term}' failed: {result.stderr}")
             
             except subprocess.TimeoutExpired:
                 print(f"  ⏰ Search '{search_term}' timed out")
             except Exception as e:
-                print(f"  ❌ Error with search '{search_term}': {e}")
+                print(f"  Error Error with search '{search_term}': {e}")
         
         return False
     
@@ -788,7 +871,7 @@ class CivitaiLoRADownloader:
         
         # Load API token
         if not self.load_token():
-            print("\n🔧 Falling back to existing Civitai downloader script...")
+            print("\nUsing Falling back to existing Civitai downloader script...")
             return self.run_with_existing_script()
         
         # Sort LoRAs by priority (enabled first)
@@ -797,10 +880,10 @@ class CivitaiLoRADownloader:
             key=lambda x: (x[1]['priority'], x[0])
         )
         
-        print(f"\n📋 LoRAs to download ({len(sorted_loras)} total):")
+        print(f"\nUsing LoRAs to download ({len(sorted_loras)} total):")
         for lora_name, info in sorted_loras:
-            status = "✅ Enabled" if info['enabled'] else "❌ Disabled"
-            print(f"  • {lora_name} - {info['description']} - {status}")
+            status = "Success Enabled" if info['enabled'] else "Error Disabled"
+            print(f"  - {lora_name} - {info['description']} - {status}")
         
         # Download LoRAs (only enabled ones)
         enabled_loras = [(name, info) for name, info in sorted_loras if info.get('enabled', False)]
@@ -813,10 +896,10 @@ class CivitaiLoRADownloader:
             if self.download_lora(lora_name, lora_info):
                 success_count += 1
         
-        print(f"\n📊 Download Results: {success_count}/{total_count} LoRAs downloaded")
+        print(f"\nSummary Download Results: {success_count}/{total_count} LoRAs downloaded")
         
         if success_count < total_count:
-            print("\n🔄 Trying with existing Civitai downloader script...")
+            print("\nRenaming Trying with existing Civitai downloader script...")
             remaining_loras = []
             for lora_name, lora_info in enabled_loras:
                 # Check if file exists using the same method as download_lora
@@ -828,19 +911,252 @@ class CivitaiLoRADownloader:
                 if self.use_existing_script(lora_name):
                     success_count += 1
         
-        print(f"\n🎉 Final Results: {success_count}/{total_count} LoRAs available")
-        print(f"📁 LoRAs directory: {self.lora_dir}")
+        print(f"\nComplete Final Results: {success_count}/{total_count} LoRAs available")
+        print(f"Using LoRAs directory: {self.lora_dir}")
+        
+        # Generate and display results table
+        self._display_results_table()
         
         return success_count == total_count
+
+    def _display_results_table(self):
+        """Display a comprehensive results table showing all LoRAs grouped by WAN version"""
+        print(f"\n{'='*80}")
+        print("Summary LoRA Download Results Summary")
+        print(f"{'='*80}")
+        
+        # Get all .safetensors files in the directory
+        safetensors_files = list(self.lora_dir.glob("*.safetensors"))
+        
+        # Group files by WAN version
+        grouped_files = {}
+        
+        for safetensors_file in safetensors_files:
+            lora_name = safetensors_file.name
+            
+            # Get file size
+            size_mb = safetensors_file.stat().st_size / (1024 * 1024)
+            
+            # Check for metadata file
+            json_file = safetensors_file.with_suffix('.safetensors.json')
+            if json_file.exists():
+                try:
+                    with open(json_file, 'r') as f:
+                        metadata = json.load(f)
+                    
+                    # Extract WAN info
+                    wan_version, modality = self._extract_wan_info(metadata)
+                    wan_str = f"2.{wan_version[1]}" if wan_version and len(wan_version) == 2 else "?"
+                    modality_str = modality.upper() if modality else "?"
+                    
+                    # Check if this was renamed
+                    original_name = metadata.get('original_filename', lora_name)
+                    if original_name != lora_name:
+                        changes = "Rename"
+                    else:
+                        changes = "Download"
+                        
+                except Exception as e:
+                    wan_str = "?"
+                    modality_str = "?"
+                    changes = "Error"
+            else:
+                wan_str = "?"
+                modality_str = "?"
+                changes = "No meta"
+            
+            # Determine single state
+            if size_mb > 100:  # Good size file
+                state = "Ready"
+            elif size_mb > 1:  # Small file might be placeholder
+                state = "Small"
+            else:
+                state = "Missing"
+            
+            # Group by WAN version
+            wan_key = wan_str
+            
+            if wan_key not in grouped_files:
+                grouped_files[wan_key] = []
+            
+            grouped_files[wan_key].append({
+                'name': lora_name,
+                'state': state,
+                'size': f"{size_mb:.1f}MB",
+                'modality': modality_str
+            })
+        
+        # Sort WAN versions (put ? last)
+        wan_versions = sorted(grouped_files.keys(), key=lambda x: (x == "?", x))
+        
+        # Display grouped results
+        for wan_version in wan_versions:
+            print(f"\n=== WAN {wan_version} ===")
+            
+            files = grouped_files[wan_version]
+            # Sort files by name (this will naturally group modalities)
+            files.sort(key=lambda x: x['name'])
+            
+            for file_info in files:
+                # Truncate long names with ellipses (expanded width)
+                display_name = file_info['name']
+                if len(display_name) > 60:
+                    display_name = display_name[:57] + "..."
+                
+                print(f"{display_name:<60} {file_info['state']:<8} {file_info['size']:<10} {file_info['modality']:<6}")
+        
+        # Summary statistics
+        total_files = len(safetensors_files)
+        available_files = len([f for f in safetensors_files if f.stat().st_size > 100 * 1024 * 1024])
+        total_size = sum(f.stat().st_size for f in safetensors_files) / (1024 * 1024 * 1024)  # GB
+        
+        print(f"\nSummary {available_files}/{total_files} LoRAs available ({total_size:.1f}GB total)")
+    
+    def _display_trigger_words(self):
+        """Display trigger words for all LoRAs"""
+        print(f"\n{'='*80}")
+        print("LoRA Trigger Words")
+        print(f"{'='*80}")
+        
+        # Get all .safetensors files in the directory
+        safetensors_files = list(self.lora_dir.glob("*.safetensors"))
+        
+        # Group files by WAN version
+        grouped_files = {}
+        
+        for safetensors_file in safetensors_files:
+            lora_name = safetensors_file.name
+            
+            # Check for metadata file
+            json_file = safetensors_file.with_suffix('.safetensors.json')
+            if json_file.exists():
+                try:
+                    with open(json_file, 'r') as f:
+                        metadata = json.load(f)
+                    
+                    # Extract WAN info
+                    wan_version, modality = self._extract_wan_info(metadata)
+                    wan_str = f"2.{wan_version[1]}" if wan_version and len(wan_version) == 2 else "?"
+                    modality_str = modality.upper() if modality else "?"
+                    
+                    # Get trigger words
+                    triggers = metadata.get('trained_words', [])
+                    
+                except Exception as e:
+                    wan_str = "?"
+                    modality_str = "?"
+                    triggers = []
+            else:
+                wan_str = "?"
+                modality_str = "?"
+                triggers = []
+            
+            # Group by WAN version
+            wan_key = wan_str
+            
+            if wan_key not in grouped_files:
+                grouped_files[wan_key] = []
+            
+            grouped_files[wan_key].append({
+                'name': lora_name,
+                'modality': modality_str,
+                'triggers': triggers
+            })
+        
+        # Sort WAN versions (put ? last)
+        wan_versions = sorted(grouped_files.keys(), key=lambda x: (x == "?", x))
+        
+        # Display grouped results
+        for wan_version in wan_versions:
+            print(f"\n=== WAN {wan_version} ===")
+            
+            files = grouped_files[wan_version]
+            # Sort files by name
+            files.sort(key=lambda x: x['name'])
+            
+            for file_info in files:
+                # Truncate long names with ellipses
+                display_name = file_info['name']
+                if len(display_name) > 50:
+                    display_name = display_name[:47] + "..."
+                
+                print(f"\n{display_name}")
+                
+                if file_info['triggers']:
+                    print(f"   Triggers:")
+                    for trigger in file_info['triggers']:
+                        print(f"      - {trigger}")
+                else:
+                    print(f"   Triggers: None")
+    
+    def _lookup_trigger_words(self, filename):
+        """Look up trigger words for matching LoRA files (searches both filenames and trigger words)"""
+        search_term = filename.lower()
+        matching_files = []
+        
+        for safetensors_file in self.lora_dir.glob("*.safetensors"):
+            json_file = safetensors_file.with_suffix('.safetensors.json')
+            
+            # Check filename match
+            filename_match = search_term in safetensors_file.name.lower()
+            
+            # Check trigger words match
+            trigger_match = False
+            if json_file.exists():
+                try:
+                    with open(json_file, 'r') as f:
+                        metadata = json.load(f)
+                    triggers = metadata.get('trained_words', [])
+                    for trigger in triggers:
+                        if search_term in trigger.lower():
+                            trigger_match = True
+                            break
+                except:
+                    pass
+            
+            # Include file if it matches filename OR trigger words
+            if filename_match or trigger_match:
+                matching_files.append(safetensors_file)
+        
+        if not matching_files:
+            print(f"No LoRA files found matching '{filename}'")
+            return
+        
+        print(f"Trigger Words for '{filename}' matches:")
+        
+        for safetensors_file in matching_files:
+            json_file = safetensors_file.with_suffix('.safetensors.json')
+            
+            print(f"\n{safetensors_file.name}")
+            
+            if json_file.exists():
+                try:
+                    with open(json_file, 'r') as f:
+                        metadata = json.load(f)
+                    
+                    # Get trigger words
+                    triggers = metadata.get('trained_words', [])
+                    
+                    if triggers:
+                        # Show each trigger word on its own line
+                        for trigger in triggers:
+                            print(f"   - {trigger}")
+                    else:
+                        print(f"   - (none)")
+                        
+                except Exception as e:
+                    print(f"   Error reading metadata")
+            else:
+                print(f"   No metadata")
     
     def run_with_existing_script(self):
         """Run using the existing Civitai downloader script"""
-        print("🔧 Using existing Civitai downloader script...")
+        print("Using existing Civitai downloader script...")
         
         script_path = self.base_dir / "scripts" / "civitai_downloader.sh"
         
         if not script_path.exists():
-            print(f"❌ Civitai downloader script not found: {script_path}")
+            print(f"Error Civitai downloader script not found: {script_path}")
             return False
         
         success_count = 0
@@ -858,25 +1174,25 @@ class CivitaiLoRADownloader:
         ]
         
         for search_term in search_terms_to_try:
-            print(f"\n🔍 Trying search: '{search_term}'")
+            print(f"\nAuto-detected Trying search: '{search_term}'")
             try:
                 result = subprocess.run([
                     str(script_path), 'lora', search_term
                 ], capture_output=True, text=True, timeout=300)
                 
                 if result.returncode == 0:
-                    print(f"✅ Download successful with search: '{search_term}'")
+                    print(f"Success Download successful with search: '{search_term}'")
                     success_count += 1
                 else:
-                    print(f"⚠️  Search '{search_term}' failed")
+                    print(f"Warning  Search '{search_term}' failed")
                     print(f"Error: {result.stderr}")
             
             except subprocess.TimeoutExpired:
                 print(f"⏰ Search '{search_term}' timed out")
             except Exception as e:
-                print(f"❌ Error with search '{search_term}': {e}")
+                print(f"Error Error with search '{search_term}': {e}")
         
-        print(f"\n📊 Results: {success_count} successful downloads")
+        print(f"\nSummary Results: {success_count} successful downloads")
         return success_count > 0
 
 def fetch_model_info_from_url(url):
@@ -893,7 +1209,7 @@ def fetch_model_info_from_url(url):
         path_parts = parsed.path.strip('/').split('/')
         
         if 'models' not in path_parts:
-            print("❌ Invalid Civitai model URL")
+            print("Error Invalid Civitai model URL")
             return None
             
         model_id = None
@@ -911,19 +1227,19 @@ def fetch_model_info_from_url(url):
             version_id = query_params['modelVersionId'][0]
         
         if not model_id:
-            print("❌ Could not extract model ID from URL")
+            print("Error Could not extract model ID from URL")
             return None
             
-        print(f"🔍 Fetching metadata for model {model_id}...")
+        print(f"Auto-detected Fetching metadata for model {model_id}...")
         if version_id:
-            print(f"🎯 Target version: {version_id}")
+            print(f"Trigger Target version: {version_id}")
         
         # Get model info
         model_url = f'https://civitai.com/api/v1/models/{model_id}'
         response = requests.get(model_url)
         
         if response.status_code != 200:
-            print(f"❌ Error fetching model: {response.status_code}")
+            print(f"Error Error fetching model: {response.status_code}")
             return None
             
         model_data = response.json()
@@ -958,12 +1274,12 @@ def fetch_model_info_from_url(url):
                     'base_model': target_version.get('baseModel', 'Unknown')
                 }
             else:
-                print("❌ No .safetensors file found in this version")
+                print("Error No .safetensors file found in this version")
         else:
-            print(f"❌ Version {version_id} not found")
+            print(f"Error Version {version_id} not found")
             
     except Exception as e:
-        print(f"❌ Error fetching model info: {e}")
+        print(f"Error Error fetching model info: {e}")
         return None
 
 def main():
@@ -1086,6 +1402,23 @@ def main():
         help='Reset to built-in defaults and exit'
     )
     
+    parser.add_argument(
+        '--show-results',
+        action='store_true',
+        help='Show results table and exit (no downloads)'
+    )
+    parser.add_argument(
+        '--show-triggers',
+        action='store_true',
+        help='Show trigger words for all LoRAs'
+    )
+    parser.add_argument(
+        '--lookup-triggers',
+        type=str,
+        metavar='FILENAME',
+        help='Look up trigger words for a specific LoRA file'
+    )
+    
     # Load defaults first
     defaults = load_defaults()
     
@@ -1118,9 +1451,9 @@ def main():
         config_file = Path.home() / ".civitai_lora_defaults.json"
         if config_file.exists():
             config_file.unlink()
-            print("🔄 Reset to built-in defaults")
+            print("Renaming Reset to built-in defaults")
         else:
-            print("📋 Already using built-in defaults")
+            print("Using Already using built-in defaults")
         return
     
     if args.set_defaults:
@@ -1130,14 +1463,53 @@ def main():
                 key, value = setting.split('=', 1)
                 if key in ['wan_version', 'modality', 'resolution', 'noise_level']:
                     defaults[key] = value
-                    print(f"🔧 Set {key} = {value}")
+                    print(f"Using Set {key} = {value}")
                 else:
-                    print(f"⚠️  Unknown setting: {key}")
+                    print(f"Warning  Unknown setting: {key}")
             else:
-                print(f"⚠️  Invalid format: {setting} (use KEY=VALUE)")
+                print(f"Warning  Invalid format: {setting} (use KEY=VALUE)")
         
         if save_defaults(defaults):
-            print("✅ Defaults updated successfully")
+            print("Success Defaults updated successfully")
+        return
+    
+    if args.show_results:
+        # Initialize downloader just for results table
+        downloader = CivitaiLoRADownloader(
+            comfyui_dir=args.comfyui_dir,
+            base_dir=args.base_dir,
+            wan_version=args.wan_version,
+            modality=args.modality,
+            resolution=args.resolution,
+            noise_level=args.noise_level
+        )
+        downloader._display_results_table()
+        return
+    
+    if args.show_triggers:
+        # Initialize downloader just for trigger words
+        downloader = CivitaiLoRADownloader(
+            comfyui_dir=args.comfyui_dir,
+            base_dir=args.base_dir,
+            wan_version=args.wan_version,
+            modality=args.modality,
+            resolution=args.resolution,
+            noise_level=args.noise_level
+        )
+        downloader._display_trigger_words()
+        return
+    
+    if args.lookup_triggers:
+        # Initialize downloader just for trigger lookup
+        downloader = CivitaiLoRADownloader(
+            comfyui_dir=args.comfyui_dir,
+            base_dir=args.base_dir,
+            wan_version=args.wan_version,
+            modality=args.modality,
+            resolution=args.resolution,
+            noise_level=args.noise_level
+        )
+        downloader._lookup_trigger_words(args.lookup_triggers)
         return
     
     # Auto-detect ComfyUI directory if not provided
@@ -1153,26 +1525,26 @@ def main():
         for path in possible_paths:
             if path.exists() and (path / "main.py").exists():
                 args.comfyui_dir = str(path)
-                print(f"🔍 Auto-detected ComfyUI directory: {args.comfyui_dir}")
+                print(f"Auto-detected Auto-detected ComfyUI directory: {args.comfyui_dir}")
                 break
         
         if not args.comfyui_dir:
-            print("❌ Could not auto-detect ComfyUI directory")
-            print("💡 Please specify --comfyui-dir /path/to/ComfyUI")
+            print("Error Could not auto-detect ComfyUI directory")
+            print("Tip Please specify --comfyui-dir /path/to/ComfyUI")
             sys.exit(1)
     
     # Validate ComfyUI directory
     comfyui_path = Path(args.comfyui_dir)
     if not comfyui_path.exists():
-        print(f"❌ ComfyUI directory does not exist: {comfyui_path}")
+        print(f"Error ComfyUI directory does not exist: {comfyui_path}")
         sys.exit(1)
     
     if not (comfyui_path / "main.py").exists():
-        print(f"❌ Invalid ComfyUI directory (main.py not found): {comfyui_path}")
+        print(f"Error Invalid ComfyUI directory (main.py not found): {comfyui_path}")
         sys.exit(1)
     
-    print(f"📁 Using ComfyUI directory: {comfyui_path}")
-    print(f"📁 Using base directory: {Path(args.base_dir) if args.base_dir else comfyui_path.parent}")
+    print(f"Using ComfyUI directory: {comfyui_path}")
+    print(f"Using base directory: {Path(args.base_dir) if args.base_dir else comfyui_path.parent}")
     
     # Initialize downloader
     downloader = CivitaiLoRADownloader(
@@ -1186,24 +1558,24 @@ def main():
     
     # Handle disable-all option
     if args.disable_all:
-        print("🔧 Disabling all LoRAs...")
+        print("Using Disabling all LoRAs...")
         for lora_name in downloader.loras:
             downloader.loras[lora_name]['enabled'] = False
     
     if args.list_loras:
-        print("\n📋 Configured LoRAs:")
+        print("\nUsing Configured LoRAs:")
         for lora_name, lora_info in downloader.loras.items():
-            status = "✅ Enabled" if lora_info.get('enabled', False) else "❌ Disabled"
-            print(f"  • {lora_name} - {lora_info.get('description', 'No description')} - {status}")
+            status = "Success Enabled" if lora_info.get('enabled', False) else "Error Disabled"
+            print(f"  - {lora_name} - {lora_info.get('description', 'No description')} - {status}")
         return
     
     if args.dry_run:
-        print("\n🔍 DRY RUN MODE - No files will be downloaded")
-        print("📋 LoRAs that would be processed:")
+        print("\nAuto-detected DRY RUN MODE - No files will be downloaded")
+        print("Using LoRAs that would be processed:")
         enabled_loras = [name for name, info in downloader.loras.items() if info.get('enabled', False)]
         if enabled_loras:
             for lora_name in enabled_loras:
-                print(f"  • {lora_name}")
+                print(f"  - {lora_name}")
         else:
             print("  (No LoRAs are currently enabled)")
         return
@@ -1212,10 +1584,10 @@ def main():
     success = downloader.run()
     
     if success:
-        print("\n🎉 All LoRAs downloaded successfully!")
+        print("\nComplete All LoRAs downloaded successfully!")
         print("🚀 Your FaceBlast workflow is ready to use!")
     else:
-        print("\n⚠️  Some LoRAs may need manual download")
+        print("\nWarning  Some LoRAs may need manual download")
         print("📖 Check LORA_DOWNLOAD_INSTRUCTIONS.md for manual steps")
 
 if __name__ == "__main__":

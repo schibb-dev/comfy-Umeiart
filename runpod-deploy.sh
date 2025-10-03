@@ -4,8 +4,8 @@ echo "🚀 UmeAiRT ComfyUI RunPod Deployment Script"
 echo "=============================================="
 
 # Configuration
-DOCKER_USERNAME="your-dockerhub-username" # IMPORTANT: Replace with your Docker Hub username
-IMAGE_NAME="umeairt-comfyui"
+DOCKER_USERNAME="schibbdev" # IMPORTANT: Replace with your Docker Hub username
+IMAGE_NAME="umeairt-comfyui-runpod"
 IMAGE_TAG="latest"
 FULL_IMAGE_NAME="${DOCKER_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG}"
 
@@ -72,6 +72,7 @@ echo "Once the pod is running, access ComfyUI via http://your-runpod-ip:8188"
 echo ""
 echo "🔗 The container will automatically set up portable symlinks"
 echo "   so all model directories are shared across any GPU instances."
+
 
 
 
